@@ -207,7 +207,6 @@ D:\net\NetCoreSamples5\obj\Debug\netcoreapp3.1\NetCoreSamples5.TagHelpers.input.
 D:\net\NetCoreSamples5\obj\Debug\netcoreapp3.1\NetCoreSamples5.TagHelpers.output.cache
 D:\net\NetCoreSamples5\obj\Debug\netcoreapp3.1\NetCoreSamples5.RazorCoreGenerate.cache
 D:\net\NetCoreSamples5\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-D:\net\NetCoreSamples5\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 D:\net\NetCoreSamples5\obj\Debug\netcoreapp3.1\Razor\Views\POBrowser\Word.cshtml.g.cs
 D:\net\NetCoreSamples5\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 D:\net\NetCoreSamples5\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
@@ -221,3 +220,10 @@ D:\net\NetCoreSamples5\obj\Debug\netcoreapp3.1\NetCoreSamples5.csproj.CopyComple
 D:\net\NetCoreSamples5\obj\Debug\netcoreapp3.1\staticwebassets\NetCoreSamples5.StaticWebAssets.Manifest.cache
 D:\net\NetCoreSamples5\obj\Debug\netcoreapp3.1\staticwebassets\NetCoreSamples5.StaticWebAssets.xml
 D:\net\NetCoreSamples5\obj\Debug\netcoreapp3.1\NetCoreSamples5.genruntimeconfig.cache
+D:\net\NetCoreSamples5\obj\Debug\netcoreapp3.1\Razor\Views\CommentOnly\Word.cshtml.g.cs
+D:\net\NetCoreSamples5\obj\Debug\netcoreapp3.1\Razor\Views\HighDPI\Word.cshtml.g.cs
+D:\net\NetCoreSamples5\obj\Debug\netcoreapp3.1\Razor\Views\OnWordSelectionChange\Word.cshtml.g.cs
+D:\net\NetCoreSamples5\obj\Debug\netcoreapp3.1\Razor\Views\SimpleWord\Word.cshtml.g.cs
+D:\net\NetCoreSamples5\obj\Debug\netcoreapp3.1\Razor\Views\SimpleWord\Word1.cshtml.g.cs
+D:\net\NetCoreSamples5\obj\Debug\netcoreapp3.1\Razor\Views\SimpleExcel\Excel.cshtml.g.cs
+D:\net\NetCoreSamples5\obj\Debug\netcoreapp3.1\Razor\Views\SimplePPT\PPT.cshtml.g.cs

@@ -16,6 +16,11 @@ namespace NetCoreSamples5.Controllers
             _webHostEnvironment = webHostEnvironment;
         }
 
+        [Route("/PageOffice/POserver")]
+        [Route("/PageOffice/pageoffice.js")]
+        [Route("/PageOffice/pobstyle.css")]
+        [Route("/PageOffice/posetup.exe")]
+        [Route("/PageOffice/sealsetup.exe")]
         public ActionResult POServer()
         {
             PageOfficeNetCore.POServer.Server poServer = new PageOfficeNetCore.POServer.Server(Request, Response);
@@ -24,11 +29,6 @@ namespace NetCoreSamples5.Controllers
             return Content("OK");
         }
 
-        //for debug only
-        //public ActionResult test()
-        //{
-        //    string contentRootPath = _webHostEnvironment.ContentRootPath;
-        //    return Content(contentRootPath);
-        //}
+
     }
 }
