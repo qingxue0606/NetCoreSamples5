@@ -1,0 +1,43 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title> HighDPI</title>
+    <script type="text/javascript">
+        function Save() {
+            document.getElementById("PageOfficeCtrl1").WebSave();
+
+        }
+        function PrintFile() {
+            document.getElementById("PageOfficeCtrl1").ShowDialog(4);
+
+        }
+        function IsFullScreen() {
+            document.getElementById("PageOfficeCtrl1").FullScreen = !document.getElementById("PageOfficeCtrl1").FullScreen;
+
+        }
+        function CloseFile() {
+            window.external.close();
+
+        }
+    </script>
+
+
+
+</head>
+<body style="overflow:hidden">
+
+
+
+    <div style="width: auto;height: 800px;">
+        @Html.Raw(ViewBag.POCtrl)
+    </div>
+
+</body>
+</html>

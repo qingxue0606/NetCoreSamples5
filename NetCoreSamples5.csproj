@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <Folder Include="Views\PageOffice\" />
+    <Folder Include="Views\SendParameters\" />
   </ItemGroup>
 
   <ItemGroup>
