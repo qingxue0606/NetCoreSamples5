@@ -1,9 +1,9 @@
 MIME-Version: 1.0
-Content-Type: multipart/related; boundary="----=_NextPart_01D2A7B0.BD299F70"
+Content-Type: multipart/related; boundary="----=_NextPart_01D5FE0B.8A646BB0"
 
 此文档为“单个文件网页”，也称为“Web 档案”文件。如果您看到此消息，但是您的浏览器或编辑器不支持“Web 档案”文件。请下载支持“Web 档案”的浏览器，如 Windows? Internet Explorer?。
 
-------=_NextPart_01D2A7B0.BD299F70
+------=_NextPart_01D5FE0B.8A646BB0
 Content-Location: file:///C:/268BA2D4/test.htm
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/html; charset="gb2312"
@@ -31,11 +31,11 @@ w\:* {behavior:url(#default#VML);}
 <![endif]--><!--[if gte mso 9]><xml>
  <o:DocumentProperties>
   <o:Author>张三</o:Author>
-  <o:LastAuthor>张三</o:LastAuthor>
+  <o:LastAuthor>tom</o:LastAuthor>
   <o:Revision>2</o:Revision>
   <o:TotalTime>0</o:TotalTime>
-  <o:Created>2017-03-28T02:47:00Z</o:Created>
-  <o:LastSaved>2017-03-28T02:47:00Z</o:LastSaved>
+  <o:Created>2020-03-19T08:29:00Z</o:Created>
+  <o:LastSaved>2020-03-19T08:29:00Z</o:LastSaved>
   <o:Pages>1</o:Pages>
   <o:Words>397</o:Words>
   <o:Characters>405</o:Characters>
@@ -406,7 +406,7 @@ n"/>
 	mso-font-charset:0;
 	mso-generic-font-family:swiss;
 	mso-font-pitch:variable;
-	mso-font-signature:-536870145 1073786111 1 0 415 0;}
+	mso-font-signature:-469750017 -1073732485 9 0 511 0;}
 @font-face
 	{font-family:方正姚体;
 	panose-1:2 1 6 1 3 1 1 1 1 1;
@@ -574,7 +574,8 @@ div.WordSection1
 	mso-para-margin-bottom:.0001pt;
 	mso-pagination:widow-orphan;
 	font-size:10.0pt;
-	font-family:"Calibri","sans-serif";}
+	font-family:"Calibri","sans-serif";
+	mso-bidi-font-family:"Times New Roman";}
 </style>
 <![endif]--><!--[if gte mso 9]><xml>
  <o:shapedefaults v:ext=3D"edit" spidmax=3D"3074"/>
@@ -716,7 +717,7 @@ lang=3DEN-US><o:p></o:p></span></span></p>
 
 </html>
 
-------=_NextPart_01D2A7B0.BD299F70
+------=_NextPart_01D5FE0B.8A646BB0
 Content-Location: file:///C:/268BA2D4/test.files/themedata.thmx
 Content-Transfer-Encoding: base64
 Content-Type: application/vnd.ms-officetheme
@@ -777,7 +778,7 @@ AKsbAAAWAAAAAAAAAAAAAAAAANYCAAB0aGVtZS90aGVtZS90aGVtZTEueG1sUEsBAi0AFAAGAAgA
 AAAhAA3RkJ+2AAAAGwEAACcAAAAAAAAAAAAAAAAAvgkAAHRoZW1lL3RoZW1lL19yZWxzL3RoZW1l
 TWFuYWdlci54bWwucmVsc1BLBQYAAAAABQAFAF0BAAC5CgAAAAA=
 
-------=_NextPart_01D2A7B0.BD299F70
+------=_NextPart_01D5FE0B.8A646BB0
 Content-Location: file:///C:/268BA2D4/test.files/colorschememapping.xml
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/xml
@@ -787,7 +788,7 @@ Content-Type: text/xml
  bg1=3D"lt1" tx1=3D"dk1" bg2=3D"lt2" tx2=3D"dk2" accent1=3D"accent1" accent=
 2=3D"accent2" accent3=3D"accent3" accent4=3D"accent4" accent5=3D"accent5" a=
 ccent6=3D"accent6" hlink=3D"hlink" folHlink=3D"folHlink"/>
-------=_NextPart_01D2A7B0.BD299F70
+------=_NextPart_01D5FE0B.8A646BB0
 Content-Location: file:///C:/268BA2D4/test.files/image001.png
 Content-Transfer-Encoding: base64
 Content-Type: image/png
@@ -797,7 +798,7 @@ xAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAAA7SURBVGje
 7dnBCQAgEAPBlO5VfuJDsIQT5jE9LEmqKkcnCwBgktspeYKlAQAmESwAwJfBYnoCAEZeQhuO/yQi
 rxRXjQAAAABJRU5ErkJggk==
 
-------=_NextPart_01D2A7B0.BD299F70
+------=_NextPart_01D5FE0B.8A646BB0
 Content-Location: file:///C:/268BA2D4/test.files/header.htm
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/html; charset="gb2312"
@@ -872,7 +873,7 @@ r:footnote-continuation-separator'><![if !supportFootnotes]>
 
 </html>
 
-------=_NextPart_01D2A7B0.BD299F70
+------=_NextPart_01D5FE0B.8A646BB0
 Content-Location: file:///C:/268BA2D4/test.files/filelist.xml
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/xml; charset="utf-8"
@@ -885,4 +886,4 @@ Content-Type: text/xml; charset="utf-8"
  <o:File HRef=3D"header.htm"/>
  <o:File HRef=3D"filelist.xml"/>
 </xml>
-------=_NextPart_01D2A7B0.BD299F70--
+------=_NextPart_01D5FE0B.8A646BB0--

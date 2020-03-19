@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
-namespace NetCoreSamples5.Controllers
+namespace NetCoreSamples5.Controllers.SimplePPT
 {
     public class SimplePPTController : Controller
     {
