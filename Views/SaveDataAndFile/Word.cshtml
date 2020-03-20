@@ -9,24 +9,23 @@
 <head>
     <title>保存文档中指定位置的数据的同时也保存该文档</title>
     <script type="text/javascript">
-	        function Save() {
-		    document.getElementById("PageOfficeCtrl1").WebSave();
-	        }
+        function Save() {
+            document.getElementById("PageOfficeCtrl1").WebSave();
+        }
     </script>
 
 
 
     <script type="text/javascript">
         //文档关闭前先提示用户是否保存
-        function BeforeBrowserClosed(){
-         if (document.getElementById("PageOfficeCtrl1").IsDirty){
-                if(confirm("提示：文档已被修改，是否继续关闭放弃保存 ？"))
-                {
-                    return  true;
+        function BeforeBrowserClosed() {
+            if (document.getElementById("PageOfficeCtrl1").IsDirty) {
+                if (confirm("提示：文档已被修改，是否继续关闭放弃保存 ？")) {
+                    return true;
 
-                }else{
+                } else {
 
-                    return  false;
+                    return false;
                 }
 
             }
@@ -44,7 +43,7 @@
             <br />
         </div>
         <div style="width: auto; height: 700px;">
-           @Html.Raw(ViewBag.POCtrl)
+            @Html.Raw(ViewBag.POCtrl)
         </div>
     </form>
 </body>
