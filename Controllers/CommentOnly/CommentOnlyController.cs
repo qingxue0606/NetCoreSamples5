@@ -28,7 +28,7 @@ namespace NetCoreSamples5.Controllers
             pageofficeCtrl.AddCustomToolButton("插入批注", "newComment", 0);
 
             pageofficeCtrl.SaveFilePage = "SaveDoc";
-            pageofficeCtrl.WebOpen("../CommentOnly/doc/test.doc", PageOfficeNetCore.OpenModeType.docReadOnly, "tom");
+            pageofficeCtrl.WebOpen("../CommentOnly/doc/test.doc", PageOfficeNetCore.OpenModeType.docCommentOnly, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
 
             return View();

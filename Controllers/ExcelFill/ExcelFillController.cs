@@ -9,7 +9,7 @@ namespace NetCoreSamples5.Controllers.ExcelFill
     public class ExcelFillController : Controller
     {
 
-        public IActionResult ExcelFill()
+        public IActionResult Excel()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "../PageOffice/POServer";

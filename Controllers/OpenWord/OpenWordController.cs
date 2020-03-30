@@ -8,7 +8,7 @@ namespace NetCoreSamples5.Controllers.OpenWord
 {
     public class OpenWordController : Controller
     {
-        public IActionResult OpenWord()
+        public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "../PageOffice/POServer";

@@ -8,7 +8,7 @@ namespace NetCoreSamples5.Controllers.WordDataTag2
 {
     public class WordDataTag2Controller : Controller
     {
-        public IActionResult DataTag()
+        public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "../PageOffice/POServer";

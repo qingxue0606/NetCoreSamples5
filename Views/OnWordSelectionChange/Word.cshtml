@@ -18,6 +18,7 @@
     <br />
     <script type="text/javascript">
         function OnWordSelectionChange() {
+            alert(11);
             var obj = document.getElementById("PageOfficeCtrl1").Document.Application.Selection;
             if (obj.Range.Text != "") {
                 alert(obj.Range.Text);
@@ -27,7 +28,7 @@
 
 
     <div id="POCont" style="width: auto;height: 800px;">
-        @Html.Raw(ViewBag.POCtrl)
+       @Html.Raw(ViewBag.POCtrl)
     </div>
 
 </body>

@@ -24,7 +24,7 @@ namespace NetCoreSamples5.Controllers.OnWordSelectionChange
             pageofficeCtrl.JsFunction_OnWordDataRegionClick= "OnWordSelectionChange()";
 
             //打开Word文档
-            pageofficeCtrl.WebOpen("../OnWordSelectionChange/doc/test.doc", PageOfficeNetCore.OpenModeType.docReadOnly, "tom");
+            pageofficeCtrl.WebOpen("../OnWordSelectionChange/doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
 
             return View();

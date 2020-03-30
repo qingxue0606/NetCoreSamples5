@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -14,7 +15,7 @@ namespace NetCoreSamples5.Controllers.SendParameters
         {
             _webHostEnvironment = webHostEnvironment;
         }
-        public IActionResult SendParameters()
+        public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "../PageOffice/POServer";
@@ -35,7 +36,7 @@ namespace NetCoreSamples5.Controllers.SendParameters
 
 
 
-        public IActionResult SaveDoc()
+        public async Task<ActionResult> SaveDoc()
         {
 
 
@@ -44,6 +45,7 @@ namespace NetCoreSamples5.Controllers.SendParameters
             int age = 0;
             string sex = "";
             PageOfficeNetCore.FileSaver fs = new PageOfficeNetCore.FileSaver(Request, Response);
+            await fs.LoadAsync();
             //await fs.LoadAsync();
             string webRootPath = _webHostEnvironment.WebRootPath;
             //fs.SaveToFile(webRootPath + "/SendParameters/doc/" + fs.FileName);
@@ -85,6 +87,14 @@ namespace NetCoreSamples5.Controllers.SendParameters
             ViewBag.age = age;
             ViewBag.sex = sex;
 
+            string content = "";
+            content += "传递的参数为：<br />";
+            content += " userName:"+userName+"<br />";
+            content += " id:" + id + "<br />";
+            content += " age:" + age + "<br />";
+            content += " sex:" + sex + "<br />";
+
+            await Response.Body.WriteAsync(Encoding.ASCII.GetBytes(content));
 
             return View();
         }

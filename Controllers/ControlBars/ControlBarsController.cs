@@ -9,7 +9,7 @@ namespace NetCoreSamples5.Controllers.ControlBars
     public class ControlBarsController : Controller
     {
 
-        public IActionResult OpenWord()
+        public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "../PageOffice/POServer";

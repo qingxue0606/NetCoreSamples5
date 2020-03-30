@@ -14,7 +14,7 @@ namespace NetCoreSamples5.Controllers.SaveReturnValue
         {
             _webHostEnvironment = webHostEnvironment;
         }
-        public IActionResult SaveReturnValue()
+        public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "../PageOffice/POServer";

@@ -10,7 +10,7 @@ namespace NetCoreSamples5.Controllers.SubmitExcel
     public class SubmitExcelController : Controller
     {
 
-        public IActionResult SubmitExcel()
+        public IActionResult Excel()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "../PageOffice/POServer";

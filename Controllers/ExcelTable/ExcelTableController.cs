@@ -8,7 +8,7 @@ namespace NetCoreSamples5.Controllers.ExcelTable
 {
     public class ExcelTableController : Controller
     {
-        public IActionResult Table()
+        public IActionResult Excel()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "../PageOffice/POServer";

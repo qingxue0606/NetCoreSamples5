@@ -15,7 +15,7 @@ namespace NetCoreSamples5.Controllers.SubmitWord
         {
             _webHostEnvironment = webHostEnvironment;
         }
-        public IActionResult SubmitWord()
+        public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "../PageOffice/POServer";

@@ -9,7 +9,7 @@ namespace NetCoreSamples5.Controllers.WordSetTable
     public class WordSetTableController : Controller
     {
 
-        public IActionResult WordSetTable()
+        public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "../PageOffice/POServer";

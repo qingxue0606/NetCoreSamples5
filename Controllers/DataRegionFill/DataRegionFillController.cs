@@ -11,7 +11,7 @@ namespace NetCoreSamples5.Controllers
     public class DataRegionFillController : Controller
     {
 
-        public IActionResult DataRegionFill()
+        public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "../PageOffice/POServer";
