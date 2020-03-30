@@ -45,7 +45,7 @@ namespace NetCoreSamples5.Controllers.POPDF
             //pdfCtrl1.AddCustomToolButton("-", "", 0);
             //pdfCtrl1.AddCustomToolButton("全屏", "SwitchFullScreen()", 4); 
             //pdfCtrl1.AllowCopy = false;
-            pdfCtrl.WebOpen("../POPDF/doc/test.doc");
+            pdfCtrl.WebOpen("../POPDF/doc/test.pdf");
 
             ViewBag.pdfCtrl = pdfCtrl.GetHtmlCode("PDFCtrl1");
 
