@@ -27,13 +27,23 @@ namespace NetCoreSamples5.Views
 
         public async Task<ActionResult> POSaveDoc()
         {
+
+
             PageOfficeNetCore.FileSaver fs = new PageOfficeNetCore.FileSaver(Request, Response);
             await fs.LoadAsync();
             string webRootPath = _webHostEnvironment.WebRootPath;
             string contentRootPath = _webHostEnvironment.ContentRootPath;
 
             fs.SaveToFile(webRootPath + "/POBrowser/doc/" + fs.FileName);
-            await Response.Body.WriteAsync(Encoding.ASCII.GetBytes(fs.FileName));
+
+
+            await Response.Body.WriteAsync(Encoding.GetEncoding("GB2312").GetBytes(fs.FileName));
+
+
+
+
+
+
             fs.ShowPage(300, 300);
             fs.Close();
             return Content("OK");

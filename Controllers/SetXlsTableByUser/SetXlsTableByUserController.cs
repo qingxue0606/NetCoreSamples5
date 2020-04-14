@@ -127,7 +127,7 @@ namespace NetCoreSamples5.Controllers.SetXlsTableByUser
                 dataStr.Append("</div>");
                 tableB.NextRow();
             }
-            await Response.Body.WriteAsync(Encoding.ASCII.GetBytes(dataStr.ToString()));
+            await Response.Body.WriteAsync(Encoding.GetEncoding("GB2312").GetBytes(dataStr.ToString()));
             //向客户端显示提交的数据
             doc.ShowPage(500, 400);
             doc.Close();

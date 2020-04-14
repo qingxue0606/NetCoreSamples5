@@ -48,7 +48,7 @@ namespace NetCoreSamples5.Controllers.DefinedNameCell
 
             content += "testA1：" + sheet.OpenCellByDefinedName("testA1").Value + "<br/>";
             content += "testB1：" + sheet.OpenCellByDefinedName("testB1").Value + "<br/>";
-            await Response.Body.WriteAsync(Encoding.ASCII.GetBytes(content));
+            await Response.Body.WriteAsync(Encoding.GetEncoding("GB2312").GetBytes(content));
 
             workBook.ShowPage(500, 400);
             workBook.Close();

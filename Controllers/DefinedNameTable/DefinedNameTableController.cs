@@ -269,7 +269,7 @@ namespace NetCoreSamples5.Controllers.DefinedNameTable
 
 
             
-            await Response.Body.WriteAsync(Encoding.ASCII.GetBytes(content));
+            await Response.Body.WriteAsync(Encoding.GetEncoding("GB2312").GetBytes(content));
             doc.ShowPage(400, 300);
             doc.Close();
 

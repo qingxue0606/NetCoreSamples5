@@ -94,7 +94,7 @@ namespace NetCoreSamples5.Controllers.SendParameters
             content += " age:" + age + "<br />";
             content += " sex:" + sex + "<br />";
 
-            await Response.Body.WriteAsync(Encoding.ASCII.GetBytes(content));
+            await Response.Body.WriteAsync(Encoding.GetEncoding("GB2312").GetBytes(content));
 
             return View();
         }

@@ -80,7 +80,7 @@ namespace NetCoreSamples5.Controllers.SubmitExcel
                 table.NextRow();
             }
             table.Close();
-            await Response.Body.WriteAsync(Encoding.ASCII.GetBytes(content));
+            await Response.Body.WriteAsync(Encoding.GetEncoding("GB2312").GetBytes(content));
             workBook.ShowPage(500, 400);
             workBook.Close();
 

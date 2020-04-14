@@ -61,7 +61,7 @@ namespace NetCoreSamples5.Controllers.ImportWordData
             conment += "日期：" + sDate + "<br/>";
 
 
-            await Response.Body.WriteAsync(Encoding.ASCII.GetBytes(conment));
+            await Response.Body.WriteAsync(Encoding.GetEncoding("GB2312").GetBytes(conment));
 
             doc.ShowPage(578, 380);
             doc.Close();

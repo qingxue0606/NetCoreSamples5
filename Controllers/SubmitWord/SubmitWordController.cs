@@ -64,7 +64,7 @@ namespace NetCoreSamples5.Controllers.SubmitWord
             content += "<br/>部门名称：" + dataDeptName.Value;
 
 
-            await Response.Body.WriteAsync(Encoding.ASCII.GetBytes(content));
+            await Response.Body.WriteAsync(Encoding.GetEncoding("GB2312").GetBytes(content));
 
             doc.ShowPage(400, 300);
             doc.Close();

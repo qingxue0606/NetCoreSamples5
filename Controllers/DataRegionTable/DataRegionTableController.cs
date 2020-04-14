@@ -80,7 +80,7 @@ namespace NetCoreSamples5.Controllers.DataRegionTable
             //Response.Write(dataStr.ToString());
             //向客户端显示提交的数据
 
-            await Response.Body.WriteAsync(Encoding.ASCII.GetBytes(dataStr.ToString()));
+            await Response.Body.WriteAsync(Encoding.GetEncoding("GB2312").GetBytes(dataStr.ToString()));
 
             doc.ShowPage(300, 300);
             doc.Close();

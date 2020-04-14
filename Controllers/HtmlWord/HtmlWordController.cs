@@ -42,7 +42,7 @@ namespace NetCoreSamples5.Controllers.HtmlWord
 
             content += pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
 
-            Response.Body.WriteAsync(Encoding.ASCII.GetBytes(content));
+            Response.Body.WriteAsync(Encoding.GetEncoding("GB2312").GetBytes(content));
 
         }
 

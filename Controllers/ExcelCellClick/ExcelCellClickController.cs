@@ -70,7 +70,7 @@ namespace NetCoreSamples5.Controllers.ExcelCellClick
                 table.NextRow();
             }
             table.Close();
-            await Response.Body.WriteAsync(Encoding.ASCII.GetBytes(content));
+            await Response.Body.WriteAsync(Encoding.GetEncoding("GB2312").GetBytes(content));
             doc.ShowPage(500, 400);
             doc.Close();
             return Content("OK");
