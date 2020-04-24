@@ -12,13 +12,7 @@ namespace NetCoreSamples5.Controllers.DataBase
 {
     public class DataBaseController : Controller
     {
-        private readonly IWebHostEnvironment _webHostEnvironment;
         string connString = "Data Source=D:\\lic\\DataBase.db";
-        public DataBaseController(IWebHostEnvironment webHostEnvironment)
-        {
-            _webHostEnvironment = webHostEnvironment;
-
-        }
 
         public IActionResult Word()
         {
@@ -54,8 +48,8 @@ namespace NetCoreSamples5.Controllers.DataBase
                 Response.ContentType = "Application/msword"; //其他文件格式换成相应类型即可 application/x-excel, application/ms-powerpoint, application/pdf 
                 Response.Headers.Add("Content-Disposition", "attachment; filename=down.doc");//其他文件格式换成相应类型的filename
                 Response.Headers.Add("Content-Length", num.ToString());
-                Response.Clear();
                 Response.Body.WriteAsync(b);
+                Response.Clear();
             }
             dr.Close();
             conn.Close();
@@ -69,8 +63,6 @@ namespace NetCoreSamples5.Controllers.DataBase
             PageOfficeNetCore.FileSaver fs = new PageOfficeNetCore.FileSaver(Request, Response);
 
             await fs.LoadAsync();
-            string webRootPath = _webHostEnvironment.WebRootPath;
-            fs.SaveToFile(webRootPath + "/DataBase/" + fs.FileName);
 
             string sID = Request.Query["id"];
 
