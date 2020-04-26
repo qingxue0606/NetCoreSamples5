@@ -16,7 +16,7 @@
     <script type="text/javascript">
 
         function getText() {
-            //获取文本框的值，传递给result2.jsp
+            //获取文本框的值，传递给result2
             var iptValue = document.getElementById("ipt").value;
             $.ajax({
                 type: "POST",  //提交方式
@@ -66,14 +66,14 @@
             <table style="border-collapse:separate; border-spacing:20px; ">
                 <tr>
                     <td>
-                        1.POBrowser方式最简单的打开编辑保存文档：<a href="javascript:POBrowser.openWindowModeless('Word1' , 'width=1200px;height=800px;');">Word1.jsp</a>
+                        1.POBrowser方式最简单的打开编辑保存文档：<a href="javascript:POBrowser.openWindowModeless('Word1' , 'width=1200px;height=800px;');">Word1</a>
                     </td>
                 </tr>
                 <tr>
-                    <td>2.向POBrowser打开的页面传递参数1：<a href="javascript:POBrowser.openWindowModeless('Word2?id=1' , 'width=1200px;height=800px;');">Word2.jsp</a></td>
+                    <td>2.向POBrowser打开的页面传递参数1：<a href="javascript:POBrowser.openWindowModeless('Word2?id=1' , 'width=1200px;height=800px;');">Word2</a></td>
                 </tr>
                 <tr>
-                    <td>3.向POBrowser打开的页面传递参数2：<a href="javascript:POBrowser.openWindowModeless('Word3' , 'width=1200px;height=800px;');" onclick="getText()">Word3.jsp</a></td>
+                    <td>3.向POBrowser打开的页面传递参数2：<a href="javascript:POBrowser.openWindowModeless('Word3' , 'width=1200px;height=800px;');" onclick="getText()">Word3</a></td>
                 <tr>
                     <td>
                         请输入值：

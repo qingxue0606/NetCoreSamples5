@@ -23,7 +23,7 @@
             if (ids == "")
                 alert("请先选择要生成工资条的记录");
             else
-                location.href = "javascript:POBrowser.openWindowModeless('Compose.jsp?ids=" + ids.substr(0, ids.length - 1) + " ', 'width=1200px;height=800px;');";
+                location.href = "javascript:POBrowser.openWindowModeless('Compose?ids=" + ids.substr(0, ids.length - 1) + " ', 'width=1200px;height=800px;');";
         }
 
     </script>

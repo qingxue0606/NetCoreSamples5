@@ -32,7 +32,7 @@
             <div style="border:1px solid black;">
                 PageOffice给保存页面传值的三种方式：</br>
                 <span style="color: Red;">1.通过设置保存页面的url中的?给保存页面传递参数：</span></br>
-                &nbsp;&nbsp;&nbsp;例:pocCtrl.setSaveFilePage("SaveFile.jsp?id=1");</br>
+                &nbsp;&nbsp;&nbsp;例:pocCtrl.setSaveFilePage("SaveFile?id=1");</br>
                 &nbsp;&nbsp;&nbsp;保存页面获取参数的方法：</br>
                 &nbsp;&nbsp;&nbsp;String value=request.getParameter("id");</br>
 
@@ -40,13 +40,13 @@
                 &nbsp;&nbsp;&nbsp;例:<xmp> <input id="Hidden1" name="age" type="hidden" value="25" /></xmp></br>
                 &nbsp;&nbsp;&nbsp;保存页面获取参数的方法：</br>
                 &nbsp;&nbsp;&nbsp;String age=fs.getFormField("age");</br>
-                &nbsp;&nbsp;&nbsp;注意：获取Form控件传递过来的参数值，fs.getFormField("参数名")方法中的参数名是当前控件的“name”属性而不是id，更多详细代码请查看SaveFile.jsp。<br>
+                &nbsp;&nbsp;&nbsp;注意：获取Form控件传递过来的参数值，fs.getFormField("参数名")方法中的参数名是当前控件的“name”属性而不是id，更多详细代码请查看SaveFile。<br>
 
                 <span style="color: Red;">3.通过Form控件给保存页面传递参数(这里的Form控件包括输入框、下拉框、单选框、复选框、TextArea等类型的控件)：</span></br>
                 &nbsp;&nbsp;&nbsp;例:<xmp> <input id="Text1" name="userName" type="text" value="张三" /></xmp></br>
                 &nbsp;&nbsp;&nbsp;保存页面获取参数的方法：</br>
                 &nbsp;&nbsp;&nbsp;String name=fs.getFormField("userName");</br>
-                &nbsp;&nbsp;&nbsp;注意：获取Form控件传递过来的参数值，fs.getFormField("参数名")方法中的参数名是当前控件的“name”属性而不是id，更多详细代码请查看SaveFile.jsp。<br>
+                &nbsp;&nbsp;&nbsp;注意：获取Form控件传递过来的参数值，fs.getFormField("参数名")方法中的参数名是当前控件的“name”属性而不是id，更多详细代码请查看SaveFile。<br>
             </div>
             <span style="color: Red;">更新人员信息：</span><br />
             <input id="Hidden1" name="age" type="hidden" value="25" />

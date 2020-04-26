@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,7 +44,6 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
             while (dr.Read())
             {
                 flg = true;
-                decimal result = 0;
                 DateTime date = DateTime.Now;
                 string pID = dr["ID"].ToString().Trim();
                 strHtmls.Append("<tr  style='height:40px; text-indent:10px; padding:0; border-right:1px solid #a2c5d9; border-bottom:1px solid #a2c5d9; color:#666;'>");
@@ -51,36 +51,36 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
                 strHtmls.Append("<td style=' text-align:left;'>" + pID + "</td>");
                 strHtmls.Append("<td style=' text-align:left;'>" + dr["UserName"].ToString() + "</td>");
                 strHtmls.Append("<td style=' text-align:left;'>" + dr["DeptName"].ToString() + "</td>");
-                if (dr["SalTotal"] != null && decimal.TryParse(dr["SalTotal"].ToString(), out result))
+                if (dr["SalTotal"] != null &&dr["SalTotal"].ToString()!="")
                 {
-                    strHtmls.Append("<td style=' text-align:left;'>" + decimal.Parse(dr["SalTotal"].ToString()) + "</td>");
+                    strHtmls.Append("<td style=' text-align:left;'>" + dr["SalTotal"].ToString() + "</td>");
                 }
                 else
                 {
                     strHtmls.Append("<td style=' text-align:left;'>￥0.00</td>");
                 }
 
-                if (dr["SalDeduct"] != null && decimal.TryParse(dr["SalDeduct"].ToString(), out result))
+                if (dr["SalDeduct"] != null && dr["SalDeduct"].ToString()!="")
                 {
-                    strHtmls.Append("<td style=' text-align:left;'>" + decimal.Parse(dr["SalDeduct"].ToString()) + "</td>");
+                    strHtmls.Append("<td style=' text-align:left;'>" + dr["SalDeduct"].ToString() + "</td>");
                 }
                 else
                 {
                     strHtmls.Append("<td style=' text-align:left;'>￥0.00</td>");
                 }
 
-                if (dr["SalCount"] != null && decimal.TryParse(dr["SalCount"].ToString(), out result))
+                if (dr["SalCount"] != null && dr["SalCount"].ToString()!="")
                 {
-                    strHtmls.Append("<td style=' text-align:left;'>" + decimal.Parse(dr["SalCount"].ToString()) + "</td>");
+                    strHtmls.Append("<td style=' text-align:left;'>" + dr["SalCount"].ToString() + "</td>");
                 }
                 else
                 {
                     strHtmls.Append("<td style=' text-align:left;'>￥0.00</td>");
                 }
 
-                if (dr["DataTime"] != null && DateTime.TryParse(dr["DataTime"].ToString(), out date))
+                if (dr["DataTime"] != null && dr["DataTime"].ToString()!="")
                 {
-                    strHtmls.Append("<td style=' text-align:center;'>" + DateTime.Parse(dr["DataTime"].ToString()).ToString("yyyy-MM-dd") + "</td>");
+                    strHtmls.Append("<td style=' text-align:center;'>" + dr["DataTime"].ToString() + "</td>");
                 }
                 else
                 {
@@ -122,7 +122,6 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
 
                 if (dr.Read())
                 {
-                    decimal result = 0;
                     DateTime date = DateTime.Now;
 
                     //创建WordDocment对象
@@ -136,36 +135,36 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
                     table.OpenCellRC(2, 2).Value = dr["UserName"].ToString();
                     table.OpenCellRC(2, 3).Value = dr["DeptName"].ToString();
 
-                    if (dr["SalTotal"] != null && decimal.TryParse(dr["SalTotal"].ToString(), out result))
+                    if (dr["SalTotal"] != null&& dr["SalTotal"].ToString()!="")
                     {
-                        table.OpenCellRC(2, 4).Value = decimal.Parse(dr["SalTotal"].ToString()).ToString("c");
+                        table.OpenCellRC(2, 4).Value = dr["SalTotal"].ToString();
                     }
                     else
                     {
                         table.OpenCellRC(2, 4).Value = "￥0.00";
                     }
 
-                    if (dr["SalDeduct"] != null && decimal.TryParse(dr["SalDeduct"].ToString(), out result))
+                    if (dr["SalDeduct"] != null && dr["SalDeduct"].ToString() != "")
                     {
-                        table.OpenCellRC(2, 5).Value = int.Parse(dr["SalDeduct"].ToString()).ToString("c");
+                        table.OpenCellRC(2, 5).Value = dr["SalDeduct"].ToString();
                     }
                     else
                     {
                         table.OpenCellRC(2, 5).Value = "￥0.00";
                     }
 
-                    if (dr["SalCount"] != null && decimal.TryParse(dr["SalCount"].ToString(), out result))
+                    if (dr["SalCount"] != null && dr["SalCount"].ToString() != "")
                     {
-                        table.OpenCellRC(2, 6).Value = int.Parse(dr["SalCount"].ToString()).ToString("c");
+                        table.OpenCellRC(2, 6).Value = dr["SalCount"].ToString();
                     }
                     else
                     {
                         table.OpenCellRC(2, 6).Value = "￥0.00";
                     }
 
-                    if (dr["DataTime"] != null && DateTime.TryParse(dr["DataTime"].ToString(), out date))
+                    if (dr["DataTime"] != null && dr["SalTotal"].ToString() != "")
                     {
-                        table.OpenCellRC(2, 7).Value = DateTime.Parse(dr["DataTime"].ToString()).ToString("yyyy-MM-dd");
+                        table.OpenCellRC(2, 7).Value = dr["DataTime"].ToString();
                     }
                     else
                     {
@@ -176,7 +175,7 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
                 }
                 else
                 {
-                    err = "<script>alert('未获得该员工的工资信息！');location.href='index.jsp'</script>";
+                    err = "<script>alert('未获得该员工的工资信息！');location.href='index'</script>";
                 }
                 dr.Close();
                 conn.Close();
@@ -187,7 +186,7 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
             }
             else
             {
-                err = "<script>alert('未获得该员工的工资信息！');location.href='index.jsp'</script>";
+                err = "<script>alert('未获得该员工的工资信息！');location.href='index'</script>";
             }
 
             pageofficeCtrl.WebOpen("../WordSalaryBill/doc/template.doc", PageOfficeNetCore.OpenModeType.docReadOnly, "tom");
@@ -196,6 +195,99 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
 
             return View();
         }
+
+
+
+
+
+        public IActionResult Compose()
+        {
+            PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
+            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+
+            string idlist = Request.Query["ids"];
+            string sql = "select * from Salary where ID in(" + idlist + ") order by ID";
+
+
+            SqliteConnection conn = new SqliteConnection(connString);
+            conn.Open();
+            SqliteCommand cmd = new SqliteCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+            cmd.CommandText = sql;
+            SqliteDataReader dr = cmd.ExecuteReader();
+
+            PageOfficeNetCore.WordWriter.WordDocument doc = new PageOfficeNetCore.WordWriter.WordDocument();
+
+            PageOfficeNetCore.WordWriter.DataRegion data = null;
+            PageOfficeNetCore.WordWriter.Table table = null;
+            int i = 0;
+            while (dr.Read())
+            {
+                data = doc.CreateDataRegion("reg" + i.ToString(), PageOfficeNetCore.WordWriter.DataRegionInsertType.Before, "[End]");
+                data.Value= "[word]doc/template.doc[/word]";
+                table= data.OpenTable(1);
+
+                table.OpenCellRC(2, 1).Value = dr["ID"].ToString();
+                table.OpenCellRC(2, 2).Value = dr["UserName"].ToString();
+                table.OpenCellRC(2, 3).Value = dr["DeptName"].ToString();
+
+                if (dr["SalTotal"] != null && dr["SalTotal"].ToString() != "")
+                {
+                    table.OpenCellRC(2, 4).Value = dr["SalTotal"].ToString();
+                }
+                else
+                {
+                    table.OpenCellRC(2, 4).Value = "￥0.00";
+                }
+
+                if (dr["SalDeduct"] != null && dr["SalDeduct"].ToString() != "")
+                {
+                    table.OpenCellRC(2, 5).Value = dr["SalDeduct"].ToString();
+                }
+                else
+                {
+                    table.OpenCellRC(2, 5).Value = "￥0.00";
+                }
+
+                if (dr["SalCount"] != null && dr["SalCount"].ToString() != "")
+                {
+                    table.OpenCellRC(2, 6).Value = dr["SalCount"].ToString();
+                }
+                else
+                {
+                    table.OpenCellRC(2, 6).Value = "￥0.00";
+                }
+
+                if (dr["DataTime"] != null && dr["SalTotal"].ToString() != "")
+                {
+                    table.OpenCellRC(2, 7).Value = dr["DataTime"].ToString();
+                }
+                else
+                {
+                    table.OpenCellRC(2, 7).Value = "";
+                }
+                i++;
+            }
+
+
+                dr.Close();
+                conn.Close();
+
+
+            // 设置PageOffice组件服务页面
+            pageofficeCtrl.SetWriter(doc);
+
+            pageofficeCtrl.Caption = "生成工资条";
+
+
+            pageofficeCtrl.WebOpen("../WordSalaryBill/doc/test.doc", PageOfficeNetCore.OpenModeType.docAdmin, "tom");
+            ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
+
+            return View();
+        }
+
+
+
 
 
         public IActionResult Openfile()
@@ -219,7 +311,6 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
 
                 if (dr.Read())
                 {
-                    decimal result = 0;
                     DateTime date = DateTime.Now;
 
                     //创建WordDocment对象
@@ -240,40 +331,40 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
                     doc.OpenDataRegion("PO_UserName").Value = dr["UserName"].ToString();
                     doc.OpenDataRegion("PO_DeptName").Value = dr["DeptName"].ToString();
 
-                    if (dr["SalTotal"] != null && decimal.TryParse(dr["SalTotal"].ToString(), out result))
+
+
+                    if (dr["SalTotal"] != null && dr["SalTotal"].ToString()!="")
                     {
-                        doc.OpenDataRegion("PO_SalTotal").Value = decimal.Parse(dr["SalTotal"].ToString()).ToString("c");
+                        doc.OpenDataRegion("PO_SalTotal").Value = dr["SalTotal"].ToString();
                     }
                     else
                     {
                         doc.OpenDataRegion("PO_SalTotal").Value = "￥0.00";
                     }
 
-                    if (dr["SalDeduct"] != null && decimal.TryParse(dr["SalDeduct"].ToString(), out result))
+                    if (dr["SalDeduct"] != null && dr["SalDeduct"].ToString() != "")
                     {
-                        doc.OpenDataRegion("PO_SalDeduct").Value = int.Parse(dr["SalDeduct"].ToString()).ToString("c");
+                        doc.OpenDataRegion("PO_SalDeduct").Value = dr["SalDeduct"].ToString();
                     }
                     else
                     {
                         doc.OpenDataRegion("PO_SalDeduct").Value = "￥0.00";
                     }
 
-                    if (dr["SalCount"] != null && decimal.TryParse(dr["SalCount"].ToString(), out result))
+                    if (dr["SalCount"] != null && dr["SalCount"].ToString() != "")
                     {
-                        doc.OpenDataRegion("PO_SalCount").Value = int.Parse(dr["SalCount"].ToString()).ToString("c");
-
-
                         doc.OpenDataRegion("PO_SalCount").Value = dr["SalCount"].ToString();
+
+
                     }
                     else
                     {
                         doc.OpenDataRegion("PO_SalCount").Value = "￥0.00";
-                        doc.OpenDataRegion("PO_SalCount").Value = dr["SalCount"].ToString();
                     }
 
-                    if (dr["DataTime"] != null && DateTime.TryParse(dr["DataTime"].ToString(), out date))
+                    if (dr["DataTime"] != null && dr["DataTime"].ToString() != "")
                     {
-                        doc.OpenDataRegion("PO_DataTime").Value = DateTime.Parse(dr["DataTime"].ToString()).ToString("yyyy-MM-dd");
+                        doc.OpenDataRegion("PO_DataTime").Value = dr["DataTime"].ToString(); ;
                     }
                     else
                     {
@@ -286,7 +377,7 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
                 }
                 else
                 {
-                    err = "<script>alert('未获得该员工的工资信息！');location.href='index.jsp'</script>";
+                    err = "<script>alert('未获得该员工的工资信息！');location.href='index'</script>";
                 }
                 dr.Close();
                 conn.Close();
@@ -297,7 +388,7 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
             }
             else
             {
-                err = "<script>alert('未获得该员工的工资信息！');location.href='index.jsp'</script>";
+                err = "<script>alert('未获得该员工的工资信息！');location.href='index'</script>";
             }
 
             pageofficeCtrl.WebOpen("../WordSalaryBill/doc/template.doc", PageOfficeNetCore.OpenModeType.docSubmitForm, "tom");
@@ -326,8 +417,6 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
             dateTime = doc.OpenDataRegion("PO_DataTime").Value;
 
 
-
-
             string sql = "UPDATE Salary SET UserName='" + userName
                 + "',DeptName='" + deptName + "',SalTotal='" + salTotoal
                 + "',SalDeduct='" + salDeduct + "',SalCount='" + salCount
@@ -335,25 +424,14 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
 
             SqliteConnection conn = new SqliteConnection(connString);
             conn.Open();
-
             SqliteCommand cmd = new SqliteCommand(sql, conn);
-
 
             cmd.ExecuteNonQuery();
             conn.Close();
-    
-
-
-
             doc.Close();
-
-
-
 
             return Content("OK");
         }
-
-
 
 
     }
