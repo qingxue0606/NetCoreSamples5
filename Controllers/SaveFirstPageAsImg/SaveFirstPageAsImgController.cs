@@ -48,8 +48,9 @@ namespace NetCoreSamples5.Controllers.SaveFirstPageAsImg
                 fs.SaveToFile(webRootPath + "/SaveFirstPageAsImg/doc/" + fs.FileName);
             }
 
-
+            fs.CustomSaveResult = "ok";
             fs.Close();
+            
             return Content("OK");
         }
     }

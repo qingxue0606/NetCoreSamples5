@@ -33,25 +33,29 @@ namespace NetCoreSamples5.Controllers.DataBase
         {
             string docID = Request.Query["id"];
             string sql = "Select Word,ID  from stream where ID='" + docID + "'";
-            SqliteConnection conn = new SqliteConnection(connString);
-            conn.Open();
-            SqliteCommand cmd = new SqliteCommand(sql, conn);
-            cmd.ExecuteNonQuery();
-            cmd.CommandText = sql;
-            SqliteDataReader dr = cmd.ExecuteReader();
-            while (dr.Read())
+            using (SqliteConnection conn = new SqliteConnection(connString))
             {
-                long num = dr.GetBytes(0, 0, null, 0, Int32.MaxValue);
-                Byte[] b = new Byte[num];
-                dr.GetBytes(0, 0, b, 0, b.Length);
-                Response.ContentType = "Application/msword"; //其他文件格式换成相应类型即可 application/x-excel, application/ms-powerpoint, application/pdf 
-                Response.Headers.Add("Content-Disposition", "attachment; filename=down.doc");//其他文件格式换成相应类型的filename
-                Response.Headers.Add("Content-Length", num.ToString());
-                Response.Body.WriteAsync(b);
-                Response.Clear();
+                conn.Open();
+
+                using (SqliteCommand cmd = new SqliteCommand(sql, conn))
+                {
+                    cmd.ExecuteNonQuery();
+                    SqliteDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        long num = dr.GetBytes(0, 0, null, 0, Int32.MaxValue);
+                        Byte[] b = new Byte[num];
+                        dr.GetBytes(0, 0, b, 0, b.Length);
+                        Response.ContentType = "Application/msword"; //其他文件格式换成相应类型即可 application/x-excel, application/ms-powerpoint, application/pdf 
+                        Response.Headers.Add("Content-Disposition", "attachment; filename=down.doc");//其他文件格式换成相应类型的filename
+                        Response.Headers.Add("Content-Length", num.ToString());
+                        Response.Body.WriteAsync(b);
+                        Response.Clear();
+                    }
+                }
+
             }
-            dr.Close();
-            conn.Close();
+
             Response.Body.Flush();
             Response.Body.Close();
         }
@@ -66,17 +70,20 @@ namespace NetCoreSamples5.Controllers.DataBase
 
             string sql = "UPDATE  Stream SET Word=@file WHERE ID=" + sID;
 
-            SqliteConnection conn = new SqliteConnection(connString);
-            conn.Open();
-            byte[] aa = fs.FileBytes;
+            using (SqliteConnection conn = new SqliteConnection(connString))
+            {
+                conn.Open();
+                byte[] aa = fs.FileBytes;
 
-            SqliteCommand cmd = new SqliteCommand(sql, conn);
-            SqliteParameter parameter = new SqliteParameter("@file", SqliteType.Blob);
-            parameter.Value = aa;
-            cmd.Parameters.Add(parameter);
-            cmd.ExecuteNonQuery();
+                using (SqliteCommand cmd = new SqliteCommand(sql, conn))
+                {
+                    SqliteParameter parameter = new SqliteParameter("@file", SqliteType.Blob);
+                    parameter.Value = aa;
+                    cmd.Parameters.Add(parameter);
+                    cmd.ExecuteNonQuery();
+                }
 
-            conn.Close();
+            }
             fs.Close();
             return Content("OK");
         }

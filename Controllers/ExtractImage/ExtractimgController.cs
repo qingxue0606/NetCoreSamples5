@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using System.Web;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
@@ -46,7 +49,12 @@ namespace NetCoreSamples5.Controllers.ExtractImage
 
             string webRootPath = _webHostEnvironment.WebRootPath;
             dataRegion1.OpenShape(1).SaveAsJPG(webRootPath + "/ExtractImage/doc/a.jpg");
-            doc.CustomSaveResult = "保存成功,文件保存到：" + "wwwroot/ExtractImage/doc/a.jpg";
+            //注册编码提供程序
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
+
+            //UrlEncoder
+            doc.CustomSaveResult = HttpUtility.UrlEncode("保存成功,文件保存到：" + "wwwroot/ExtractImage/doc/a.jpg");
             doc.Close();
             return Content("OK");
         }

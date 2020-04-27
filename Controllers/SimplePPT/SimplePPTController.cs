@@ -21,7 +21,7 @@ namespace NetCoreSamples5.Controllers.SimplePPT
 
             //添加自定义按钮
             pageofficeCtrl.AddCustomToolButton("保存", "Save()", 1);
-            pageofficeCtrl.AddCustomToolButton("关闭", "CloseFile()", 21);
+            pageofficeCtrl.AddCustomToolButton("关闭", "Close()", 21);
 
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc";

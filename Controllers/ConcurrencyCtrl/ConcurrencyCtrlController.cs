@@ -43,7 +43,7 @@ namespace NetCoreSamples5.Controllers.ConcurrencyCtrl
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc";
             //设置并发控制时间
-            //pageofficeCtrl.TimeSlice = 20; // 设置并发控制时间, 单位:分钟
+            pageofficeCtrl.TimeSlice = 20; // 设置并发控制时间, 单位:分钟
             //打开Word文档
             pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docRevisionOnly, userName);
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");

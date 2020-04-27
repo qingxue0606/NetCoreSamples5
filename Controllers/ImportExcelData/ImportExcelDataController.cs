@@ -31,7 +31,7 @@ namespace NetCoreSamples5.Controllers.ImportExcelData
             pageofficeCtrl.AddCustomToolButton("提交数据", "submitData()", 1);
 
             //设置保存页面
-            pageofficeCtrl.SaveFilePage = "SaveDoc";
+            pageofficeCtrl.SaveDataPage = "SaveDoc";
             //打开Word文档
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
             return View();

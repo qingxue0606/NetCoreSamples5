@@ -43,7 +43,7 @@ namespace NetCoreSamples5.Controllers.SendParameters
             await fs.LoadAsync();
             //await fs.LoadAsync();
             string webRootPath = _webHostEnvironment.WebRootPath;
-            //fs.SaveToFile(webRootPath + "/SendParameters/doc/" + fs.FileName);
+            fs.SaveToFile(webRootPath + "/SendParameters/doc/" + fs.FileName);
 
             //获取通过Url传递过来的值
             string message = Request.Query["id"];
@@ -54,7 +54,7 @@ namespace NetCoreSamples5.Controllers.SendParameters
             //获取通过网页标签控件传递过来的参数值，注意fs.GetFormField("HTML标签的name名称")方法中的参数名是指标签的“name”属性而不是Id
 
             //获取通过文本框<input type="text" />标签传递过来的值
-            /*if (fs.GetFormField("userName") != null && fs.GetFormField("userName").Trim().Length > 0)
+            if (fs.GetFormField("userName") != null && fs.GetFormField("userName").Trim().Length > 0)
             {
                 userName = fs.GetFormField("userName");
             }
@@ -69,16 +69,11 @@ namespace NetCoreSamples5.Controllers.SendParameters
             if (fs.GetFormField("selSex") != null && fs.GetFormField("selSex").Trim().Length > 0)
             {
                 sex = fs.GetFormField("selSex");
-            }*/
+            }
 
             fs.ShowPage(300, 200); // 显示一下SaveFile.aspx获取到的所有参数的值
 
             fs.Close();
-
-            ViewBag.id = id;
-            ViewBag.userName = userName;
-            ViewBag.age = age;
-            ViewBag.sex = sex;
 
             string content = "";
             content += "传递的参数为：<br />";
