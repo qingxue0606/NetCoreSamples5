@@ -12,8 +12,7 @@ namespace NetCoreSamples5.Controllers.WordDataTag
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
-
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             //定义WordDocument对象
             PageOfficeNetCore.WordWriter.WordDocument doc = new PageOfficeNetCore.WordWriter.WordDocument();
@@ -31,12 +30,10 @@ namespace NetCoreSamples5.Controllers.WordDataTag
             dateTag.Font.Color = Color.Blue;
             dateTag.Value = DateTime.Now.ToString("yyyy-MM-dd");
 
-
             pageofficeCtrl.SetWriter(doc);
             //打开Word文档
-            pageofficeCtrl.WebOpen("../WordDataTag/doc/test2.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test2.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
     }

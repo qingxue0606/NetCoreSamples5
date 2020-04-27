@@ -24,12 +24,10 @@ namespace NetCoreSamples5.Controllers.SetDrByUserWord2
         public IActionResult Word()
         {
 
-
             string userName = Request.Form["userName"];
 
-
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
             PageOfficeNetCore.WordWriter.WordDocument doc = new PageOfficeNetCore.WordWriter.WordDocument();
 
             //打开数据区域
@@ -59,7 +57,6 @@ namespace NetCoreSamples5.Controllers.SetDrByUserWord2
 
             pageofficeCtrl.SetWriter(doc);
 
-
             //添加自定义按钮
             pageofficeCtrl.AddCustomToolButton("保存", "Save", 1);
             pageofficeCtrl.AddCustomToolButton("全屏/还原", "IsFullScreen", 4);
@@ -67,13 +64,11 @@ namespace NetCoreSamples5.Controllers.SetDrByUserWord2
             //设置保存页面
             pageofficeCtrl.SaveDataPage = "SaveData?userName=" + userName;
             //打开Word文档
-            pageofficeCtrl.WebOpen("../SetDrByUserWord2/doc/test.doc", PageOfficeNetCore.OpenModeType.docSubmitForm, userName);
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docSubmitForm, userName);
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
             ViewBag.userName = userName;
             return View();
         }
-
-
 
         public async Task<ActionResult> SaveData()
         {
@@ -91,7 +86,6 @@ namespace NetCoreSamples5.Controllers.SetDrByUserWord2
             }
 
             doc.Close();
-
             return Content("OK");
         }
         private void saveBytesToFile(byte[] bytes, string filePath)
@@ -100,8 +94,6 @@ namespace NetCoreSamples5.Controllers.SetDrByUserWord2
             fs.Write(bytes, 0, bytes.Length);
             fs.Close();
         }
-
-
 
     }
 }

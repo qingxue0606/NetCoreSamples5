@@ -13,7 +13,7 @@ namespace NetCoreSamples5.Controllers.SubmitExcel
         public IActionResult Excel()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             pageofficeCtrl.AddCustomToolButton("保存", "Save()", 1);
             //定义Workbook对象
@@ -30,22 +30,17 @@ namespace NetCoreSamples5.Controllers.SubmitExcel
             //设置保存页面
             pageofficeCtrl.SaveDataPage = "SaveData";
 
-
             //打开Word文档
-            pageofficeCtrl.WebOpen("../SubmitExcel/doc/test.xls", PageOfficeNetCore.OpenModeType.xlsSubmitForm, "tom");
+            pageofficeCtrl.WebOpen("doc/test.xls", PageOfficeNetCore.OpenModeType.xlsSubmitForm, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
-
 
 
         public async Task<ActionResult> SaveData()
         {
 
-
             string content = "";
-
 
 
             PageOfficeNetCore.ExcelReader.Workbook workBook = new PageOfficeNetCore.ExcelReader.Workbook(Request, Response);
@@ -83,7 +78,6 @@ namespace NetCoreSamples5.Controllers.SubmitExcel
             await Response.Body.WriteAsync(Encoding.GetEncoding("GB2312").GetBytes(content));
             workBook.ShowPage(500, 400);
             workBook.Close();
-
             return Content("OK");
         }
     }

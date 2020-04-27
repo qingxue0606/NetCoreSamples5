@@ -26,13 +26,9 @@ namespace NetCoreSamples5.Controllers.SetDrByUserWord
 
             string user = "";
             string userName = Request.Form["userName"];
-            Console.WriteLine("userName:" + userName);
-
-
-
 
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             //***************************卓正PageOffice组件的使用********************************
             PageOfficeNetCore.WordWriter.WordDocument doc = new PageOfficeNetCore.WordWriter.WordDocument();
@@ -69,7 +65,7 @@ namespace NetCoreSamples5.Controllers.SetDrByUserWord
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc";
             //打开Word文档
-            pageofficeCtrl.WebOpen("../SetDrByUserWord/doc/test.doc", PageOfficeNetCore.OpenModeType.docSubmitForm, user);
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docSubmitForm, user);
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
             ViewBag.user = user;
             return View();

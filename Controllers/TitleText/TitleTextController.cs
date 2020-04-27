@@ -17,18 +17,15 @@ namespace NetCoreSamples5.Controllers.TitleText
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
             pageofficeCtrl.Caption = "PageOfficeCtrl控件标题栏内容";
 
 
-
             //打开Word文档
-            pageofficeCtrl.WebOpen("../TitleText/doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
-
 
 
     }

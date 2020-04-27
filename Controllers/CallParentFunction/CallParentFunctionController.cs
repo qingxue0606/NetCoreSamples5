@@ -16,15 +16,13 @@ namespace NetCoreSamples5.Controllers.CallParentFunction
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             //添加自定义按钮
             pageofficeCtrl.AddCustomToolButton("关闭", "CloseFile()", 21);
-
             //打开Word文档
-            pageofficeCtrl.WebOpen("../CallParentFunction/doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
     }

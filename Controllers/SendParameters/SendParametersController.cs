@@ -18,28 +18,23 @@ namespace NetCoreSamples5.Controllers.SendParameters
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             pageofficeCtrl.Caption = "演示：向保存页面传递参数，更新人员信息";
             pageofficeCtrl.AddCustomToolButton("保存", "Save()", 1);
             pageofficeCtrl.AddCustomToolButton("全屏", "SetFullScreen()", 4);
 
-
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc?id=1";//传递查询参数
             //打开Word文档
-            pageofficeCtrl.WebOpen("../SendParameters/doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
 
 
-
         public async Task<ActionResult> SaveDoc()
         {
-
-
             int id = 0;
             string userName = "";
             int age = 0;
@@ -52,7 +47,6 @@ namespace NetCoreSamples5.Controllers.SendParameters
 
             //获取通过Url传递过来的值
             string message = Request.Query["id"];
-
 
             if (message != null && message.Trim().Length > 0)
                 id = int.Parse(message.Trim());
@@ -77,7 +71,6 @@ namespace NetCoreSamples5.Controllers.SendParameters
                 sex = fs.GetFormField("selSex");
             }*/
 
-
             fs.ShowPage(300, 200); // 显示一下SaveFile.aspx获取到的所有参数的值
 
             fs.Close();
@@ -95,7 +88,6 @@ namespace NetCoreSamples5.Controllers.SendParameters
             content += " sex:" + sex + "<br />";
 
             await Response.Body.WriteAsync(Encoding.GetEncoding("GB2312").GetBytes(content));
-
             return View();
         }
     }

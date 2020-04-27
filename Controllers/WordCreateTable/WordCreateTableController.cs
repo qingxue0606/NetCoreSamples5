@@ -11,7 +11,7 @@ namespace NetCoreSamples5.Controllers.WordCreateTable
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             PageOfficeNetCore.WordWriter.WordDocument doc = new PageOfficeNetCore.WordWriter.WordDocument();
             PageOfficeNetCore.WordWriter.Table table1 = doc.OpenDataRegion("PO_table1").CreateTable(3, 5, PageOfficeNetCore.WordWriter.WdAutoFitBehavior.wdAutoFitWindow);
@@ -42,9 +42,8 @@ namespace NetCoreSamples5.Controllers.WordCreateTable
             pageofficeCtrl.CustomToolbar = false;//隐藏用户自定义工具栏
             pageofficeCtrl.SetWriter(doc);
             //打开Word文档
-            pageofficeCtrl.WebOpen("../WordCreateTable/doc/createTable.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/createTable.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
     }

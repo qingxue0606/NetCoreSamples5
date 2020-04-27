@@ -11,7 +11,7 @@ namespace NetCoreSamples5.Controllers.WordResImage
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             PageOfficeNetCore.WordWriter.WordDocument worddoc = new PageOfficeNetCore.WordWriter.WordDocument();
             //先在要插入word文件的位置手动插入书签,书签必须以“PO_”为前缀
@@ -23,13 +23,11 @@ namespace NetCoreSamples5.Controllers.WordResImage
             PageOfficeNetCore.WordWriter.DataRegion data3 = worddoc.OpenDataRegion("PO_p3");
             data3.Value = "[word]doc/3.doc[/word]";
 
-
             pageofficeCtrl.SetWriter(worddoc);
             pageofficeCtrl.Caption = "演示：后台编程插入图片到数据区域(专业版、企业版)";
             //打开Word文档
-            pageofficeCtrl.WebOpen("../WordResImage/doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
     }

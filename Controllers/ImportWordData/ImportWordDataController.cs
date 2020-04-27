@@ -18,7 +18,7 @@ namespace NetCoreSamples5.Controllers.ImportWordData
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             pageofficeCtrl.AddCustomToolButton("导入文件", "importData()", 5);
             pageofficeCtrl.AddCustomToolButton("提交数据", "submitData()", 1);
@@ -28,10 +28,8 @@ namespace NetCoreSamples5.Controllers.ImportWordData
             //设置保存页面
             pageofficeCtrl.SaveDataPage = "SaveDoc";
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
-
 
 
         public async Task<ActionResult> SaveDoc()
@@ -40,9 +38,7 @@ namespace NetCoreSamples5.Controllers.ImportWordData
 
             string docID = Request.Query["id"];
 
-
             PageOfficeNetCore.WordReader.WordDocument doc = new PageOfficeNetCore.WordReader.WordDocument(Request, Response);
-
 
             await doc.LoadAsync();
 
@@ -52,7 +48,6 @@ namespace NetCoreSamples5.Controllers.ImportWordData
             String sNum = doc.OpenDataRegion("PO_num").Value;
             String sDate = doc.OpenDataRegion("PO_date").Value;
 
-
             conment += "提交的数据为：<br/>";
             conment += "姓名：" + sName + "<br/>";
             conment += "原因：" + sCause + "<br/>";
@@ -60,16 +55,10 @@ namespace NetCoreSamples5.Controllers.ImportWordData
 
             conment += "日期：" + sDate + "<br/>";
 
-
             await Response.Body.WriteAsync(Encoding.GetEncoding("GB2312").GetBytes(conment));
 
             doc.ShowPage(578, 380);
             doc.Close();
-
-
-
-
-
             return Content("OK");
         }
     }

@@ -17,7 +17,7 @@ namespace NetCoreSamples5.Controllers.SaveDataAndFile
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             PageOfficeNetCore.WordWriter.WordDocument wordDoc = new PageOfficeNetCore.WordWriter.WordDocument();
 
@@ -38,12 +38,10 @@ namespace NetCoreSamples5.Controllers.SaveDataAndFile
             pageofficeCtrl.SaveFilePage = "SaveDoc";
 
             //打开Word文档
-            pageofficeCtrl.WebOpen("../SaveDataAndFile/doc/test.doc", PageOfficeNetCore.OpenModeType.docSubmitForm, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docSubmitForm, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
-
 
 
         public async Task<ActionResult> SaveDoc()

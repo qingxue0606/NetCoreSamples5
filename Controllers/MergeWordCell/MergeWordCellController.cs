@@ -12,7 +12,7 @@ namespace NetCoreSamples5.Controllers.MergeWordCell
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             PageOfficeNetCore.WordWriter.WordDocument doc = new PageOfficeNetCore.WordWriter.WordDocument();
             PageOfficeNetCore.WordWriter.DataRegion dataReg = doc.OpenDataRegion("PO_table");
@@ -30,11 +30,9 @@ namespace NetCoreSamples5.Controllers.MergeWordCell
             pageofficeCtrl.SetWriter(doc);//不要忘记此句代码
             pageofficeCtrl.CustomToolbar = false;
 
-
             //打开Word文档
-            pageofficeCtrl.WebOpen("../MergeWordCell/doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
 

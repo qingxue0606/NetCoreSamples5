@@ -17,7 +17,7 @@ namespace NetCoreSamples5.Controllers.SaveReturnValue
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             //设置PageOfficeCtrl 控件标题栏文字
             pageofficeCtrl.Caption = "演示：保存返回值";
@@ -28,12 +28,10 @@ namespace NetCoreSamples5.Controllers.SaveReturnValue
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc";
             //打开Word文档
-            pageofficeCtrl.WebOpen("../SaveReturnValue/doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
-
 
 
         public async Task<ActionResult> SaveDoc()

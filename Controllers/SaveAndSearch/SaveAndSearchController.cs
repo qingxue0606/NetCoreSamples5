@@ -41,7 +41,6 @@ namespace NetCoreSamples5.Controllers.SaveAndSearch
                 sql = "select * from word order by ID desc ";
             }
 
-
             SqliteConnection conn = new SqliteConnection(connString);
             conn.Open();
             SqliteCommand cmd = new SqliteCommand(sql, conn);
@@ -67,7 +66,6 @@ namespace NetCoreSamples5.Controllers.SaveAndSearch
 
             }
             ViewBag.strHtml = strHtml.ToString();
-
             return View();
         }
 
@@ -94,7 +92,7 @@ namespace NetCoreSamples5.Controllers.SaveAndSearch
             conn.Close();
 
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             //添加自定义工具栏按钮
             pageofficeCtrl.AddCustomToolButton("保存", "Save()", 1);
@@ -107,7 +105,6 @@ namespace NetCoreSamples5.Controllers.SaveAndSearch
 
             pageofficeCtrl.WebOpen(webRootPath + "\\SaveAndSearch\\doc\\" + fileName, PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
 
@@ -132,7 +129,6 @@ namespace NetCoreSamples5.Controllers.SaveAndSearch
             fs.Close();
             return Content("OK");
         }
-
 
 
     }

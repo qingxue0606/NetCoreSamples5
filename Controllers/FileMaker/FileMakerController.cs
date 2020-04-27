@@ -22,15 +22,13 @@ namespace NetCoreSamples5.Controllers.FileMaker
             ViewBag.url = url + "\\FileMaker\\doc";
             return View();
         }
-
         public IActionResult FileMaker()
         {
             string id = Request.Query["id"];
             PageOfficeNetCore.FileMakerCtrl fileMakerCtrl = new PageOfficeNetCore.FileMakerCtrl(Request);
-            fileMakerCtrl.ServerPage = "../PageOffice/POServer";
+            fileMakerCtrl.ServerPage = "/PageOffice/POServer";
             //设置保存页面
             fileMakerCtrl.SaveFilePage = "SaveDoc?id=" + id; ;
-
             PageOfficeNetCore.WordWriter.WordDocument doc = new PageOfficeNetCore.WordWriter.WordDocument();
             //禁用右击事件
             //禁用右击事件
@@ -39,18 +37,13 @@ namespace NetCoreSamples5.Controllers.FileMaker
             doc.OpenDataRegion("PO_company").Value = "北京卓正志远软件有限公司  " + id;
             fileMakerCtrl.SetWriter(doc);
             //设置转换完成后执行的JS函数
-
             fileMakerCtrl.JsFunction_OnProgressComplete = "OnProgressComplete()";
-
             //打开文档
-
             fileMakerCtrl.FillDocument("../FileMaker/doc/template.doc", PageOfficeNetCore.DocumentOpenType.Word);
 
             ViewBag.fmCtrl = fileMakerCtrl.GetHtmlCode("FileMakerCtrl1");
             return View();
         }
-
-
 
         public async Task<ActionResult> SaveDoc()
         {

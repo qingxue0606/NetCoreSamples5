@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
-
 namespace NetCoreSamples5.Controllers.SimpleWord
 {
     public class SimpleWordController : Controller
@@ -20,7 +19,7 @@ namespace NetCoreSamples5.Controllers.SimpleWord
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             //添加自定义按钮
             pageofficeCtrl.AddCustomToolButton("保存", "Save()", 1);
@@ -33,23 +32,20 @@ namespace NetCoreSamples5.Controllers.SimpleWord
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc";
             //打开Word文档
-            pageofficeCtrl.WebOpen("../SimpleWord/doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
 
         public IActionResult Word1()
 
-
         {
-
 
             string simplePath = "\\SimpleWord\\doc\\test.doc";
             string finalPath = _webHostEnvironment.WebRootPath + simplePath;
 
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             //添加自定义按钮
             pageofficeCtrl.AddCustomToolButton("保存", "Save()", 1);
@@ -59,12 +55,8 @@ namespace NetCoreSamples5.Controllers.SimpleWord
             //打开Word文档
             pageofficeCtrl.WebOpen(finalPath, PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
-
             return View();
         }
-
-
 
 
         public async Task<ActionResult> SaveDoc()

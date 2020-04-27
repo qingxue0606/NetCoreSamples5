@@ -13,7 +13,7 @@ namespace NetCoreSamples5.Controllers.WordParagraph
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             PageOfficeNetCore.WordWriter.WordDocument doc = new PageOfficeNetCore.WordWriter.WordDocument();
 
@@ -97,9 +97,8 @@ namespace NetCoreSamples5.Controllers.WordParagraph
             pageofficeCtrl.JsFunction_AfterDocumentSaved = "SaveOK()";
 
             //打开Word文档
-            pageofficeCtrl.WebOpen("../WordParagraph/doc/template.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/template.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
 

@@ -11,7 +11,7 @@ namespace NetCoreSamples5.Controllers.WordRibbonCtrl
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             pageofficeCtrl.RibbonBar.SetTabVisible("TabHome", true);//开始的Ribbon
             pageofficeCtrl.RibbonBar.SetTabVisible("TabInsert", false);//插入的Ribbon
@@ -25,11 +25,9 @@ namespace NetCoreSamples5.Controllers.WordRibbonCtrl
             pageofficeCtrl.RibbonBar.SetGroupVisible("GroupClipboard", false);//开始中的剪切板组
             pageofficeCtrl.AddCustomToolButton("保存", "SaveFile()", 1);
 
-
             //打开Word文档
-            pageofficeCtrl.WebOpen("../WordRibbonCtrl/doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
     }

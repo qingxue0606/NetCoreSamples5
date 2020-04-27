@@ -17,7 +17,7 @@ namespace NetCoreSamples5.Controllers.HighDPI
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             //添加自定义按钮
             pageofficeCtrl.AddCustomToolButton("保存", "Save()", 1);
@@ -28,13 +28,10 @@ namespace NetCoreSamples5.Controllers.HighDPI
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc";
             //打开Word文档
-            pageofficeCtrl.WebOpen("../HighDPI/doc/test.doc", PageOfficeNetCore.OpenModeType.docReadOnly, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docReadOnly, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
-
-
 
         public async Task<ActionResult> SaveDoc()
         {

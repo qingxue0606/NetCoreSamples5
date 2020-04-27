@@ -11,7 +11,6 @@ namespace NetCoreSamples5.Controllers
     public class CommentOnlyController : Controller
     {
 
-
         private readonly IWebHostEnvironment _webHostEnvironment;
 
         public CommentOnlyController(IWebHostEnvironment webHostEnvironment)
@@ -21,16 +20,15 @@ namespace NetCoreSamples5.Controllers
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             //添加自定义按钮
             pageofficeCtrl.AddCustomToolButton("保存", "Save", 1);
             pageofficeCtrl.AddCustomToolButton("插入批注", "newComment", 0);
 
             pageofficeCtrl.SaveFilePage = "SaveDoc";
-            pageofficeCtrl.WebOpen("../CommentOnly/doc/test.doc", PageOfficeNetCore.OpenModeType.docCommentOnly, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docCommentOnly, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
 

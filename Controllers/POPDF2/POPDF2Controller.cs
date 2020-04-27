@@ -14,8 +14,7 @@ namespace NetCoreSamples5.Controllers.POPDF2
 
             PageOfficeNetCore.PDFCtrl pdfCtrl = new PageOfficeNetCore.PDFCtrl(Request);
 
-
-            pdfCtrl.ServerPage = "../PageOffice/POServer";
+            pdfCtrl.ServerPage = "/PageOffice/POServer";
 
             pdfCtrl.Theme = PageOfficeNetCore.ThemeType.Office2007;
             //pdfCtrl1.TitlebarColor = Color.Green;
@@ -40,11 +39,9 @@ namespace NetCoreSamples5.Controllers.POPDF2
             //pdfCtrl1.AddCustomToolButton("-", "", 0);
             //pdfCtrl1.AddCustomToolButton("全屏", "SwitchFullScreen()", 4); 
             //pdfCtrl1.AllowCopy = false;
-            pdfCtrl.WebOpen("../POPDF2/doc/test2.pdf");
+            pdfCtrl.WebOpen("doc/test2.pdf");
 
             ViewBag.pdfCtrl = pdfCtrl.GetHtmlCode("PDFCtrl1");
-
-
             return View();
         }
     }

@@ -13,9 +13,7 @@ namespace NetCoreSamples5.Controllers.DrawExcel
         public IActionResult Excel()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
-
-
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             PageOfficeNetCore.ExcelWriter.Workbook wb = new PageOfficeNetCore.ExcelWriter.Workbook();
             // 设置背景
@@ -210,7 +208,6 @@ namespace NetCoreSamples5.Controllers.DrawExcel
                 wb.OpenSheet("Sheet1").OpenCell("H" + (6 + i).ToString()).NumberFormatLocal = "￥#,##0.00;￥-#,##0.00";
             }
 
-
             PageOfficeNetCore.ExcelWriter.Cell E16 = wb.OpenSheet("Sheet1").OpenCell("E16");
             E16.Font.Bold = true;
             E16.Font.Size = 11;
@@ -262,9 +259,8 @@ namespace NetCoreSamples5.Controllers.DrawExcel
 
             pageofficeCtrl.SetWriter(wb);
             //打开Word文档
-            pageofficeCtrl.WebOpen("../DrawExcel/doc/test.xls", PageOfficeNetCore.OpenModeType.xlsNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.xls", PageOfficeNetCore.OpenModeType.xlsNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
 

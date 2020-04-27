@@ -11,12 +11,9 @@ namespace NetCoreSamples5.Controllers.ExaminationPaper
 {
     public class ExaminationPaperController : Controller
     {
-
         string connString = "Data Source=D:\\lic\\ExaminationPaper.db";
         public IActionResult Index()
         {
-
-
             string sql = "Select * from stream";
             SqliteConnection conn = new SqliteConnection(connString);
             conn.Open();
@@ -60,30 +57,25 @@ namespace NetCoreSamples5.Controllers.ExaminationPaper
             }
 
             ViewBag.strHtmls = strHtmls.ToString();
-
-
             dr.Close();
             conn.Close();
             return View();
         }
-
 
         public IActionResult Edit()
         {
 
             string id = Request.Query["id"];
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc?id=" + id;
             //打开Word文档
             pageofficeCtrl.WebOpen("Openfile?id=" + id, PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
-
 
         public IActionResult Compose()
         {
@@ -111,44 +103,29 @@ namespace NetCoreSamples5.Controllers.ExaminationPaper
                 operateStr += "document.getElementById('PageOfficeCtrl1').InsertDocumentFromURL('Openfile?id=" + ids[i] + "');\n";
                 pNum++;
 
-
             }
             operateStr += "\n}\n";
 
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
-
-
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
             pageofficeCtrl.Caption = "生成试卷";
             pageofficeCtrl.JsFunction_AfterDocumentOpened = "Create";
-
-
             //打开Word文档
-            pageofficeCtrl.WebOpen("../ExaminationPaper/doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
             ViewBag.operateStr = operateStr;
             return View();
         }
 
-
-
         public IActionResult Compose2()
         {
-
             int num = 1;//试题编号
 
             string idlist = Request.Query["ids"];
             string[] ids = idlist.Split(',');//将idlist按照","截取后存到ids数组中，然后遍历数组用js插入文件即可
 
-
-
-
-
-
-
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
-
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             string temp = "PO_begin";//新添加的数据区域名称
 
@@ -167,12 +144,10 @@ namespace NetCoreSamples5.Controllers.ExaminationPaper
             pageofficeCtrl.SetWriter(doc);
             pageofficeCtrl.Caption = "生成试卷";
             //打开Word文档
-            pageofficeCtrl.WebOpen("../ExaminationPaper/doc/test.doc", PageOfficeNetCore.OpenModeType.docReadOnly, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docReadOnly, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
             return View();
         }
-
-
 
         public void Openfile()
         {
@@ -202,17 +177,12 @@ namespace NetCoreSamples5.Controllers.ExaminationPaper
             Response.Body.Close();
         }
 
-
         public async Task<ActionResult> SaveDoc()
         {
             PageOfficeNetCore.FileSaver fs = new PageOfficeNetCore.FileSaver(Request, Response);
-
             await fs.LoadAsync();
-
             string id = Request.Query["id"];
-
             string sql = "UPDATE  Stream SET Word=@file  where ID=" + id;
-
             SqliteConnection conn = new SqliteConnection(connString);
             conn.Open();
             byte[] aa = fs.FileBytes;
@@ -222,14 +192,10 @@ namespace NetCoreSamples5.Controllers.ExaminationPaper
             parameter.Value = aa;
             cmd.Parameters.Add(parameter);
             cmd.ExecuteNonQuery();
-
             conn.Close();
             fs.Close();
-
             return Content("OK");
         }
-
-
 
     }
 }

@@ -23,7 +23,7 @@ namespace NetCoreSamples5.Controllers.TaoHong
         public IActionResult edit()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             //添加自定义按钮
             pageofficeCtrl.AddCustomToolButton("保存", "Save", 1);
@@ -32,26 +32,22 @@ namespace NetCoreSamples5.Controllers.TaoHong
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc";
             //打开Word文档
-            pageofficeCtrl.WebOpen("../TaoHong/doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
-
 
         public IActionResult taoHong()
         {
 
 
-
             String mb = Request.Query["mb"];
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
             String fileName = "test.doc";
             if (mb != null && mb.Trim() != "")
             {
                 string webRootPath = _webHostEnvironment.WebRootPath;
-
 
                 fileName = "zhengshi.doc";
 
@@ -78,18 +74,16 @@ namespace NetCoreSamples5.Controllers.TaoHong
 
             pageofficeCtrl.AddCustomToolButton("全屏/还原", "IsFullScreen", 4);
             pageofficeCtrl.SaveFilePage = "SaveDoc";
-            pageofficeCtrl.WebOpen("../TaoHong/doc/" + fileName, PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
-
+            pageofficeCtrl.WebOpen("doc/" + fileName, PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
 
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
         public IActionResult readOnly()
         {
             string fileName = "zhengshi.doc";//正式发文文件
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             //添加自定义按钮
             pageofficeCtrl.AddCustomToolButton("另存到本地", "ShowDialog(0)", 5);
@@ -100,12 +94,10 @@ namespace NetCoreSamples5.Controllers.TaoHong
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc";
             //打开Word文档
-            pageofficeCtrl.WebOpen("../TaoHong/doc/" + fileName, PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/" + fileName, PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
-
 
 
         public async Task<ActionResult> SaveDoc()

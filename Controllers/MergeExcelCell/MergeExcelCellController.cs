@@ -12,7 +12,7 @@ namespace NetCoreSamples5.Controllers.MergeExcelCell
         public IActionResult Excel()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             PageOfficeNetCore.ExcelWriter.Workbook wb = new PageOfficeNetCore.ExcelWriter.Workbook();
             PageOfficeNetCore.ExcelWriter.Sheet sheet = wb.OpenSheet("Sheet1");
@@ -45,9 +45,8 @@ namespace NetCoreSamples5.Controllers.MergeExcelCell
             pageofficeCtrl.Caption = "演示：使用程序合并指定的单元格并设置格式和赋值";
 
             //打开Word文档
-            pageofficeCtrl.WebOpen("../MergeExcelCell/doc/test.xls", PageOfficeNetCore.OpenModeType.xlsNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.xls", PageOfficeNetCore.OpenModeType.xlsNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
 

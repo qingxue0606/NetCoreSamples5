@@ -18,7 +18,7 @@ namespace NetCoreSamples5.Controllers.SubmitWord
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             PageOfficeNetCore.WordWriter.WordDocument wordDoc = new PageOfficeNetCore.WordWriter.WordDocument();
 
@@ -38,19 +38,16 @@ namespace NetCoreSamples5.Controllers.SubmitWord
             pageofficeCtrl.AddCustomToolButton("保存", "Save()", 1);
 
             //打开Word文档
-            pageofficeCtrl.WebOpen("../SubmitWord/doc/test.doc", PageOfficeNetCore.OpenModeType.docSubmitForm, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docSubmitForm, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
-
 
 
         public async Task<ActionResult> SaveData()
         {
 
             string content = "";
-
 
 
             PageOfficeNetCore.WordReader.WordDocument doc = new PageOfficeNetCore.WordReader.WordDocument(Request, Response);
@@ -63,12 +60,10 @@ namespace NetCoreSamples5.Controllers.SubmitWord
             content += "<br/>员工姓名：" + dataUserName.Value;
             content += "<br/>部门名称：" + dataDeptName.Value;
 
-
             await Response.Body.WriteAsync(Encoding.GetEncoding("GB2312").GetBytes(content));
 
             doc.ShowPage(400, 300);
             doc.Close();
-
             return Content("OK");
         }
     }

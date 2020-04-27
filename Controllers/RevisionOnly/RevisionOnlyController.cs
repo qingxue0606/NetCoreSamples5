@@ -17,23 +17,20 @@ namespace NetCoreSamples5.Controllers.RevisionOnly
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             //添加自定义按钮
             pageofficeCtrl.AddCustomToolButton("保存", "Save()", 1);
             pageofficeCtrl.AddCustomToolButton("隐藏痕迹", "hideRevision()", 18);
             pageofficeCtrl.AddCustomToolButton("显示痕迹", "showRevision()", 9);
 
-
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc";
             //打开Word文档
-            pageofficeCtrl.WebOpen("../RevisionOnly/doc/test.doc", PageOfficeNetCore.OpenModeType.docRevisionOnly, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docRevisionOnly, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
-
 
 
         public async Task<ActionResult> SaveDoc()

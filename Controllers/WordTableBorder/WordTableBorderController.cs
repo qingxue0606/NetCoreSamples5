@@ -12,7 +12,7 @@ namespace NetCoreSamples5.Controllers.WordTableBorder
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
             PageOfficeNetCore.WordWriter.WordDocument doc = new PageOfficeNetCore.WordWriter.WordDocument();
             //获取Table所在的数据区域对象
             PageOfficeNetCore.WordWriter.DataRegion dataRegion = doc.OpenDataRegion("PO_regTable");
@@ -58,9 +58,8 @@ namespace NetCoreSamples5.Controllers.WordTableBorder
 
             pageofficeCtrl.SetWriter(doc);
             //打开Word文档
-            pageofficeCtrl.WebOpen("../WordTableBorder/doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
     }

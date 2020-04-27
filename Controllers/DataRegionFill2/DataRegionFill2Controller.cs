@@ -12,7 +12,7 @@ namespace NetCoreSamples5.Controllers.DataRegionFill2
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             PageOfficeNetCore.WordWriter.WordDocument wordDoc = new PageOfficeNetCore.WordWriter.WordDocument();
 
@@ -32,9 +32,8 @@ namespace NetCoreSamples5.Controllers.DataRegionFill2
 
             pageofficeCtrl.SetWriter(wordDoc);
             //打开Word文档
-            pageofficeCtrl.WebOpen("../DataRegionFill2/doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
 

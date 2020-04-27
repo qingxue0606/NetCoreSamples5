@@ -19,7 +19,7 @@ namespace NetCoreSamples5.Controllers.DataRegionEdit
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             PageOfficeNetCore.WordWriter.WordDocument doc = new PageOfficeNetCore.WordWriter.WordDocument();
             doc.Template.DefineDataRegion("Name", "[ 姓名 ]");
@@ -32,7 +32,6 @@ namespace NetCoreSamples5.Controllers.DataRegionEdit
             doc.Template.DefineDataRegion("QQNo", "[ QQ号 ]");
             doc.Template.DefineDataRegion("MSNNo", "[ MSN号 ]");
 
-
             pageofficeCtrl.AddCustomToolButton("保存", "Save()", 1);
             pageofficeCtrl.AddCustomToolButton("定义数据区域", "ShowDefineDataRegions()", 3);
             pageofficeCtrl.Theme = PageOfficeNetCore.ThemeType.Office2007;
@@ -41,13 +40,10 @@ namespace NetCoreSamples5.Controllers.DataRegionEdit
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc";
             //打开Word文档
-            pageofficeCtrl.WebOpen("../DataRegionEdit/doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
-
-
 
         public async Task<ActionResult> SaveDoc()
         {

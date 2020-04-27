@@ -27,7 +27,7 @@ namespace NetCoreSamples5.Controllers.FileMakerPDF
         public IActionResult FileMakerPDF()
         {
             PageOfficeNetCore.FileMakerCtrl fileMakerCtrl = new PageOfficeNetCore.FileMakerCtrl(Request);
-            fileMakerCtrl.ServerPage = "../PageOffice/POServer";
+            fileMakerCtrl.ServerPage = "/PageOffice/POServer";
             //设置保存页面
             fileMakerCtrl.SaveFilePage = "SaveDoc";
 
@@ -36,23 +36,18 @@ namespace NetCoreSamples5.Controllers.FileMakerPDF
             doc.DisableWindowRightClick = true;
             //给数据区域赋值，即把数据填充到模板中相应的位置
             doc.OpenDataRegion("PO_company").Value = "北京卓正志远软件有限公司";
-
             fileMakerCtrl.SetWriter(doc);
             fileMakerCtrl.JsFunction_OnProgressComplete = "OnProgressComplete()";
             fileMakerCtrl.FillDocumentAsPDF("../FileMakerPDF/doc/template.doc", PageOfficeNetCore.DocumentOpenType.Word, "a.pdf");
-
             ViewBag.fmCtrl = fileMakerCtrl.GetHtmlCode("FileMakerCtrl1");
             return View();
         }
-
-
 
         public async Task<ActionResult> SaveDoc()
         {
             PageOfficeNetCore.FileSaver fs = new PageOfficeNetCore.FileSaver(Request, Response);
             await fs.LoadAsync();
             string webRootPath = _webHostEnvironment.WebRootPath;
-
             string fileName = "maker" + fs.FileExtName;
             fs.SaveToFile(webRootPath + "/FileMakerPDF/doc/" + fileName);
             fs.Close();

@@ -19,7 +19,7 @@ namespace NetCoreSamples5.Controllers.SaveFirstPageAsImg
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             pageofficeCtrl.AddCustomToolButton("保存", "Save()", 1);
             pageofficeCtrl.AddCustomToolButton("保存首页为图片", "SaveFirstAsImg()", 1);
@@ -27,12 +27,10 @@ namespace NetCoreSamples5.Controllers.SaveFirstPageAsImg
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc";
             //打开Word文档
-            pageofficeCtrl.WebOpen("../SaveFirstPageAsImg/doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
-
 
 
         public async Task<ActionResult> SaveDoc()
@@ -49,8 +47,6 @@ namespace NetCoreSamples5.Controllers.SaveFirstPageAsImg
             {
                 fs.SaveToFile(webRootPath + "/SaveFirstPageAsImg/doc/" + fs.FileName);
             }
-
-
 
 
             fs.Close();

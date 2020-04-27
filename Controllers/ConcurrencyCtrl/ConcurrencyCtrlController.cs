@@ -21,15 +21,11 @@ namespace NetCoreSamples5.Controllers.ConcurrencyCtrl
             return View();
         }
 
-
         public IActionResult Word()
         {
 
             String userName = "somebody";
-
             String userId = Request.Query["userid"];
-
-
             if (userId.Equals("1"))
             {
                 userName = "张三";
@@ -39,23 +35,19 @@ namespace NetCoreSamples5.Controllers.ConcurrencyCtrl
                 userName = "李四";
             }
 
-            Console.WriteLine(userName);
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             //添加自定义按钮
             pageofficeCtrl.AddCustomToolButton("保存", "Save()", 1);
-
-
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc";
             //设置并发控制时间
             //pageofficeCtrl.TimeSlice = 20; // 设置并发控制时间, 单位:分钟
             //打开Word文档
-            pageofficeCtrl.WebOpen("../ConcurrencyCtrl/doc/test.doc", PageOfficeNetCore.OpenModeType.docRevisionOnly, userName);
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docRevisionOnly, userName);
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
             ViewBag.userName = userName;
-
             return View();
         }
         public async Task<ActionResult> SaveDoc()

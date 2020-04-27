@@ -12,7 +12,7 @@ namespace NetCoreSamples5.Controllers.WordSetTable
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             PageOfficeNetCore.WordWriter.WordDocument doc = new PageOfficeNetCore.WordWriter.WordDocument();
             //获取Table所在的数据区域对象
@@ -31,12 +31,10 @@ namespace NetCoreSamples5.Controllers.WordSetTable
             table.OpenCellRC(4, 3).Value = "张三";
             pageofficeCtrl.SetWriter(doc);
             //打开Word文档
-            pageofficeCtrl.WebOpen("../WordSetTable/doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
-
 
 
     }

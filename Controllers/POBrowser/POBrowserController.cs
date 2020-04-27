@@ -18,16 +18,17 @@ namespace NetCoreSamples5.Views
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
+            //pageofficeCtrl.ServerPage = "/PageOffice/POServer";
             pageofficeCtrl.SaveFilePage = "POSaveDoc";
-            pageofficeCtrl.WebOpen("../POBrowser/doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            //pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
             return View();
         }
 
         public async Task<ActionResult> POSaveDoc()
         {
-
 
             PageOfficeNetCore.FileSaver fs = new PageOfficeNetCore.FileSaver(Request, Response);
             await fs.LoadAsync();
@@ -36,10 +37,7 @@ namespace NetCoreSamples5.Views
 
             fs.SaveToFile(webRootPath + "/POBrowser/doc/" + fs.FileName);
 
-
             await Response.Body.WriteAsync(Encoding.GetEncoding("GB2312").GetBytes(fs.FileName));
-
-
 
 
 

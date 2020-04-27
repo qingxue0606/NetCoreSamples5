@@ -20,7 +20,7 @@ namespace NetCoreSamples5.Controllers.DataRegionTable
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             PageOfficeNetCore.WordWriter.WordDocument doc = new PageOfficeNetCore.WordWriter.WordDocument();
             //打开数据区域
@@ -44,27 +44,21 @@ namespace NetCoreSamples5.Controllers.DataRegionTable
             //设置保存页面
             pageofficeCtrl.SaveDataPage = "SaveData";
             //打开Word文档
-            pageofficeCtrl.WebOpen("../DataRegionTable/doc/test.doc", PageOfficeNetCore.OpenModeType.docSubmitForm, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docSubmitForm, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
-
-
 
         public async Task<ActionResult> SaveData()
 
         {
 
-
             //-----------  PageOffice 服务器端编程开始  -------------------//
             PageOfficeNetCore.WordReader.WordDocument doc = new PageOfficeNetCore.WordReader.WordDocument(Request, Response);
 
             await doc.LoadAsync();
-
             PageOfficeNetCore.WordReader.DataRegion dataReg = doc.OpenDataRegion("PO_table");
             PageOfficeNetCore.WordReader.Table table = dataReg.OpenTable(1);
-
             //输出提交的table中的数据
             //Response.Write("表格中的各个单元的格数据为：<br/><br/>");
             StringBuilder dataStr = new StringBuilder();
@@ -84,11 +78,6 @@ namespace NetCoreSamples5.Controllers.DataRegionTable
 
             doc.ShowPage(300, 300);
             doc.Close();
-
-
-
-
-
             return Content("OK");
         }
     }

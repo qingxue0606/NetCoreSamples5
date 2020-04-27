@@ -21,31 +21,23 @@ namespace NetCoreSamples5.Controllers.HtmlWord
             _webHostEnvironment = webHostEnvironment;
         }
 
-
         public void Word()
         {
-
             String content = "";
             content += "param1:" + Request.Query["param1"];
             content += "<br>";
             content += "param2:" + Request.Form["param2"];
 
-
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
-
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc";
             //打开Word文档
-
-            pageofficeCtrl.WebOpen("../HtmlWord/doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
-
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             content += pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             Response.Body.WriteAsync(Encoding.GetEncoding("GB2312").GetBytes(content));
 
         }
-
 
         public async Task<ActionResult> SaveDoc()
         {

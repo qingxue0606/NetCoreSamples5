@@ -11,7 +11,7 @@ namespace NetCoreSamples5.Controllers.ExcelRibbonCtrl
         public IActionResult Excel()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             pageofficeCtrl.RibbonBar.SetTabVisible("TabHome", true);//开始
             pageofficeCtrl.RibbonBar.SetTabVisible("TabFormulas", false);//公式
@@ -27,9 +27,8 @@ namespace NetCoreSamples5.Controllers.ExcelRibbonCtrl
             pageofficeCtrl.RibbonBar.SetGroupVisible("GroupClipboard", false);//剪贴板
             pageofficeCtrl.AddCustomToolButton("保存", "SaveFile()", 1);
             //打开Word文档
-            pageofficeCtrl.WebOpen("../ExcelRibbonCtrl/doc/test.xls", PageOfficeNetCore.OpenModeType.xlsNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.xls", PageOfficeNetCore.OpenModeType.xlsNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
     }

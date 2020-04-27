@@ -11,7 +11,7 @@ namespace NetCoreSamples5.Controllers.JsControlBars
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             // 设置保存文件页面
             pageofficeCtrl.SaveFilePage = "SaveFile";
@@ -20,9 +20,8 @@ namespace NetCoreSamples5.Controllers.JsControlBars
             pageofficeCtrl.AddCustomToolButton("保存", "mySave()", 1);
 
             //打开Word文档
-            pageofficeCtrl.WebOpen("../JsControlBars/doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
     }

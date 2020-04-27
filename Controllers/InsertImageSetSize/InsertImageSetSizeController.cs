@@ -11,8 +11,7 @@ namespace NetCoreSamples5.Controllers.InsertImageSetSize
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
-
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             PageOfficeNetCore.WordWriter.WordDocument doc = new PageOfficeNetCore.WordWriter.WordDocument();
             PageOfficeNetCore.WordWriter.DataRegion data1 = doc.OpenDataRegion("PO_p1");
@@ -24,9 +23,8 @@ namespace NetCoreSamples5.Controllers.InsertImageSetSize
             pageofficeCtrl.CustomToolbar = false;
 
             //打开Word文档
-            pageofficeCtrl.WebOpen("../InsertImageSetSize/doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
     }

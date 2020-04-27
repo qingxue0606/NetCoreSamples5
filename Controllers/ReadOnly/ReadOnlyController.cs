@@ -11,7 +11,7 @@ namespace NetCoreSamples5.Controllers.ReadOnly
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             pageofficeCtrl.Caption = "演示：文件在线安全浏览";
             pageofficeCtrl.JsFunction_AfterDocumentOpened = "AfterDocumentOpened()";
@@ -20,9 +20,8 @@ namespace NetCoreSamples5.Controllers.ReadOnly
             pageofficeCtrl.OfficeToolbars = false;
             pageofficeCtrl.CustomToolbar = false;
 
-
             //打开Word文档
-            pageofficeCtrl.WebOpen("../ReadOnly/doc/template.doc", PageOfficeNetCore.OpenModeType.docReadOnly, "tom");
+            pageofficeCtrl.WebOpen("doc/template.doc", PageOfficeNetCore.OpenModeType.docReadOnly, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
 
             return View();

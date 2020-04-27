@@ -14,7 +14,6 @@ namespace NetCoreSamples5.Controllers.SetHandDrawByUser
             return View();
         }
         private readonly IWebHostEnvironment _webHostEnvironment;
-
         public SetHandDrawByUserController(IWebHostEnvironment webHostEnvironment)
         {
             _webHostEnvironment = webHostEnvironment;
@@ -23,7 +22,7 @@ namespace NetCoreSamples5.Controllers.SetHandDrawByUser
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
             string userName = "";
             userName = Request.Form["userName"];
             if ("zhangsan" == userName) userName = "张三";
@@ -37,14 +36,12 @@ namespace NetCoreSamples5.Controllers.SetHandDrawByUser
             pageofficeCtrl.AddCustomToolButton("全屏/还原", "IsFullScreen", 4);
             pageofficeCtrl.JsFunction_AfterDocumentOpened = "ShowByUserName";
 
-
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc";
             //打开Word文档
-            pageofficeCtrl.WebOpen("../SetHandDrawByUser/doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, userName);
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, userName);
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
             ViewBag.userName = userName;
-
             return View();
         }
 

@@ -11,7 +11,7 @@ namespace NetCoreSamples5.Controllers.AddWaterMark
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
             //设置PageOfficeCtrl 控件标题栏文字
             pageofficeCtrl.Caption = "演示:给Word文档添加水印";
             //定义一个WordDocument对象
@@ -21,9 +21,8 @@ namespace NetCoreSamples5.Controllers.AddWaterMark
             pageofficeCtrl.SetWriter(doc);
 
             //打开Word文档
-            pageofficeCtrl.WebOpen("../AddWaterMark/doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
     }

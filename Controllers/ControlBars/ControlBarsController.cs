@@ -12,19 +12,16 @@ namespace NetCoreSamples5.Controllers.ControlBars
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             //添加自定义按钮
             pageofficeCtrl.Titlebar = false;
             pageofficeCtrl.Menubar = false;
             pageofficeCtrl.OfficeToolbars = false;
             pageofficeCtrl.CustomToolbar = false;
-
-
             //打开Word文档
-            pageofficeCtrl.WebOpen("../ControlBars/doc/template.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/template.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
     }

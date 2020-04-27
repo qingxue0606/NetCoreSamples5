@@ -12,7 +12,7 @@ namespace NetCoreSamples5.Controllers.SetExcelCellText
         public IActionResult Excel()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             PageOfficeNetCore.ExcelWriter.Workbook wb = new PageOfficeNetCore.ExcelWriter.Workbook();
             PageOfficeNetCore.ExcelWriter.Sheet sheet = wb.OpenSheet("Sheet1");
@@ -86,9 +86,8 @@ namespace NetCoreSamples5.Controllers.SetExcelCellText
 
             pageofficeCtrl.SetWriter(wb); // 不要忘记此句代码
             //打开Word文档
-            pageofficeCtrl.WebOpen("../SetExcelCellText/doc/test.xls", PageOfficeNetCore.OpenModeType.xlsNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.xls", PageOfficeNetCore.OpenModeType.xlsNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
 

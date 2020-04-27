@@ -17,7 +17,7 @@ namespace NetCoreSamples5.Controllers.SimplePPT
         public IActionResult PPT()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             //添加自定义按钮
             pageofficeCtrl.AddCustomToolButton("保存", "Save()", 1);
@@ -26,12 +26,10 @@ namespace NetCoreSamples5.Controllers.SimplePPT
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc";
             //打开Word文档
-            pageofficeCtrl.WebOpen("../SimplePPT/doc/test.ppt", PageOfficeNetCore.OpenModeType.pptNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.ppt", PageOfficeNetCore.OpenModeType.pptNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
-
 
         public async Task<ActionResult> SaveDoc()
         {

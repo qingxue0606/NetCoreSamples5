@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
-
 namespace NetCoreSamples5.Controllers.FileMakerSingle
 {
     public class FileMakerSingleController : Controller
@@ -28,7 +27,6 @@ namespace NetCoreSamples5.Controllers.FileMakerSingle
         public IActionResult FileMakerSingle()
         {
 
-
             PageOfficeNetCore.WordWriter.WordDocument doc = new PageOfficeNetCore.WordWriter.WordDocument();
             //禁用右击事件
             doc.DisableWindowRightClick = true;
@@ -36,7 +34,7 @@ namespace NetCoreSamples5.Controllers.FileMakerSingle
             doc.OpenDataRegion("PO_company").Value = "北京卓正志远软件有限公司";
 
             PageOfficeNetCore.FileMakerCtrl fileMakerCtrl = new PageOfficeNetCore.FileMakerCtrl(Request);
-            fileMakerCtrl.ServerPage = "../PageOffice/POServer";
+            fileMakerCtrl.ServerPage = "/PageOffice/POServer";
 
             fileMakerCtrl.SaveFilePage = "SaveDoc";
             fileMakerCtrl.SetWriter(doc);
@@ -45,11 +43,8 @@ namespace NetCoreSamples5.Controllers.FileMakerSingle
             fileMakerCtrl.FillDocument("../FileMakerSingle/doc/template.doc", PageOfficeNetCore.DocumentOpenType.Word);
 
             ViewBag.FMCtrl = fileMakerCtrl.GetHtmlCode("FileMakerCtrl1");
-
             return View();
         }
-
-
 
         public async Task<ActionResult> SaveDoc()
         {

@@ -27,10 +27,9 @@ namespace NetCoreSamples5.Controllers.PrintFiles
         {
 
             PageOfficeNetCore.FileMakerCtrl fileMakerCtrl = new PageOfficeNetCore.FileMakerCtrl(Request);
-            fileMakerCtrl.ServerPage = "../PageOffice/POServer";
+            fileMakerCtrl.ServerPage = "/PageOffice/POServer";
 
             string id = Request.Query["id"];
-            Console.WriteLine(id);
             if (id != null && id.Length > 0)
             {
                 PageOfficeNetCore.WordWriter.WordDocument doc = new PageOfficeNetCore.WordWriter.WordDocument();
@@ -47,19 +46,15 @@ namespace NetCoreSamples5.Controllers.PrintFiles
                 fileMakerCtrl.FillDocument("../PrintFiles/doc/template.doc", PageOfficeNetCore.DocumentOpenType.Word);
             }
 
-
             ViewBag.fmCtrl = fileMakerCtrl.GetHtmlCode("FileMakerCtrl1");
-
             return View();
         }
-
 
 
         public async Task<ActionResult> SaveDoc()
         {
 
             string id = Request.Query["id"];
-
 
             PageOfficeNetCore.FileSaver fs = new PageOfficeNetCore.FileSaver(Request, Response);
             await fs.LoadAsync();

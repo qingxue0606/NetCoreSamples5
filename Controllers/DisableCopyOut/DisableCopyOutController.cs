@@ -19,7 +19,7 @@ namespace NetCoreSamples5.Controllers.DisableCopyOut
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             //添加自定义按钮
             pageofficeCtrl.AddCustomToolButton("保存", "SaveDocument()", 1);
@@ -29,20 +29,16 @@ namespace NetCoreSamples5.Controllers.DisableCopyOut
             pageofficeCtrl.AddCustomToolButton("-", "", 0);
             pageofficeCtrl.AddCustomToolButton("关闭", "Close()", 21);
 
-
-
             // **关键代码 禁止拷贝文档内容到外部 **
             pageofficeCtrl.DisableCopyOnly = true;
 
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc";
             //打开Word文档
-            pageofficeCtrl.WebOpen("../DisableCopyOut/doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
-
 
 
         public async Task<ActionResult> SaveDoc()

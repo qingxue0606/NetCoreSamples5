@@ -11,7 +11,7 @@ namespace NetCoreSamples5.Controllers.ExcelAdjustRC
         public IActionResult Excel()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             PageOfficeNetCore.ExcelWriter.Workbook wb = new PageOfficeNetCore.ExcelWriter.Workbook();
             PageOfficeNetCore.ExcelWriter.Sheet sheet1 = wb.OpenSheet("Sheet1");
@@ -21,9 +21,8 @@ namespace NetCoreSamples5.Controllers.ExcelAdjustRC
 
             pageofficeCtrl.SetWriter(wb);
             //打开Word文档
-            pageofficeCtrl.WebOpen("../ExcelAdjustRC/doc/test.xls", PageOfficeNetCore.OpenModeType.xlsReadOnly, "tom");
+            pageofficeCtrl.WebOpen("doc/test.xls", PageOfficeNetCore.OpenModeType.xlsReadOnly, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
     }

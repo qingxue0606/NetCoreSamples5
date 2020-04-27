@@ -11,20 +11,16 @@ namespace NetCoreSamples5.Controllers.ExcelInsertImage
         public IActionResult Excel()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             PageOfficeNetCore.ExcelWriter.Workbook worbBook = new PageOfficeNetCore.ExcelWriter.Workbook();
             PageOfficeNetCore.ExcelWriter.Sheet Sheetl = worbBook.OpenSheet("Sheet1");
             PageOfficeNetCore.ExcelWriter.Cell cell1 = Sheetl.OpenCell("A1");
             cell1.Value = "[image]image/logo.jpg[/image]";
-
-
-
             pageofficeCtrl.SetWriter(worbBook);
             //打开Word文档
-            pageofficeCtrl.WebOpen("../ExcelInsertImage/doc/test.xls", PageOfficeNetCore.OpenModeType.xlsNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.xls", PageOfficeNetCore.OpenModeType.xlsNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
 

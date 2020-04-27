@@ -11,7 +11,7 @@ namespace NetCoreSamples5.Controllers.OpenImage
         public IActionResult Image()
         {
             PageOfficeNetCore.PDFCtrl pdfCtrl = new PageOfficeNetCore.PDFCtrl(Request);
-            pdfCtrl.ServerPage = "../PageOffice/POServer";
+            pdfCtrl.ServerPage = "/PageOffice/POServer";
 
             // 按键说明：光标键、Home、End、PageUp、PageDown可用来移动或翻页；数字键盘+、-用来放大缩小；数字键盘/、*用来旋转页面。
 
@@ -35,7 +35,6 @@ namespace NetCoreSamples5.Controllers.OpenImage
             pdfCtrl.WebOpen("doc/test.jpg");
 
             ViewBag.POCtrl = pdfCtrl.GetHtmlCode("PDFCtrl1");
-
             return View();
         }
     }

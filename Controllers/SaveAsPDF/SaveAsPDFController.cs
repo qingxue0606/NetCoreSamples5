@@ -17,14 +17,12 @@ namespace NetCoreSamples5.Controllers.SaveAsPDF
         }
 
 
-
-
         public IActionResult OpenPDF()
         {
             PageOfficeNetCore.PDFCtrl pdfCtrl = new PageOfficeNetCore.PDFCtrl(Request);
 
             //设置服务器页面
-            pdfCtrl.ServerPage = "../PageOffice/POServer";
+            pdfCtrl.ServerPage = "/PageOffice/POServer";
 
             pdfCtrl.Theme = PageOfficeNetCore.ThemeType.CustomStyle;
             // 按键说明：光标键、Home、End、PageUp、PageDown可用来移动或翻页；数字键盘+、-用来放大缩小；数字键盘/、*用来旋转页面。
@@ -50,19 +48,16 @@ namespace NetCoreSamples5.Controllers.SaveAsPDF
             pdfCtrl.AllowCopy = false;//是否允许拷贝
 
             string fileName = Request.Query["fileName"];
-            Console.WriteLine(fileName);
-            pdfCtrl.WebOpen("../SaveAsPDF/doc/" + fileName);
+            pdfCtrl.WebOpen("doc/" + fileName);
 
             ViewBag.pdfCtrl = pdfCtrl.GetHtmlCode("PDFCtrl1");
-
             return View();
         }
-
 
         public IActionResult WordToPDF()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             //添加自定义按钮
             pageofficeCtrl.AddCustomToolButton("保存", "Save()", 1);
@@ -74,13 +69,11 @@ namespace NetCoreSamples5.Controllers.SaveAsPDF
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc";
             //打开Word文档
-            pageofficeCtrl.WebOpen("../SaveAsPDF/doc/" + fileName, PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/" + fileName, PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
             ViewBag.pdfName = pdfName;
-
             return View();
         }
-
 
 
         public async Task<ActionResult> SaveDoc()

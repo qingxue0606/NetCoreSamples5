@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
-
 namespace NetCoreSamples5.Controllers.SplitWord
 {
     public class SplitWordController : Controller
@@ -21,7 +20,7 @@ namespace NetCoreSamples5.Controllers.SplitWord
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             // 设置保存文件页面
             PageOfficeNetCore.WordWriter.WordDocument wordDoc = new PageOfficeNetCore.WordWriter.WordDocument();
@@ -36,17 +35,14 @@ namespace NetCoreSamples5.Controllers.SplitWord
             PageOfficeNetCore.WordWriter.DataRegion dataRegion3 = wordDoc.OpenDataRegion("PO_test3");
             dataRegion3.SubmitAsFile = true;
 
-
             pageofficeCtrl.SetWriter(wordDoc);
 
             pageofficeCtrl.SaveDataPage = "SaveData";
             //打开Word文档
-            pageofficeCtrl.WebOpen("../SplitWord/doc/test.doc", PageOfficeNetCore.OpenModeType.docSubmitForm, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docSubmitForm, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
-
 
 
         public async Task<ActionResult> SaveData()
@@ -59,7 +55,6 @@ namespace NetCoreSamples5.Controllers.SplitWord
             // 读取数据区域PO_test1中的内容，保存为一个新的word文档：new1.doc
             PageOfficeNetCore.WordReader.DataRegion dr1 = doc.OpenDataRegion("PO_test1");
             bWord = dr1.FileBytes;
-
 
             Stream s1 = new FileStream(webRootPath + "/SplitWord/doc/new1.doc", System.IO.FileMode.Create);
 

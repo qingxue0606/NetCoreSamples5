@@ -12,7 +12,7 @@ namespace NetCoreSamples5.Controllers.WordDisableRight
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             PageOfficeNetCore.WordWriter.WordDocument doc = new PageOfficeNetCore.WordWriter.WordDocument();
             doc.DisableWindowRightClick = true; //禁止word鼠标右键
@@ -20,12 +20,10 @@ namespace NetCoreSamples5.Controllers.WordDisableRight
             pageofficeCtrl.SetWriter(doc);
 
             //打开Word文档
-            pageofficeCtrl.WebOpen("../WordDisableRight/doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
-
 
 
     }

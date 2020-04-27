@@ -15,7 +15,6 @@ namespace NetCoreSamples5.Controllers.SetXlsTableByUser
             return View();
         }
 
-
         private readonly IWebHostEnvironment _webHostEnvironment;
 
         public SetXlsTableByUserController(IWebHostEnvironment webHostEnvironment)
@@ -29,7 +28,7 @@ namespace NetCoreSamples5.Controllers.SetXlsTableByUser
             string userName = Request.Form["userName"];
 
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             //***************************卓正PageOffice组件的使用********************************
             PageOfficeNetCore.ExcelWriter.Workbook wb = new PageOfficeNetCore.ExcelWriter.Workbook();
@@ -59,7 +58,6 @@ namespace NetCoreSamples5.Controllers.SetXlsTableByUser
 
             pageofficeCtrl.SetWriter(wb);
 
-
             pageofficeCtrl.AddCustomToolButton("保存", "Save", 1);
 
             //设置保存页面
@@ -67,15 +65,12 @@ namespace NetCoreSamples5.Controllers.SetXlsTableByUser
 
             pageofficeCtrl.SaveDataPage = "SaveData";//保存数据
 
-
             //打开Word文档
-            pageofficeCtrl.WebOpen("../SetXlsTableByUser/doc/test.xls", PageOfficeNetCore.OpenModeType.xlsSubmitForm, "tom");
+            pageofficeCtrl.WebOpen("doc/test.xls", PageOfficeNetCore.OpenModeType.xlsSubmitForm, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
             ViewBag.strInfo = strInfo;
             return View();
         }
-
-
 
         public async Task<ActionResult> SaveDoc()
         {
@@ -95,8 +90,6 @@ namespace NetCoreSamples5.Controllers.SetXlsTableByUser
             PageOfficeNetCore.ExcelReader.Sheet sheet = doc.OpenSheet("Sheet1");
             PageOfficeNetCore.ExcelReader.Table tableA = sheet.OpenTable("tableA");
             PageOfficeNetCore.ExcelReader.Table tableB = sheet.OpenTable("tableB");
-
-
 
             StringBuilder dataStr = new StringBuilder();
             dataStr.Append("提交的数据为：<br/><br/>");

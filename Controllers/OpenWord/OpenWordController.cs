@@ -11,7 +11,7 @@ namespace NetCoreSamples5.Controllers.OpenWord
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             //隐藏Office工具条
             pageofficeCtrl.OfficeToolbars = false;
@@ -20,11 +20,9 @@ namespace NetCoreSamples5.Controllers.OpenWord
             //设置页面的显示标题
             pageofficeCtrl.Caption = "演示：最简单的以只读模式打开Word文档";
 
-
             //打开Word文档
-            pageofficeCtrl.WebOpen("../OpenWord/doc/template.doc", PageOfficeNetCore.OpenModeType.docReadOnly, "tom");
+            pageofficeCtrl.WebOpen("doc/template.doc", PageOfficeNetCore.OpenModeType.docReadOnly, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
     }

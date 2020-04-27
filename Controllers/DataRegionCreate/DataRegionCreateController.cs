@@ -10,7 +10,7 @@ namespace NetCoreSamples5.Controllers.DataRegionCreate
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             PageOfficeNetCore.WordWriter.WordDocument wordDoc = new PageOfficeNetCore.WordWriter.WordDocument();
             //CreateDataRegion方法的三个参数分别代表：将要新建数据区域处的标签的名称、DataRegion的插入位置、与将要创建的DataRegion相关联的书签名称
@@ -24,9 +24,8 @@ namespace NetCoreSamples5.Controllers.DataRegionCreate
 
             pageofficeCtrl.SetWriter(wordDoc);
             //打开Word文档
-            pageofficeCtrl.WebOpen("../DataRegionCreate/doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
     }

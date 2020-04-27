@@ -19,7 +19,6 @@ namespace NetCoreSamples5.Controllers.FileMakerConvertPDFs
 
         public IActionResult Index()
         {
-
             string url = "";
             url = _webHostEnvironment.WebRootPath;
             ViewBag.url = url + "\\FileMakerConvertPDFs\\doc";
@@ -27,14 +26,11 @@ namespace NetCoreSamples5.Controllers.FileMakerConvertPDFs
         }
         public IActionResult Word()
         {
-
-
             String id = Request.Query["id"];
             String filePath = "";
             string webRootPath = _webHostEnvironment.WebRootPath;
             if ("1".Equals(id))
             {
-                //filePath = webRootPath+"/FileMakerConvertPDFs/doc/PageOffice产品简介.doc";
                 filePath = webRootPath + "/FileMakerConvertPDFs/doc/PageOffice产品简介.doc";
             }
             if ("2".Equals(id))
@@ -51,26 +47,21 @@ namespace NetCoreSamples5.Controllers.FileMakerConvertPDFs
                 filePath = webRootPath + "/FileMakerConvertPDFs/doc/PageOffice产品对客户端环境要求.doc";
             }
 
-
             filePath = filePath.Replace("/", "\\");
 
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             //添加自定义按钮
             pageofficeCtrl.AddCustomToolButton("保存", "Save()", 1);
-
 
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc";
             //打开Word文档
             pageofficeCtrl.WebOpen(filePath, PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
-
-
 
         public IActionResult Convert()
         {
@@ -98,23 +89,16 @@ namespace NetCoreSamples5.Controllers.FileMakerConvertPDFs
             filePath = filePath.Replace("/", "\\");
 
             PageOfficeNetCore.FileMakerCtrl fileMakerCtrl = new PageOfficeNetCore.FileMakerCtrl(Request);
-            fileMakerCtrl.ServerPage = "../PageOffice/POServer";
+            fileMakerCtrl.ServerPage = "/PageOffice/POServer";
             //设置保存页面
             fileMakerCtrl.SaveFilePage = "SaveDoc";
-
             //设置转换完成后执行的JS函数
-
             fileMakerCtrl.JsFunction_OnProgressComplete = "OnProgressComplete()";
-
             //打开文档
-
             fileMakerCtrl.FillDocumentAsPDF(filePath, PageOfficeNetCore.DocumentOpenType.Word, "aa.pdf");
-
             ViewBag.fmCtrl = fileMakerCtrl.GetHtmlCode("FileMakerCtrl1");
             return View();
         }
-
-
 
         public async Task<ActionResult> SaveDoc()
         {

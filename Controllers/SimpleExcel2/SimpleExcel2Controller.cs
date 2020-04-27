@@ -19,7 +19,7 @@ namespace NetCoreSamples5.Controllers.SimpleExcel2
         public IActionResult Excel()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             // 设置保存文件页面
             pageofficeCtrl.AddCustomToolButton("保存", "SaveFile()", 1);
@@ -27,14 +27,10 @@ namespace NetCoreSamples5.Controllers.SimpleExcel2
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc";
             //打开Word文档
-            pageofficeCtrl.WebOpen("../SimpleExcel2/doc/test.xls", PageOfficeNetCore.OpenModeType.xlsNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.xls", PageOfficeNetCore.OpenModeType.xlsNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
-
-
-
         public async Task<ActionResult> SaveDoc()
         {
             PageOfficeNetCore.FileSaver fs = new PageOfficeNetCore.FileSaver(Request, Response);

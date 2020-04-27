@@ -18,7 +18,7 @@ namespace NetCoreSamples5.Controllers.ImportExcelData
         public IActionResult Excel()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             //定义Workbook对象
             PageOfficeNetCore.ExcelWriter.Workbook workBook = new PageOfficeNetCore.ExcelWriter.Workbook();
@@ -30,15 +30,12 @@ namespace NetCoreSamples5.Controllers.ImportExcelData
             pageofficeCtrl.AddCustomToolButton("导入文件", "importData()", 5);
             pageofficeCtrl.AddCustomToolButton("提交数据", "submitData()", 1);
 
-
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc";
             //打开Word文档
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
-
 
 
         public async Task<ActionResult> SaveDoc()
@@ -82,7 +79,6 @@ namespace NetCoreSamples5.Controllers.ImportExcelData
 
             await Response.Body.WriteAsync(Encoding.GetEncoding("GB2312").GetBytes(content));
             doc.Close();
-
             return Content("OK");
         }
     }

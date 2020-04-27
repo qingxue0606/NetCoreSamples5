@@ -19,7 +19,7 @@ namespace NetCoreSamples5.Controllers.ExtractImage
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             //添加自定义的保存按钮
             pageofficeCtrl.AddCustomToolButton("保存图片", "Save", 1);
@@ -31,12 +31,10 @@ namespace NetCoreSamples5.Controllers.ExtractImage
             //设置保存页面
             pageofficeCtrl.SaveDataPage = "SaveData";
             //打开Word文档
-            pageofficeCtrl.WebOpen("../ExtractImage/doc/test.doc", PageOfficeNetCore.OpenModeType.docSubmitForm, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docSubmitForm, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
-
 
 
         public async Task<ActionResult> SaveData()

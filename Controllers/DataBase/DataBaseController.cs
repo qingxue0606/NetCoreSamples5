@@ -17,7 +17,7 @@ namespace NetCoreSamples5.Controllers.DataBase
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             //添加自定义按钮
             pageofficeCtrl.AddCustomToolButton("保存", "Save()", 1);
@@ -27,7 +27,6 @@ namespace NetCoreSamples5.Controllers.DataBase
             //打开Word文档
             pageofficeCtrl.WebOpen("Openstream?id=1", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
         public void Openstream()
@@ -57,7 +56,6 @@ namespace NetCoreSamples5.Controllers.DataBase
             Response.Body.Close();
         }
 
-
         public async Task<ActionResult> SaveDoc()
         {
             PageOfficeNetCore.FileSaver fs = new PageOfficeNetCore.FileSaver(Request, Response);
@@ -80,13 +78,8 @@ namespace NetCoreSamples5.Controllers.DataBase
 
             conn.Close();
             fs.Close();
-
             return Content("OK");
         }
-
-
-
-
 
     }
 }

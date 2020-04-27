@@ -12,7 +12,7 @@ namespace NetCoreSamples5.Controllers.CommandCtrl
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             pageofficeCtrl.CustomToolbar = false;
             pageofficeCtrl.OfficeToolbars = false;
@@ -21,13 +21,9 @@ namespace NetCoreSamples5.Controllers.CommandCtrl
 
             pageofficeCtrl.JsFunction_AfterDocumentOpened = "AfterDocumentOpened";
             //打开Word文档
-            pageofficeCtrl.WebOpen("../CommandCtrl/doc/test.doc", PageOfficeNetCore.OpenModeType.docReadOnly, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docReadOnly, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
-
-
-
     }
 }

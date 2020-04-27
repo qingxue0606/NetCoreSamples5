@@ -19,7 +19,7 @@ namespace NetCoreSamples5.Controllers.InsertPageBreak2
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
             //在文档末尾插入分页符，并且在新的页中创建新的数据区域插入另一篇文档
             PageOfficeNetCore.WordWriter.WordDocument wordDocument = new PageOfficeNetCore.WordWriter.WordDocument();
             PageOfficeNetCore.WordWriter.DataRegion mydr1 = wordDocument.CreateDataRegion("PO_first", PageOfficeNetCore.WordWriter.DataRegionInsertType.After, "[end]");
@@ -35,12 +35,10 @@ namespace NetCoreSamples5.Controllers.InsertPageBreak2
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc";
             //打开Word文档
-            pageofficeCtrl.WebOpen("../InsertPageBreak2/doc/test1.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test1.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
-
 
 
         public async Task<ActionResult> SaveDoc()

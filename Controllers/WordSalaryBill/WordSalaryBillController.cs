@@ -11,7 +11,6 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
 {
 
 
-
     public class WordSalaryBillController : Controller
     {
         string connString = "Data Source=D:\\lic\\WordSalaryBill.db";
@@ -39,7 +38,6 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
             strHtmls.Append("</tr>");
 
             bool flg = false;
-
 
             while (dr.Read())
             {
@@ -105,10 +103,9 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
         {
             String err = "";
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             string id = Request.Query["ID"];
-
 
             if (id != null && id.Length > 0)
             {
@@ -180,7 +177,6 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
                 dr.Close();
                 conn.Close();
 
-
                 //打开Word文档
 
             }
@@ -189,25 +185,21 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
                 err = "<script>alert('未获得该员工的工资信息！');location.href='index'</script>";
             }
 
-            pageofficeCtrl.WebOpen("../WordSalaryBill/doc/template.doc", PageOfficeNetCore.OpenModeType.docReadOnly, "tom");
+            pageofficeCtrl.WebOpen("doc/template.doc", PageOfficeNetCore.OpenModeType.docReadOnly, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
             ViewBag.err = err;
-
             return View();
         }
-
-
 
 
 
         public IActionResult Compose()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             string idlist = Request.Query["ids"];
             string sql = "select * from Salary where ID in(" + idlist + ") order by ID";
-
 
             SqliteConnection conn = new SqliteConnection(connString);
             conn.Open();
@@ -269,24 +261,18 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
                 i++;
             }
 
-
             dr.Close();
             conn.Close();
-
 
             // 设置PageOffice组件服务页面
             pageofficeCtrl.SetWriter(doc);
 
             pageofficeCtrl.Caption = "生成工资条";
 
-
-            pageofficeCtrl.WebOpen("../WordSalaryBill/doc/test.doc", PageOfficeNetCore.OpenModeType.docAdmin, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docAdmin, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
-
-
 
 
 
@@ -294,10 +280,9 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
         {
             String err = "";
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             string id = Request.Query["ID"];
-
 
             if (id != null && id.Length > 0)
             {
@@ -332,7 +317,6 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
                     doc.OpenDataRegion("PO_DeptName").Value = dr["DeptName"].ToString();
 
 
-
                     if (dr["SalTotal"] != null && dr["SalTotal"].ToString() != "")
                     {
                         doc.OpenDataRegion("PO_SalTotal").Value = dr["SalTotal"].ToString();
@@ -354,7 +338,6 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
                     if (dr["SalCount"] != null && dr["SalCount"].ToString() != "")
                     {
                         doc.OpenDataRegion("PO_SalCount").Value = dr["SalCount"].ToString();
-
 
                     }
                     else
@@ -382,7 +365,6 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
                 dr.Close();
                 conn.Close();
 
-
                 //打开Word文档
 
             }
@@ -391,16 +373,14 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
                 err = "<script>alert('未获得该员工的工资信息！');location.href='index'</script>";
             }
 
-            pageofficeCtrl.WebOpen("../WordSalaryBill/doc/template.doc", PageOfficeNetCore.OpenModeType.docSubmitForm, "tom");
+            pageofficeCtrl.WebOpen("doc/template.doc", PageOfficeNetCore.OpenModeType.docSubmitForm, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
             ViewBag.err = err;
-
             return View();
         }
 
         public async Task<ActionResult> SaveData()
         {
-
 
             string id = Request.Query["id"];
 
@@ -416,7 +396,6 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
             salCount = doc.OpenDataRegion("PO_SalCount").Value;
             dateTime = doc.OpenDataRegion("PO_DataTime").Value;
 
-
             string sql = "UPDATE Salary SET UserName='" + userName
                 + "',DeptName='" + deptName + "',SalTotal='" + salTotoal
                 + "',SalDeduct='" + salDeduct + "',SalCount='" + salCount
@@ -429,10 +408,8 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
             cmd.ExecuteNonQuery();
             conn.Close();
             doc.Close();
-
             return Content("OK");
         }
-
 
     }
 }

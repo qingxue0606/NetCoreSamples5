@@ -29,6 +29,5 @@ namespace NetCoreSamples5.Controllers
             return Content("OK");
         }
 
-
     }
 }

@@ -11,7 +11,7 @@ namespace NetCoreSamples5.Controllers.ExcelTable
         public IActionResult Excel()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             //定义Workbook对象
             PageOfficeNetCore.ExcelWriter.Workbook workBook = new PageOfficeNetCore.ExcelWriter.Workbook();
@@ -31,11 +31,9 @@ namespace NetCoreSamples5.Controllers.ExcelTable
             pageofficeCtrl.SetWriter(workBook);// 注意不要忘记此代码，如果缺少此句代码，不会赋值成功。
             pageofficeCtrl.Caption = "使用OpenTable给Excel赋值";
 
-
             //打开Word文档
-            pageofficeCtrl.WebOpen("../ExcelTable/doc/test.xls", PageOfficeNetCore.OpenModeType.xlsNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.xls", PageOfficeNetCore.OpenModeType.xlsNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
     }

@@ -19,7 +19,7 @@ namespace NetCoreSamples5.Controllers.WordHandDraw
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             pageofficeCtrl.AddCustomToolButton("保存", "Save()", 1);
             pageofficeCtrl.AddCustomToolButton("开始手写", "StartHandDraw()", 5);
@@ -33,12 +33,10 @@ namespace NetCoreSamples5.Controllers.WordHandDraw
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc";
             //打开Word文档
-            pageofficeCtrl.WebOpen("../WordHandDraw/doc/template.doc", PageOfficeNetCore.OpenModeType.docRevisionOnly, "tom");
+            pageofficeCtrl.WebOpen("doc/template.doc", PageOfficeNetCore.OpenModeType.docRevisionOnly, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
-
 
 
         public async Task<ActionResult> SaveDoc()

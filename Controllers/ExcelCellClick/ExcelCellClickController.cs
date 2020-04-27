@@ -14,7 +14,7 @@ namespace NetCoreSamples5.Controllers.ExcelCellClick
         public IActionResult Excel()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             PageOfficeNetCore.ExcelWriter.Workbook workBook = new PageOfficeNetCore.ExcelWriter.Workbook();
             PageOfficeNetCore.ExcelWriter.Sheet sheet = workBook.OpenSheet("Sheet1");
@@ -32,20 +32,15 @@ namespace NetCoreSamples5.Controllers.ExcelCellClick
             //设置保存页面
             pageofficeCtrl.SaveDataPage = "SaveData";
             //打开Word文档
-            pageofficeCtrl.WebOpen("../ExcelCellClick/doc/test.xls", PageOfficeNetCore.OpenModeType.xlsSubmitForm, "tom");
+            pageofficeCtrl.WebOpen("doc/test.xls", PageOfficeNetCore.OpenModeType.xlsSubmitForm, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
 
         public IActionResult select()
         {
-
-
             return View();
         }
-
-
 
         public async Task<ActionResult> SaveData()
         {

@@ -11,7 +11,7 @@ namespace NetCoreSamples5.Controllers.WordResExcel
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             PageOfficeNetCore.WordWriter.WordDocument worddoc = new PageOfficeNetCore.WordWriter.WordDocument();
             //先在要插入word文件的位置手动插入书签,书签必须以“PO_”为前缀
@@ -26,9 +26,8 @@ namespace NetCoreSamples5.Controllers.WordResExcel
             pageofficeCtrl.SetWriter(worddoc);
             pageofficeCtrl.Caption = "演示：后台编程插入excel文件到数据区域(企业版)";
             //打开Word文档
-            pageofficeCtrl.WebOpen("../WordResExcel/doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
     }

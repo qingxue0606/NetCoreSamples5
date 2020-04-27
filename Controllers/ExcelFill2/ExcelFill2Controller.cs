@@ -12,8 +12,7 @@ namespace NetCoreSamples5.Controllers.ExcelFill2
         public IActionResult Excel()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
-
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
             pageofficeCtrl.Caption = "简单的给Excel赋值";
             //定义Workbook对象
             PageOfficeNetCore.ExcelWriter.Workbook workBook = new PageOfficeNetCore.ExcelWriter.Workbook();
@@ -44,9 +43,8 @@ namespace NetCoreSamples5.Controllers.ExcelFill2
 
             pageofficeCtrl.SetWriter(workBook);
             //打开Word文档
-            pageofficeCtrl.WebOpen("../ExcelFill2/doc/test.xls", PageOfficeNetCore.OpenModeType.xlsNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test.xls", PageOfficeNetCore.OpenModeType.xlsNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
 

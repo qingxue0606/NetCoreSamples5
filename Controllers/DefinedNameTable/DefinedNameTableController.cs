@@ -22,11 +22,10 @@ namespace NetCoreSamples5.Controllers.DefinedNameTable
             return View();
         }
 
-
         public IActionResult ExcelFill()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             PageOfficeNetCore.ExcelWriter.Workbook wk = new PageOfficeNetCore.ExcelWriter.Workbook();
             PageOfficeNetCore.ExcelWriter.Sheet sheet = wk.OpenSheet("Sheet1");
@@ -40,14 +39,12 @@ namespace NetCoreSamples5.Controllers.DefinedNameTable
             table.Close();
             pageofficeCtrl.SetWriter(wk);// 注意不要忘记此代码，如果缺少此句代码，不会赋值成功。
 
-
             pageofficeCtrl.Caption = "给Excel文档中定义名称的单元格赋值";
             pageofficeCtrl.SaveDataPage = "SaveData";
             pageofficeCtrl.AddCustomToolButton("保存", "Save()", 1);
             //打开Word文档
-            pageofficeCtrl.WebOpen("../DefinedNameTable/doc/test.xls", PageOfficeNetCore.OpenModeType.xlsSubmitForm, "tom");
+            pageofficeCtrl.WebOpen("doc/test.xls", PageOfficeNetCore.OpenModeType.xlsSubmitForm, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
         public IActionResult ExcelFill2()
@@ -55,9 +52,8 @@ namespace NetCoreSamples5.Controllers.DefinedNameTable
 
             string tempFileName = Request.Query["temp"];
 
-
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
 
             PageOfficeNetCore.ExcelWriter.Workbook wk = new PageOfficeNetCore.ExcelWriter.Workbook();
             PageOfficeNetCore.ExcelWriter.Sheet sheet = wk.OpenSheet("Sheet1");
@@ -73,42 +69,31 @@ namespace NetCoreSamples5.Controllers.DefinedNameTable
             //定义单元格对象，参数“year”就是Excel模板中定义的单元格的名称
             PageOfficeNetCore.ExcelWriter.Cell cellYear = sheet.OpenCellByDefinedName("year");
             // 给单元格赋值
-
             cellYear.Value = "2015年";
 
             PageOfficeNetCore.ExcelWriter.Cell cellName = sheet.OpenCellByDefinedName("name");
             cellName.Value = "张三";
 
             pageofficeCtrl.SetWriter(wk);
-
-
             //隐藏菜单栏
             pageofficeCtrl.Menubar = false;
-
-            //poCtrl1.setSaveDataPage("SaveData.aspx");
-            //poCtrl1.addCustomToolButton("保存", "Save()", 1);
-            //设置PageOfficeCtrl控件的服务页面
-
 
             pageofficeCtrl.Caption = "给Excel文档中定义名称的单元格赋值";
             pageofficeCtrl.SaveDataPage = "SaveData";
             pageofficeCtrl.AddCustomToolButton("保存", "Save()", 1);
 
             //打开Word文档
-            pageofficeCtrl.WebOpen("../DefinedNameTable/doc/" + tempFileName, PageOfficeNetCore.OpenModeType.xlsSubmitForm, "tom");
+            pageofficeCtrl.WebOpen("doc/" + tempFileName, PageOfficeNetCore.OpenModeType.xlsSubmitForm, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
-
 
 
         public IActionResult ExcelFill4()
         {
 
-
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
             PageOfficeNetCore.ExcelWriter.Workbook wk = new PageOfficeNetCore.ExcelWriter.Workbook();
             PageOfficeNetCore.ExcelWriter.Sheet sheet = wk.OpenSheet("Sheet1");
             PageOfficeNetCore.ExcelWriter.Table table = sheet.OpenTable("B4:F11");
@@ -122,7 +107,6 @@ namespace NetCoreSamples5.Controllers.DefinedNameTable
                 table.DataFields[4].Value = "120%";
                 table.NextRow();
             }
-
             table.Close();
 
             //定义另一个table
@@ -141,31 +125,21 @@ namespace NetCoreSamples5.Controllers.DefinedNameTable
             table2.Close();
             pageofficeCtrl.SetWriter(wk);// 注意不要忘记此代码，如果缺少此句代码，不会赋值成功。
 
-
             //隐藏菜单栏
             pageofficeCtrl.Menubar = false;
-
-
-
-
             pageofficeCtrl.Caption = "给Excel文档中定义名称的单元格赋值";
             pageofficeCtrl.SaveDataPage = "SaveData";
-
-
             //打开Word文档
-            pageofficeCtrl.WebOpen("../DefinedNameTable/doc/test4.xls", PageOfficeNetCore.OpenModeType.xlsSubmitForm, "tom");
+            pageofficeCtrl.WebOpen("doc/test4.xls", PageOfficeNetCore.OpenModeType.xlsSubmitForm, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
-
 
         public IActionResult ExcelFill5()
         {
 
-
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
             PageOfficeNetCore.ExcelWriter.Workbook wk = new PageOfficeNetCore.ExcelWriter.Workbook();
             PageOfficeNetCore.ExcelWriter.Sheet sheet = wk.OpenSheet("Sheet1");
             PageOfficeNetCore.ExcelWriter.Table table = sheet.OpenTableByDefinedName("report", 4, 5, true);
@@ -197,41 +171,30 @@ namespace NetCoreSamples5.Controllers.DefinedNameTable
 
             table2.Close();
             pageofficeCtrl.SetWriter(wk);// 注意不要忘记此代码，如果缺少此句代码，不会赋值成功。
-
-
             pageofficeCtrl.Caption = "给Excel文档中定义名称的单元格赋值";
             pageofficeCtrl.SaveDataPage = "SaveData";
             pageofficeCtrl.AddCustomToolButton("保存", "Save()", 1);
 
-
             //打开Word文档
-            pageofficeCtrl.WebOpen("../DefinedNameTable/doc/test4.xls", PageOfficeNetCore.OpenModeType.xlsSubmitForm, "tom");
+            pageofficeCtrl.WebOpen("doc/test4.xls", PageOfficeNetCore.OpenModeType.xlsSubmitForm, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
         public IActionResult ExcelFill6()
         {
-
-
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
-            pageofficeCtrl.ServerPage = "../PageOffice/POServer";
+            pageofficeCtrl.ServerPage = "/PageOffice/POServer";
             pageofficeCtrl.Caption = "简单的给Excel赋值";
             pageofficeCtrl.AddCustomToolButton("保存", "Save()", 1);
 
-
             //打开Word文档
-            pageofficeCtrl.WebOpen("../DefinedNameTable/doc/test4.xls", PageOfficeNetCore.OpenModeType.xlsNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("doc/test4.xls", PageOfficeNetCore.OpenModeType.xlsNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
-
             return View();
         }
 
-
         public async Task<ActionResult> SaveData()
         {
-
-
             String content = "";
             PageOfficeNetCore.ExcelReader.Workbook doc = new PageOfficeNetCore.ExcelReader.Workbook(Request, Response);
 
@@ -266,16 +229,10 @@ namespace NetCoreSamples5.Controllers.DefinedNameTable
                 table.NextRow();
             }
             table.Close();
-
-
-
             await Response.Body.WriteAsync(Encoding.GetEncoding("GB2312").GetBytes(content));
             doc.ShowPage(400, 300);
             doc.Close();
-
             return Content("OK");
         }
-
-
     }
 }

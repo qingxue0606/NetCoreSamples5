@@ -13,14 +13,11 @@ namespace NetCoreSamples5.Controllers.POPDF
 
 
 
-
-
             // 按键说明：光标键、Home、End、PageUp、PageDown可用来移动或翻页；数字键盘+、-用来放大缩小；数字键盘/、*用来旋转页面。
 
             PageOfficeNetCore.PDFCtrl pdfCtrl = new PageOfficeNetCore.PDFCtrl(Request);
 
-
-            pdfCtrl.ServerPage = "../PageOffice/POServer";
+            pdfCtrl.ServerPage = "/PageOffice/POServer";
 
             pdfCtrl.Theme = PageOfficeNetCore.ThemeType.Office2007;
             //pdfCtrl1.TitlebarColor = Color.Green;
@@ -45,10 +42,9 @@ namespace NetCoreSamples5.Controllers.POPDF
             //pdfCtrl1.AddCustomToolButton("-", "", 0);
             //pdfCtrl1.AddCustomToolButton("全屏", "SwitchFullScreen()", 4); 
             //pdfCtrl1.AllowCopy = false;
-            pdfCtrl.WebOpen("../POPDF/doc/test.pdf");
+            pdfCtrl.WebOpen("doc/test.pdf");
 
             ViewBag.pdfCtrl = pdfCtrl.GetHtmlCode("PDFCtrl1");
-
             return View();
         }
     }
