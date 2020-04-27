@@ -12,14 +12,14 @@
     <script language="javascript" type="text/javascript">
 
         function Button1_onclick() {
-            var value=document.getElementById("PageOfficeCtrl1").RunMacro("myFunc1", document.getElementById("textarea1").value);
-           document.getElementById("PageOfficeCtrl1").Alert("myFunc1宏的返回值是："+value);
+            var value = document.getElementById("PageOfficeCtrl1").RunMacro("myFunc1", document.getElementById("textarea1").value);
+            document.getElementById("PageOfficeCtrl1").Alert("myFunc1宏的返回值是：" + value);
         }
 
-	function RunMacro2(){
-  		var value=document.getElementById("PageOfficeCtrl1").RunMacro("myFunc2", 'Function myFunc2() \r\n myFunc2 = "123" \r\n End Function');
- 		document.getElementById("PageOfficeCtrl1").Alert(value);
-  	}
+        function RunMacro2() {
+            var value = document.getElementById("PageOfficeCtrl1").RunMacro("myFunc2", 'Function myFunc2() \r\n myFunc2 = "123" \r\n End Function');
+            document.getElementById("PageOfficeCtrl1").Alert(value);
+        }
 
 
     </script>

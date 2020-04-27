@@ -26,7 +26,7 @@ namespace NetCoreSamples5.Controllers.ExaminationPaper
             SqliteDataReader dr = cmd.ExecuteReader();
 
             StringBuilder strHtmls = new StringBuilder();
-            
+
             strHtmls.Append("<tr  style='background-color:#FEE;'>");
             strHtmls.Append("<td style='text-align:center;width=10%' >选择</td>");
             strHtmls.Append("<td style='text-align:center;width=30%'>题库编号</td>");
@@ -145,7 +145,7 @@ namespace NetCoreSamples5.Controllers.ExaminationPaper
 
 
 
-            
+
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "../PageOffice/POServer";
 
@@ -192,7 +192,7 @@ namespace NetCoreSamples5.Controllers.ExaminationPaper
                 Response.ContentType = "Application/msword"; //其他文件格式换成相应类型即可 application/x-excel, application/ms-powerpoint, application/pdf 
                 Response.Headers.Add("Content-Disposition", "attachment; filename=down.doc");//其他文件格式换成相应类型的filename
                 Response.Headers.Add("Content-Length", num.ToString());
-                
+
                 Response.Body.WriteAsync(b);
                 Response.Clear();
             }

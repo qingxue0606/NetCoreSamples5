@@ -10,7 +10,7 @@ namespace NetCoreSamples5.Controllers.FileMakerSingle
 {
     public class FileMakerSingleController : Controller
     {
-        
+
         private readonly IWebHostEnvironment _webHostEnvironment;
 
         public FileMakerSingleController(IWebHostEnvironment webHostEnvironment)

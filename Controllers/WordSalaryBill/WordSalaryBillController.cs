@@ -11,7 +11,7 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
 {
 
 
-    
+
     public class WordSalaryBillController : Controller
     {
         string connString = "Data Source=D:\\lic\\WordSalaryBill.db";
@@ -51,7 +51,7 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
                 strHtmls.Append("<td style=' text-align:left;'>" + pID + "</td>");
                 strHtmls.Append("<td style=' text-align:left;'>" + dr["UserName"].ToString() + "</td>");
                 strHtmls.Append("<td style=' text-align:left;'>" + dr["DeptName"].ToString() + "</td>");
-                if (dr["SalTotal"] != null &&dr["SalTotal"].ToString()!="")
+                if (dr["SalTotal"] != null && dr["SalTotal"].ToString() != "")
                 {
                     strHtmls.Append("<td style=' text-align:left;'>" + dr["SalTotal"].ToString() + "</td>");
                 }
@@ -60,7 +60,7 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
                     strHtmls.Append("<td style=' text-align:left;'>￥0.00</td>");
                 }
 
-                if (dr["SalDeduct"] != null && dr["SalDeduct"].ToString()!="")
+                if (dr["SalDeduct"] != null && dr["SalDeduct"].ToString() != "")
                 {
                     strHtmls.Append("<td style=' text-align:left;'>" + dr["SalDeduct"].ToString() + "</td>");
                 }
@@ -69,7 +69,7 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
                     strHtmls.Append("<td style=' text-align:left;'>￥0.00</td>");
                 }
 
-                if (dr["SalCount"] != null && dr["SalCount"].ToString()!="")
+                if (dr["SalCount"] != null && dr["SalCount"].ToString() != "")
                 {
                     strHtmls.Append("<td style=' text-align:left;'>" + dr["SalCount"].ToString() + "</td>");
                 }
@@ -78,7 +78,7 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
                     strHtmls.Append("<td style=' text-align:left;'>￥0.00</td>");
                 }
 
-                if (dr["DataTime"] != null && dr["DataTime"].ToString()!="")
+                if (dr["DataTime"] != null && dr["DataTime"].ToString() != "")
                 {
                     strHtmls.Append("<td style=' text-align:center;'>" + dr["DataTime"].ToString() + "</td>");
                 }
@@ -135,7 +135,7 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
                     table.OpenCellRC(2, 2).Value = dr["UserName"].ToString();
                     table.OpenCellRC(2, 3).Value = dr["DeptName"].ToString();
 
-                    if (dr["SalTotal"] != null&& dr["SalTotal"].ToString()!="")
+                    if (dr["SalTotal"] != null && dr["SalTotal"].ToString() != "")
                     {
                         table.OpenCellRC(2, 4).Value = dr["SalTotal"].ToString();
                     }
@@ -182,7 +182,7 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
 
 
                 //打开Word文档
-                
+
             }
             else
             {
@@ -224,8 +224,8 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
             while (dr.Read())
             {
                 data = doc.CreateDataRegion("reg" + i.ToString(), PageOfficeNetCore.WordWriter.DataRegionInsertType.Before, "[End]");
-                data.Value= "[word]doc/template.doc[/word]";
-                table= data.OpenTable(1);
+                data.Value = "[word]doc/template.doc[/word]";
+                table = data.OpenTable(1);
 
                 table.OpenCellRC(2, 1).Value = dr["ID"].ToString();
                 table.OpenCellRC(2, 2).Value = dr["UserName"].ToString();
@@ -270,8 +270,8 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
             }
 
 
-                dr.Close();
-                conn.Close();
+            dr.Close();
+            conn.Close();
 
 
             // 设置PageOffice组件服务页面
@@ -333,7 +333,7 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
 
 
 
-                    if (dr["SalTotal"] != null && dr["SalTotal"].ToString()!="")
+                    if (dr["SalTotal"] != null && dr["SalTotal"].ToString() != "")
                     {
                         doc.OpenDataRegion("PO_SalTotal").Value = dr["SalTotal"].ToString();
                     }

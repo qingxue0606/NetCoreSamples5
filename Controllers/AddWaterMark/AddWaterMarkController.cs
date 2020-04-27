@@ -12,7 +12,6 @@ namespace NetCoreSamples5.Controllers.AddWaterMark
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "../PageOffice/POServer";
-
             //设置PageOfficeCtrl 控件标题栏文字
             pageofficeCtrl.Caption = "演示:给Word文档添加水印";
             //定义一个WordDocument对象

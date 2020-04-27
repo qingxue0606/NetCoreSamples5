@@ -10,15 +10,14 @@
     <title>演示：js获取word选中的文字</title>
 
     <script type="text/javascript">
-    function  getSelectionText()
-    {
-        if (document.getElementById("PageOfficeCtrl1").Document.Application.Selection.Range.Text != "") {
-            document.getElementById("PageOfficeCtrl1").Alert(document.getElementById("PageOfficeCtrl1").Document.Application.Selection.Range.Text);
-	    }
-	    else{
-	        document.getElementById("PageOfficeCtrl1").Alert("您没有选择任何文本。");
-	    }
-    }
+        function getSelectionText() {
+            if (document.getElementById("PageOfficeCtrl1").Document.Application.Selection.Range.Text != "") {
+                document.getElementById("PageOfficeCtrl1").Alert(document.getElementById("PageOfficeCtrl1").Document.Application.Selection.Range.Text);
+            }
+            else {
+                document.getElementById("PageOfficeCtrl1").Alert("您没有选择任何文本。");
+            }
+        }
     </script>
 
 </head>

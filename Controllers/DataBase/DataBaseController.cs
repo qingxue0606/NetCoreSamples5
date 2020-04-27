@@ -66,7 +66,7 @@ namespace NetCoreSamples5.Controllers.DataBase
 
             string sID = Request.Query["id"];
 
-            string sql = "UPDATE  Stream SET Word=@file WHERE ID=" + sID; 
+            string sql = "UPDATE  Stream SET Word=@file WHERE ID=" + sID;
 
             SqliteConnection conn = new SqliteConnection(connString);
             conn.Open();

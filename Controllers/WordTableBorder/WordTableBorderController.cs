@@ -36,7 +36,7 @@ namespace NetCoreSamples5.Controllers.WordTableBorder
             PageOfficeNetCore.WordWriter.Border border = table.Border;
             // 设置边框的类型
             border.BorderType = PageOfficeNetCore.WordWriter.WdBorderType.wdFullGrid;//包含内边框
-                                                                              //设置边框的颜色
+                                                                                     //设置边框的颜色
             border.LineColor = Color.Red;
             //设置边框的线条样式
             border.LineStyle = PageOfficeNetCore.WordWriter.WdLineStyle.wdLineStyleDot;

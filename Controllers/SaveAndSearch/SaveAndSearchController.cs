@@ -30,7 +30,7 @@ namespace NetCoreSamples5.Controllers.SaveAndSearch
             key = Request.Query["Input_KeyWord"].ToString();
             key = System.Web.HttpUtility.UrlDecode(key, System.Text.Encoding.UTF8);
 
-            string sql ;
+            string sql;
 
             if (key != null && key.Length > 0)
             {
@@ -41,7 +41,7 @@ namespace NetCoreSamples5.Controllers.SaveAndSearch
                 sql = "select * from word order by ID desc ";
             }
 
-        
+
             SqliteConnection conn = new SqliteConnection(connString);
             conn.Open();
             SqliteCommand cmd = new SqliteCommand(sql, conn);
@@ -49,16 +49,18 @@ namespace NetCoreSamples5.Controllers.SaveAndSearch
             cmd.CommandText = sql;
             SqliteDataReader dr = cmd.ExecuteReader();
             bool flag = false;
-            while (dr.Read()) {
+            while (dr.Read())
+            {
                 strHtml.Append("<tr onmouseover='onColor(this)' onmouseout='offColor(this)'>\n");
-                strHtml.Append("<td>" + dr["FileName"].ToString()    + "</td>\n");
-                strHtml.Append("<td style='text-align:center;'><a style=' color:#00217d;' href='javascript:POBrowser.openWindowModeless(\"Word?ID=" + dr["ID"].ToString() + "\",\"width=1200px;height=800px;\",\"" 
+                strHtml.Append("<td>" + dr["FileName"].ToString() + "</td>\n");
+                strHtml.Append("<td style='text-align:center;'><a style=' color:#00217d;' href='javascript:POBrowser.openWindowModeless(\"Word?ID=" + dr["ID"].ToString() + "\",\"width=1200px;height=800px;\",\""
                     + key + "\");' >编辑</a></td>\n");
                 strHtml.Append(" </tr>\n");
 
                 flag = true;
             }
-            if (!flag) {
+            if (!flag)
+            {
                 strHtml.Append("<tr>\r\n");
                 strHtml.Append("<td colspan='2' style='width:100%; text-align:center;'>对不起，没有搜索到相应的数据。\r\n");
                 strHtml.Append("</td></tr>\r\n");
@@ -66,13 +68,13 @@ namespace NetCoreSamples5.Controllers.SaveAndSearch
             }
             ViewBag.strHtml = strHtml.ToString();
 
-                return View();
+            return View();
         }
 
         public IActionResult Word()
         {
             string id = Request.Query["id"].ToString().Trim();
-            string sql = "select * from word where id=" + id; 
+            string sql = "select * from word where id=" + id;
             SqliteConnection conn = new SqliteConnection(connString);
             conn.Open();
             SqliteCommand cmd = new SqliteCommand(sql, conn);

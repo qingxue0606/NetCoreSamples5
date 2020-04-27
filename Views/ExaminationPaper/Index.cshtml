@@ -13,10 +13,10 @@
 </head>
 <body style="text-align: center">
     <script type="text/javascript">
-		// JS方式生成试卷
-		function button1Click(){
-		  var ids = "";
-          for (var i = 1; i < 11; i++) {
+        // JS方式生成试卷
+        function button1Click() {
+            var ids = "";
+            for (var i = 1; i < 11; i++) {
                 if (document.getElementById("check" + i.toString()).checked) {
                     ids += i.toString() + ",";
                 }
@@ -24,12 +24,12 @@
             if (ids == "")
                 alert("请先选择要生成的试题");
             else
-          location.href ="javascript:POBrowser.openWindowModeless('Compose?ids="+ids.substr(0, ids.length - 1)+"', 'width=1200px;height=800px;');" ;
-		}
-		// 后台编程生成试卷
-		function button2Click(){
-			var ids = "";
-          for (var i = 1; i < 11; i++) {
+                location.href = "javascript:POBrowser.openWindowModeless('Compose?ids=" + ids.substr(0, ids.length - 1) + "', 'width=1200px;height=800px;');";
+        }
+        // 后台编程生成试卷
+        function button2Click() {
+            var ids = "";
+            for (var i = 1; i < 11; i++) {
                 if (document.getElementById("check" + i.toString()).checked) {
                     ids += i.toString() + ",";
                 }
@@ -37,8 +37,8 @@
             if (ids == "")
                 alert("请先选择要生成的试题");
             else
-          location.href ="javascript:POBrowser.openWindowModeless('Compose2?ids="+ids.substr(0, ids.length - 1)+"', 'width=1200px;height=800px;');" ;
-		}
+                location.href = "javascript:POBrowser.openWindowModeless('Compose2?ids=" + ids.substr(0, ids.length - 1) + "', 'width=1200px;height=800px;');";
+        }
     </script>
     <div>
         <table align="center" style="color:red;">

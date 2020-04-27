@@ -55,25 +55,25 @@
 
 
         function addBookMark() {
-	    bkName = document.getElementById("txtBkName").value;
+            bkName = document.getElementById("txtBkName").value;
             bkText = document.getElementById("txtBkText").value;
 
             var mac = "Function myfunc()" + " \r\n"
-                    + "Dim r As Range " + " \r\n"
-                    + "Set r = Application.Selection.Range " + " \r\n"
-                    + "r.Text = \"" + bkText + "\"" + " \r\n"
-                    + "Application.ActiveDocument.Bookmarks.Add Name:=\"" + bkName + "\", Range:=r " + " \r\n"
-                    + "Application.ActiveDocument.Bookmarks(\"" + bkName + "\").Select " + " \r\n"
-                    + "End Function " + " \r\n";
+                + "Dim r As Range " + " \r\n"
+                + "Set r = Application.Selection.Range " + " \r\n"
+                + "r.Text = \"" + bkText + "\"" + " \r\n"
+                + "Application.ActiveDocument.Bookmarks.Add Name:=\"" + bkName + "\", Range:=r " + " \r\n"
+                + "Application.ActiveDocument.Bookmarks(\"" + bkName + "\").Select " + " \r\n"
+                + "End Function " + " \r\n";
             document.getElementById("PageOfficeCtrl1").RunMacro("myfunc", mac);
         }
         function delBookMark() {
             var mac = "Function myfunc()" + " \r\n"
-                    + "If  Application.ActiveDocument.Bookmarks.Exists(\"" + bkName + "\") Then " + " \r\n"
-                    + "    Application.ActiveDocument.Bookmarks(\"" + bkName + "\").Select " + " \r\n"
-                    + "    Application.Selection.Range.Text = \"\" " + " \r\n"
-                    + "End If " + " \r\n"
-                    + "End Function " + " \r\n";
+                + "If  Application.ActiveDocument.Bookmarks.Exists(\"" + bkName + "\") Then " + " \r\n"
+                + "    Application.ActiveDocument.Bookmarks(\"" + bkName + "\").Select " + " \r\n"
+                + "    Application.Selection.Range.Text = \"\" " + " \r\n"
+                + "End If " + " \r\n"
+                + "End Function " + " \r\n";
             document.getElementById("PageOfficeCtrl1").RunMacro("myfunc", mac);
         }
     </script>

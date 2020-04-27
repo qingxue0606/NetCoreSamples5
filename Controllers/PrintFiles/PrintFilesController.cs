@@ -18,7 +18,7 @@ namespace NetCoreSamples5.Controllers.PrintFiles
 
         public IActionResult Index()
         {
-            string url = _webHostEnvironment.WebRootPath+ " /PrintFiles/doc/";
+            string url = _webHostEnvironment.WebRootPath + " /PrintFiles/doc/";
             ViewBag.url = url;
             return View();
         }
@@ -60,7 +60,7 @@ namespace NetCoreSamples5.Controllers.PrintFiles
 
             string id = Request.Query["id"];
 
-            
+
             PageOfficeNetCore.FileSaver fs = new PageOfficeNetCore.FileSaver(Request, Response);
             await fs.LoadAsync();
             string fileName = "maker" + id + fs.FileExtName;

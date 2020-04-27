@@ -58,7 +58,7 @@ namespace NetCoreSamples5.Controllers.DataRegionTable
 
 
             //-----------  PageOffice 服务器端编程开始  -------------------//
-            PageOfficeNetCore.WordReader.WordDocument doc = new PageOfficeNetCore.WordReader.WordDocument(Request,Response);
+            PageOfficeNetCore.WordReader.WordDocument doc = new PageOfficeNetCore.WordReader.WordDocument(Request, Response);
 
             await doc.LoadAsync();
 
@@ -84,7 +84,7 @@ namespace NetCoreSamples5.Controllers.DataRegionTable
 
             doc.ShowPage(300, 300);
             doc.Close();
-            
+
 
 
 

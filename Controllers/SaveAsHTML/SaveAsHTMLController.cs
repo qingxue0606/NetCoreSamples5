@@ -37,7 +37,7 @@ namespace NetCoreSamples5.Controllers.SaveAsHTML
             PageOfficeNetCore.FileSaver fs = new PageOfficeNetCore.FileSaver(Request, Response);
             await fs.LoadAsync();
             string webRootPath = _webHostEnvironment.WebRootPath;
-            fs.SaveToFile(webRootPath + "/SaveAsHTML/doc/"+ fs.FileName);
+            fs.SaveToFile(webRootPath + "/SaveAsHTML/doc/" + fs.FileName);
             fs.Close();
             return Content("OK");
         }

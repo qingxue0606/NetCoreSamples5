@@ -41,7 +41,7 @@ namespace NetCoreSamples5.Controllers.ImportWordData
             string docID = Request.Query["id"];
 
 
-            PageOfficeNetCore.WordReader.WordDocument doc = new PageOfficeNetCore.WordReader.WordDocument(Request,Response);
+            PageOfficeNetCore.WordReader.WordDocument doc = new PageOfficeNetCore.WordReader.WordDocument(Request, Response);
 
 
             await doc.LoadAsync();
@@ -51,7 +51,7 @@ namespace NetCoreSamples5.Controllers.ImportWordData
             String sCause = doc.OpenDataRegion("PO_cause").Value;
             String sNum = doc.OpenDataRegion("PO_num").Value;
             String sDate = doc.OpenDataRegion("PO_date").Value;
-            
+
 
             conment += "提交的数据为：<br/>";
             conment += "姓名：" + sName + "<br/>";

@@ -43,19 +43,20 @@ namespace NetCoreSamples5.Controllers.TaoHong
         {
 
 
-            
+
             String mb = Request.Query["mb"];
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "../PageOffice/POServer";
             String fileName = "test.doc";
-            if (mb != null && mb.Trim() != "") {
+            if (mb != null && mb.Trim() != "")
+            {
                 string webRootPath = _webHostEnvironment.WebRootPath;
 
 
-               fileName = "zhengshi.doc";
+                fileName = "zhengshi.doc";
 
-                System.IO.File.Copy(webRootPath + "/TaoHong/doc/"+ mb,
-               webRootPath + "/TaoHong/doc/"+fileName , true);
+                System.IO.File.Copy(webRootPath + "/TaoHong/doc/" + mb,
+               webRootPath + "/TaoHong/doc/" + fileName, true);
                 //给正式发文的文件填充数据
                 PageOfficeNetCore.WordWriter.WordDocument doc = new PageOfficeNetCore.WordWriter.WordDocument();
                 PageOfficeNetCore.WordWriter.DataRegion copies = doc.OpenDataRegion("PO_Copies");
@@ -77,7 +78,7 @@ namespace NetCoreSamples5.Controllers.TaoHong
 
             pageofficeCtrl.AddCustomToolButton("全屏/还原", "IsFullScreen", 4);
             pageofficeCtrl.SaveFilePage = "SaveDoc";
-            pageofficeCtrl.WebOpen("../TaoHong/doc/"+fileName, PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("../TaoHong/doc/" + fileName, PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
 
 
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
@@ -99,7 +100,7 @@ namespace NetCoreSamples5.Controllers.TaoHong
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc";
             //打开Word文档
-            pageofficeCtrl.WebOpen("../TaoHong/doc/"+fileName, PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("../TaoHong/doc/" + fileName, PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
 
             return View();

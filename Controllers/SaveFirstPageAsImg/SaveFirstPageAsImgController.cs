@@ -52,7 +52,7 @@ namespace NetCoreSamples5.Controllers.SaveFirstPageAsImg
 
 
 
-            
+
             fs.Close();
             return Content("OK");
         }

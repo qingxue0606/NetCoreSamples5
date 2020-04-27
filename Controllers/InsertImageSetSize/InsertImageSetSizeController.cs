@@ -20,7 +20,7 @@ namespace NetCoreSamples5.Controllers.InsertImageSetSize
             pageofficeCtrl.SetWriter(doc);
             pageofficeCtrl.Caption = "演示：后台编程插入图片到数据区域并设置图片大小(企业版)";
             //隐藏菜单栏
-            pageofficeCtrl.Menubar=false;
+            pageofficeCtrl.Menubar = false;
             pageofficeCtrl.CustomToolbar = false;
 
             //打开Word文档

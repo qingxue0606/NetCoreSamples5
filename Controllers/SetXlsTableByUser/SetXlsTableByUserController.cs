@@ -66,7 +66,7 @@ namespace NetCoreSamples5.Controllers.SetXlsTableByUser
             pageofficeCtrl.SaveFilePage = "SaveDoc";
 
             pageofficeCtrl.SaveDataPage = "SaveData";//保存数据
-           
+
 
             //打开Word文档
             pageofficeCtrl.WebOpen("../SetXlsTableByUser/doc/test.xls", PageOfficeNetCore.OpenModeType.xlsSubmitForm, "tom");

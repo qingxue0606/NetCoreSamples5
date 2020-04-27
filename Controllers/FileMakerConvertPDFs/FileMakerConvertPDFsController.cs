@@ -52,7 +52,7 @@ namespace NetCoreSamples5.Controllers.FileMakerConvertPDFs
             }
 
 
-            filePath= filePath.Replace("/", "\\");
+            filePath = filePath.Replace("/", "\\");
 
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "../PageOffice/POServer";
@@ -100,7 +100,7 @@ namespace NetCoreSamples5.Controllers.FileMakerConvertPDFs
             PageOfficeNetCore.FileMakerCtrl fileMakerCtrl = new PageOfficeNetCore.FileMakerCtrl(Request);
             fileMakerCtrl.ServerPage = "../PageOffice/POServer";
             //设置保存页面
-            fileMakerCtrl.SaveFilePage = "SaveDoc" ;
+            fileMakerCtrl.SaveFilePage = "SaveDoc";
 
             //设置转换完成后执行的JS函数
 
@@ -108,7 +108,7 @@ namespace NetCoreSamples5.Controllers.FileMakerConvertPDFs
 
             //打开文档
 
-            fileMakerCtrl.FillDocumentAsPDF(filePath, PageOfficeNetCore.DocumentOpenType.Word,"aa.pdf");
+            fileMakerCtrl.FillDocumentAsPDF(filePath, PageOfficeNetCore.DocumentOpenType.Word, "aa.pdf");
 
             ViewBag.fmCtrl = fileMakerCtrl.GetHtmlCode("FileMakerCtrl1");
             return View();

@@ -15,14 +15,14 @@
     <script type="text/javascript">
         function setCellValue(sheet, cell, value) {
             var sMac = "function myfunc()" + "\r\n"
-                        + "Application.Sheets(\"" + sheet + "\").Range(\"" + cell + "\").Value = \"" + value + "\" \r\n"
-                        + "End function";
+                + "Application.Sheets(\"" + sheet + "\").Range(\"" + cell + "\").Value = \"" + value + "\" \r\n"
+                + "End function";
             return document.getElementById("PageOfficeCtrl1").RunMacro("myfunc", sMac);
         }
         function getCellValue(sheet, cell) {
             var sMac = "function myfunc()" + "\r\n"
-                        + "myfunc = Application.Sheets(\"" + sheet + "\").Range(\"" + cell + "\").Text \r\n"
-                        + "End function";
+                + "myfunc = Application.Sheets(\"" + sheet + "\").Range(\"" + cell + "\").Text \r\n"
+                + "End function";
             return document.getElementById("PageOfficeCtrl1").RunMacro("myfunc", sMac);
         }
         function Button1_onclick() {

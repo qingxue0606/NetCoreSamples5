@@ -26,7 +26,7 @@ namespace NetCoreSamples5.Controllers.SetDrByUserWord2
 
 
             string userName = Request.Form["userName"];
-      
+
 
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "../PageOffice/POServer";
@@ -65,7 +65,7 @@ namespace NetCoreSamples5.Controllers.SetDrByUserWord2
             pageofficeCtrl.AddCustomToolButton("全屏/还原", "IsFullScreen", 4);
 
             //设置保存页面
-            pageofficeCtrl.SaveDataPage = "SaveData?userName=" + userName; 
+            pageofficeCtrl.SaveDataPage = "SaveData?userName=" + userName;
             //打开Word文档
             pageofficeCtrl.WebOpen("../SetDrByUserWord2/doc/test.doc", PageOfficeNetCore.OpenModeType.docSubmitForm, userName);
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");

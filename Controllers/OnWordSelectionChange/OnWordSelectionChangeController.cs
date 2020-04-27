@@ -9,7 +9,7 @@ namespace NetCoreSamples5.Controllers.OnWordSelectionChange
 {
     public class OnWordSelectionChangeController : Controller
 
-       
+
     {
         private readonly IWebHostEnvironment _webHostEnvironment;
         public OnWordSelectionChangeController(IWebHostEnvironment webHostEnvironment)
@@ -21,7 +21,7 @@ namespace NetCoreSamples5.Controllers.OnWordSelectionChange
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "../PageOffice/POServer";
             pageofficeCtrl.CustomToolbar = false;
-            pageofficeCtrl.JsFunction_OnWordDataRegionClick= "OnWordSelectionChange()";
+            pageofficeCtrl.JsFunction_OnWordDataRegionClick = "OnWordSelectionChange()";
 
             //打开Word文档
             pageofficeCtrl.WebOpen("../OnWordSelectionChange/doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");

@@ -24,11 +24,11 @@
 
         function gotoPage(num) {
             var sMac = "function myfunc()" + "\r\n"
-                     + "  If " + num + " > Application.Selection.Information(4) Then " + "\r\n"
-                     + "     Msgbox \"超出文档范围，本文共\" & Application.Selection.Information(4) & \"页\"" + "\r\n"
-                     + "  End If " + "\r\n"
-                     + "  Selection.GoTo What:=wdGoToPage, Which:=wdGoToAbsolute, Name:= " + num + "\r\n"
-                     + "End function";
+                + "  If " + num + " > Application.Selection.Information(4) Then " + "\r\n"
+                + "     Msgbox \"超出文档范围，本文共\" & Application.Selection.Information(4) & \"页\"" + "\r\n"
+                + "  End If " + "\r\n"
+                + "  Selection.GoTo What:=wdGoToPage, Which:=wdGoToAbsolute, Name:= " + num + "\r\n"
+                + "End function";
             return document.getElementById("PageOfficeCtrl1").RunMacro("myfunc", sMac);
         }
 
@@ -39,7 +39,7 @@
                 document.getElementById("PageOfficeCtrl1").Alert("请输入页码");
                 return;
             }
-            if (isNaN(num)){
+            if (isNaN(num)) {
                 document.getElementById("PageOfficeCtrl1").Alert("只能输入数字");
                 return;
             }

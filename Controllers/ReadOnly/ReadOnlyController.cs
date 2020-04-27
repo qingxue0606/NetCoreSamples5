@@ -20,7 +20,7 @@ namespace NetCoreSamples5.Controllers.ReadOnly
             pageofficeCtrl.OfficeToolbars = false;
             pageofficeCtrl.CustomToolbar = false;
 
-   
+
             //打开Word文档
             pageofficeCtrl.WebOpen("../ReadOnly/doc/template.doc", PageOfficeNetCore.OpenModeType.docReadOnly, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");

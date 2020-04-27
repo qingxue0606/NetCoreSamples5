@@ -51,7 +51,7 @@ namespace NetCoreSamples5.Controllers.SaveAsPDF
 
             string fileName = Request.Query["fileName"];
             Console.WriteLine(fileName);
-            pdfCtrl.WebOpen("../SaveAsPDF/doc/"+ fileName);
+            pdfCtrl.WebOpen("../SaveAsPDF/doc/" + fileName);
 
             ViewBag.pdfCtrl = pdfCtrl.GetHtmlCode("PDFCtrl1");
 

@@ -68,7 +68,7 @@ namespace NetCoreSamples5.Controllers.SubmitWord
 
             doc.ShowPage(400, 300);
             doc.Close();
- 
+
             return Content("OK");
         }
     }

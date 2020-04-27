@@ -11,35 +11,35 @@
     <title></title>
     <link href="images/csstg.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
-	//初始加载模板列表
-	function load() {
-		if (getQueryString("mb") != null)
-			document.getElementById("templateName").value = getQueryString("mb");
-	}
+        //初始加载模板列表
+        function load() {
+            if (getQueryString("mb") != null)
+                document.getElementById("templateName").value = getQueryString("mb");
+        }
 
-	//获取url参数
-	function getQueryString(name) {
-		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-		var r = window.location.search.substr(1).match(reg);
-		if (r != null)
-			return unescape(r[2]);
-		else
-			return null;
-	}
+        //获取url参数
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null)
+                return unescape(r[2]);
+            else
+                return null;
+        }
 
-	//套红
-	function taoHong() {
-		var mb = document.getElementById("templateName").value;
-		document.getElementById("form1").action = "taoHong?mb=" + mb;
+        //套红
+        function taoHong() {
+            var mb = document.getElementById("templateName").value;
+            document.getElementById("form1").action = "taoHong?mb=" + mb;
 
-		document.forms[0].submit();
-	}
+            document.forms[0].submit();
+        }
 
-	//保存并关闭
-	function saveAndClose() {
-		document.getElementById("PageOfficeCtrl1").WebSave();
-		window.external.close();
-	}
+        //保存并关闭
+        function saveAndClose() {
+            document.getElementById("PageOfficeCtrl1").WebSave();
+            window.external.close();
+        }
     </script>
 
 </head>

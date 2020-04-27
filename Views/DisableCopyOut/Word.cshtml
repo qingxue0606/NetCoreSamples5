@@ -33,32 +33,31 @@
 
 
     <script type="text/javascript">
-          function Save() {
-              document.getElementById("PageOfficeCtrl1").WebSave();
+        function Save() {
+            document.getElementById("PageOfficeCtrl1").WebSave();
         }
 
-	 function PrintSet() {
-             document.getElementById("PageOfficeCtrl1").ShowDialog(5);
+        function PrintSet() {
+            document.getElementById("PageOfficeCtrl1").ShowDialog(5);
         }
-	 function PrintFile() {
-              document.getElementById("PageOfficeCtrl1").ShowDialog(4);
+        function PrintFile() {
+            document.getElementById("PageOfficeCtrl1").ShowDialog(4);
         }
-         function Close() {
-               window.external.close();
+        function Close() {
+            window.external.close();
         }
         function IsFullScreen() {
-               document.getElementById("PageOfficeCtrl1").FullScreen = !document.getElementById("PageOfficeCtrl1").FullScreen;
+            document.getElementById("PageOfficeCtrl1").FullScreen = !document.getElementById("PageOfficeCtrl1").FullScreen;
         }
         //文档关闭前先提示用户是否保存
-        function BeforeBrowserClosed(){
-         if (document.getElementById("PageOfficeCtrl1").IsDirty){
-                if(confirm("提示：文档已被修改，是否继续关闭放弃保存 ？"))
-                {
-                    return  true;
+        function BeforeBrowserClosed() {
+            if (document.getElementById("PageOfficeCtrl1").IsDirty) {
+                if (confirm("提示：文档已被修改，是否继续关闭放弃保存 ？")) {
+                    return true;
 
-                }else{
+                } else {
 
-                    return  false;
+                    return false;
                 }
 
             }

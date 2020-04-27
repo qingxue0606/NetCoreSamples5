@@ -25,7 +25,7 @@ namespace NetCoreSamples5.Controllers.SetDrByUserWord
         {
 
             string user = "";
-            string  userName = Request.Form["userName"];
+            string userName = Request.Form["userName"];
             Console.WriteLine("userName:" + userName);
 
 

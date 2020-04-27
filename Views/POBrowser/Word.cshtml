@@ -81,7 +81,7 @@
     <script type="text/javascript" src="~/js/jquery.min.js"></script>
     <script type="text/javascript">
         // JS实现选项卡切换
-        window.onload = function() {
+        window.onload = function () {
             var myTab = document.getElementById("tab");    //整个div
             var myUl = myTab.getElementsByTagName("ul")[0]; //一个节点
             var myLi = myUl.getElementsByTagName("li");    //数组
@@ -89,7 +89,7 @@
 
             for (var i = 0; i < myLi.length; i++) {
                 myLi[i].index = i;
-                myLi[i].onclick = function() {
+                myLi[i].onclick = function () {
                     for (var j = 0; j < myLi.length; j++) {
                         myLi[j].className = "off";
                         myDiv[j].className = "hide";

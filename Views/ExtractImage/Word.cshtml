@@ -13,11 +13,11 @@
 <body>
 
     <script type="text/javascript">
-			function Save() {
-				document.getElementById("PageOfficeCtrl1").WebSave();
-				var value=document.getElementById("PageOfficeCtrl1").CustomSaveResult;
-			    document.getElementById("PageOfficeCtrl1").Alert(value);
-			}
+        function Save() {
+            document.getElementById("PageOfficeCtrl1").WebSave();
+            var value = document.getElementById("PageOfficeCtrl1").CustomSaveResult;
+            document.getElementById("PageOfficeCtrl1").Alert(value);
+        }
     </script>
     <div id="div1" style="width: auto; height: 700px;">
         @Html.Raw(ViewBag.POCtrl)

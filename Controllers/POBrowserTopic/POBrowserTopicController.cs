@@ -43,7 +43,7 @@ namespace NetCoreSamples5.Controllers.POBrowserTopic
         {
 
             //获取index.aspx页面传递过来参数的值
-            String  userName = HttpContext.Session.GetString("userName");
+            String userName = HttpContext.Session.GetString("userName");
             //获取index.aspx用？传递过来的id的值
             String id = HttpContext.Request.Query["id"];
 
@@ -67,7 +67,7 @@ namespace NetCoreSamples5.Controllers.POBrowserTopic
 
         public IActionResult Word3()
         {
-            string txt= HttpContext.Session.GetString("txt");
+            string txt = HttpContext.Session.GetString("txt");
 
 
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);

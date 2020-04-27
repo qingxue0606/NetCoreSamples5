@@ -48,7 +48,7 @@ namespace NetCoreSamples5.Controllers.ExtractImage
 
             string webRootPath = _webHostEnvironment.WebRootPath;
             dataRegion1.OpenShape(1).SaveAsJPG(webRootPath + "/ExtractImage/doc/a.jpg");
-            doc.CustomSaveResult = "保存成功,文件保存到：" +  "wwwroot/ExtractImage/doc/a.jpg";
+            doc.CustomSaveResult = "保存成功,文件保存到：" + "wwwroot/ExtractImage/doc/a.jpg";
             doc.Close();
             return Content("OK");
         }

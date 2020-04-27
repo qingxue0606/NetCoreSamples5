@@ -26,10 +26,11 @@ namespace NetCoreSamples5.Controllers.CreateWord
 
 
             string op = Request.Query["op"];
-            string FileSubject= Request.Query["FileSubject"];
+            string FileSubject = Request.Query["FileSubject"];
 
 
-            if (op != null && op.Length > 0) {
+            if (op != null && op.Length > 0)
+            {
                 Insert(FileSubject);
             }
 
@@ -47,10 +48,10 @@ namespace NetCoreSamples5.Controllers.CreateWord
             {
                 strHtml.Append("<tr onmouseover='onColor(this)' onmouseout='offColor(this)'>\n");
                 strHtml.Append("<td><a href =\"javascript:POBrowser.openWindowModeless('Word?filename="
-                    + dr["FileName"].ToString()  + "&subject=" 
-                    + dr["Subject"].ToString()   + "','width=1200px;height=800px;');\">"
+                    + dr["FileName"].ToString() + "&subject="
+                    + dr["Subject"].ToString() + "','width=1200px;height=800px;');\">"
                     + dr["Subject"].ToString() + "</a></td>\n");
-                if (dr["SubmitTime"].ToString()   != null && dr["SubmitTime"].ToString().Trim().Length > 0)
+                if (dr["SubmitTime"].ToString() != null && dr["SubmitTime"].ToString().Trim().Length > 0)
                 {
                     strHtml.Append("<td>" + DateTime.Parse(dr["SubmitTime"].ToString()).ToString("yyyy/MM/dd") + "</td>\n");
                 }
@@ -69,9 +70,9 @@ namespace NetCoreSamples5.Controllers.CreateWord
         private void Insert(string FileSubject)
         {
 
-            string newID="";
+            string newID = "";
 
-            string sql = "select Max(ID) from word"; 
+            string sql = "select Max(ID) from word";
 
             SqliteConnection conn = new SqliteConnection(connString);
             conn.Open();
@@ -82,13 +83,13 @@ namespace NetCoreSamples5.Controllers.CreateWord
 
             if (dr.Read() && dr[0].ToString().Trim().Length > 0)
             {
-                 newID = (Convert.ToInt32(dr[0]) + 1).ToString();
+                newID = (Convert.ToInt32(dr[0]) + 1).ToString();
 
                 //(int)dr[0]
             }
             dr.Close();
             string fileName = "aabb" + newID + ".doc";
-            
+
 
             string strsql = "Insert into word(ID,FileName,Subject,SubmitTime) values(" + newID
             + ",'" + fileName + "','" + FileSubject + "','" + DateTime.Now.ToString() + "')";
@@ -102,7 +103,7 @@ namespace NetCoreSamples5.Controllers.CreateWord
             string webRootPath = _webHostEnvironment.WebRootPath;
 
 
-            System.IO.File.Copy(webRootPath  + "\\CreateWord\\doc\\template.doc",
+            System.IO.File.Copy(webRootPath + "\\CreateWord\\doc\\template.doc",
                 webRootPath + "\\CreateWord\\doc\\" + fileName, true);
 
             //throw new NotImplementedException();
@@ -111,7 +112,7 @@ namespace NetCoreSamples5.Controllers.CreateWord
         public IActionResult Word()
         {
 
-           string fileName = Request.Query["fileName"];
+            string fileName = Request.Query["fileName"];
             string subject = Request.Query["subject"];
 
 
@@ -126,7 +127,7 @@ namespace NetCoreSamples5.Controllers.CreateWord
             //打开Word文档
 
             //打开Word文档
-            pageofficeCtrl.WebOpen("../CreateWord/doc/"+fileName, PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            pageofficeCtrl.WebOpen("../CreateWord/doc/" + fileName, PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
 
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
 

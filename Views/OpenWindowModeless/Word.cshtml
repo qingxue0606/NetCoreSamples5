@@ -12,21 +12,21 @@
 <body>
     <script type="text/javascript">
         function Save() {
-             document.getElementById("PageOfficeCtrl1").WebSave();
+            document.getElementById("PageOfficeCtrl1").WebSave();
 
-           }
-        function PrintFile(){
-             document.getElementById("PageOfficeCtrl1").ShowDialog(4);
+        }
+        function PrintFile() {
+            document.getElementById("PageOfficeCtrl1").ShowDialog(4);
 
-           }
-        function IsFullScreen(){
-             document.getElementById("PageOfficeCtrl1").FullScreen = !document.getElementById("PageOfficeCtrl1").FullScreen;
+        }
+        function IsFullScreen() {
+            document.getElementById("PageOfficeCtrl1").FullScreen = !document.getElementById("PageOfficeCtrl1").FullScreen;
 
-           }
-        function CloseFile(){
-             window.external.close();
+        }
+        function CloseFile() {
+            window.external.close();
 
-           }
+        }
     </script>
     <div style="width:auto; height:670px;">
         @Html.Raw(ViewBag.POCtrl)

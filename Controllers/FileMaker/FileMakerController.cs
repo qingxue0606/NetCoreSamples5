@@ -59,7 +59,7 @@ namespace NetCoreSamples5.Controllers.FileMaker
             await fs.LoadAsync();
             string webRootPath = _webHostEnvironment.WebRootPath;
 
-            string fileName = "maker" + id + fs.FileExtName;;
+            string fileName = "maker" + id + fs.FileExtName; ;
             fs.SaveToFile(webRootPath + "/FileMaker/doc/" + fileName);
             fs.Close();
             return Content("OK");

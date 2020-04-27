@@ -13,8 +13,6 @@ namespace NetCoreSamples5.Controllers.CallParentFunction
             return View();
         }
 
-
-
         public IActionResult Word()
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);

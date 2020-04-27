@@ -36,7 +36,7 @@ namespace NetCoreSamples5.Controllers.SaveDataAndFile
             pageofficeCtrl.SaveDataPage = "SaveData";
             //设置保存文件的页面
             pageofficeCtrl.SaveFilePage = "SaveDoc";
-            
+
             //打开Word文档
             pageofficeCtrl.WebOpen("../SaveDataAndFile/doc/test.doc", PageOfficeNetCore.OpenModeType.docSubmitForm, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
@@ -58,7 +58,7 @@ namespace NetCoreSamples5.Controllers.SaveDataAndFile
 
         public async Task<ActionResult> SaveData()
         {
-            PageOfficeNetCore.WordReader.WordDocument doc = new PageOfficeNetCore.WordReader.WordDocument(Request,Response);
+            PageOfficeNetCore.WordReader.WordDocument doc = new PageOfficeNetCore.WordReader.WordDocument(Request, Response);
             await doc.LoadAsync();
 
             //获取提交的数值

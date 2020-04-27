@@ -51,9 +51,9 @@ namespace NetCoreSamples5.Controllers.SplitWord
 
         public async Task<ActionResult> SaveData()
         {
-            PageOfficeNetCore.WordReader.WordDocument doc = new PageOfficeNetCore.WordReader.WordDocument(Request,Response);
+            PageOfficeNetCore.WordReader.WordDocument doc = new PageOfficeNetCore.WordReader.WordDocument(Request, Response);
             await doc.LoadAsync();
-            string  webRootPath = _webHostEnvironment.WebRootPath;
+            string webRootPath = _webHostEnvironment.WebRootPath;
             Byte[] bWord;
 
             // 读取数据区域PO_test1中的内容，保存为一个新的word文档：new1.doc

@@ -11,22 +11,22 @@
 <body>
     <script type="text/javascript">
         function Close() {
-           window.external.close();
+            window.external.close();
         }
         function increaseCount(value) {
-		   var sResult = window.external.CallParentFunc("updateCount("+value+");");
-		   if(sResult=='poerror:parentlost'){
-		       alert('父页面关闭或跳转刷新了，导致父页面函数没有调用成功！');
-		       return false;
-		     }
-             document.getElementById("PageOfficeCtrl1").Alert("现在父窗口Count的值为：" + sResult);
+            var sResult = window.external.CallParentFunc("updateCount(" + value + ");");
+            if (sResult == 'poerror:parentlost') {
+                alert('父页面关闭或跳转刷新了，导致父页面函数没有调用成功！');
+                return false;
+            }
+            document.getElementById("PageOfficeCtrl1").Alert("现在父窗口Count的值为：" + sResult);
         }
         function increaseCountAndClose(value) {
-		   var sResult = window.external.CallParentFunc("updateCount("+value+");");
-		   if(sResult=='poerror:parentlost'){
-		       alert('父页面关闭或跳转刷新了，导致父页面函数没有调用成功！');
-		   }
-           window.external.close();
+            var sResult = window.external.CallParentFunc("updateCount(" + value + ");");
+            if (sResult == 'poerror:parentlost') {
+                alert('父页面关闭或跳转刷新了，导致父页面函数没有调用成功！');
+            }
+            window.external.close();
         }
     </script>
 

@@ -10,39 +10,39 @@
     <title>js 合并Word中的单元格</title>
 
     <script type="text/javascript">
-//        // 向右合并一个单元格
-//        function mergeCellRight() {
-//            var docObj = document.getElementById("PageOfficeCtrl1").Document;
-//            docObj.Tables(1).Cell(1, 1).Select();   // 选择单元格（1，1）
-//            docObj.Application.Selection.MoveRight(1, 1, 1); // 向右选择一个单元格
-//            docObj.Application.Selection.Cells.Merge(); // 合并
-//        }
-//
-//        // 向下合并一个单元格
-//        function mergeCellDown() {
-//            var docObj = document.getElementById("PageOfficeCtrl1").Document;
-//            docObj.Tables(1).Cell(2, 2).Select();   // 选择单元格（2，2）
-//            docObj.Application.Selection.MoveDown(5, 1, 1); // 向下移动1个单元格
-//            docObj.Application.Selection.Cells.Merge(); // 合并
-//        }
+        //        // 向右合并一个单元格
+        //        function mergeCellRight() {
+        //            var docObj = document.getElementById("PageOfficeCtrl1").Document;
+        //            docObj.Tables(1).Cell(1, 1).Select();   // 选择单元格（1，1）
+        //            docObj.Application.Selection.MoveRight(1, 1, 1); // 向右选择一个单元格
+        //            docObj.Application.Selection.Cells.Merge(); // 合并
+        //        }
+        //
+        //        // 向下合并一个单元格
+        //        function mergeCellDown() {
+        //            var docObj = document.getElementById("PageOfficeCtrl1").Document;
+        //            docObj.Tables(1).Cell(2, 2).Select();   // 选择单元格（2，2）
+        //            docObj.Application.Selection.MoveDown(5, 1, 1); // 向下移动1个单元格
+        //            docObj.Application.Selection.Cells.Merge(); // 合并
+        //        }
 
         // 向右合并一个单元格
         function mergeCellRight() {
             var mac = "Function myfunc()" + " \r\n"
-                    + "ActiveDocument.Tables(1).Cell(1, 1).Select " + " \r\n" // 选择单元格（1，1）
-                    + "Application.Selection.MoveRight 1, 1, 1 " + " \r\n"    // 向右选择一个单元格
-                    + "Application.Selection.Cells.Merge " + " \r\n"          // 合并
-                    + "End Function " + " \r\n";
+                + "ActiveDocument.Tables(1).Cell(1, 1).Select " + " \r\n" // 选择单元格（1，1）
+                + "Application.Selection.MoveRight 1, 1, 1 " + " \r\n"    // 向右选择一个单元格
+                + "Application.Selection.Cells.Merge " + " \r\n"          // 合并
+                + "End Function " + " \r\n";
             document.getElementById("PageOfficeCtrl1").RunMacro("myfunc", mac);
         }
 
         // 向下合并一个单元格
         function mergeCellDown() {
             var mac = "Function myfunc()" + " \r\n"
-                    + "ActiveDocument.Tables(1).Cell(2, 2).Select " + " \r\n"// 选择单元格（2，2）
-                    + "Application.Selection.MoveDown 5, 1, 1 " + " \r\n"    // 向下移动1个单元格
-                    + "Application.Selection.Cells.Merge " + " \r\n"         // 合并
-                    + "End Function " + " \r\n";
+                + "ActiveDocument.Tables(1).Cell(2, 2).Select " + " \r\n"// 选择单元格（2，2）
+                + "Application.Selection.MoveDown 5, 1, 1 " + " \r\n"    // 向下移动1个单元格
+                + "Application.Selection.Cells.Merge " + " \r\n"         // 合并
+                + "End Function " + " \r\n";
             document.getElementById("PageOfficeCtrl1").RunMacro("myfunc", mac);
         }
     </script>

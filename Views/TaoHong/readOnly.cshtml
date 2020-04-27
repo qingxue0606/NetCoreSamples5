@@ -36,20 +36,20 @@
                 <!--**************   卓正 PageOffice组件 ************************-->
                 <script language="javascript">
 
-        function ShowDialog1() {
-            document.getElementById("PageOfficeCtrl1").ShowDialog(2);
-        }
-        function ShowDialog2() {
-            document.getElementById("PageOfficeCtrl1").ShowDialog(5);
-        }
-        function ShowDialog3() {
-            document.getElementById("PageOfficeCtrl1").ShowDialog(4);
-        }
+                    function ShowDialog1() {
+                        document.getElementById("PageOfficeCtrl1").ShowDialog(2);
+                    }
+                    function ShowDialog2() {
+                        document.getElementById("PageOfficeCtrl1").ShowDialog(5);
+                    }
+                    function ShowDialog3() {
+                        document.getElementById("PageOfficeCtrl1").ShowDialog(4);
+                    }
 
-    	//全屏/还原
-        function IsFullScreen() {
-            document.getElementById("PageOfficeCtrl1").FullScreen = !document.getElementById("PageOfficeCtrl1").FullScreen;
-        }
+                    //全屏/还原
+                    function IsFullScreen() {
+                        document.getElementById("PageOfficeCtrl1").FullScreen = !document.getElementById("PageOfficeCtrl1").FullScreen;
+                    }
                 </script>
                 @Html.Raw(ViewBag.POCtrl)
             </div>

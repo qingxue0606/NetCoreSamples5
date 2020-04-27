@@ -20,7 +20,7 @@ namespace NetCoreSamples5.Controllers.FileMakerPDF
         {
             string url = "";
             url = _webHostEnvironment.WebRootPath;
-            ViewBag.url = url+ "\\FileMakerPDF\\doc";
+            ViewBag.url = url + "\\FileMakerPDF\\doc";
             return View();
         }
 

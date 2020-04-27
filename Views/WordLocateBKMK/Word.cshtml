@@ -10,19 +10,19 @@
     <title>演示：定位光标到指定书签</title>
 
     <script type="text/javascript">
-//        function locateBookMark() {
-//            //获取书签名称
-//            var bkName = document.getElementById("txtBkName").value;
-//            //将光标定位到书签所在的位置
-//            document.getElementById("PageOfficeCtrl1").Document.Bookmarks(bkName).Select();
-//        }
+        //        function locateBookMark() {
+        //            //获取书签名称
+        //            var bkName = document.getElementById("txtBkName").value;
+        //            //将光标定位到书签所在的位置
+        //            document.getElementById("PageOfficeCtrl1").Document.Bookmarks(bkName).Select();
+        //        }
         function locateBookMark() {
             //获取书签名称
             var bkName = document.getElementById("txtBkName").value;
             //将光标定位到书签所在的位置
             var mac = "Function myfunc()" + " \r\n"
-                    + "  ActiveDocument.Bookmarks(\""+ bkName +"\").Select " + " \r\n"
-                    + "End Function " + " \r\n";
+                + "  ActiveDocument.Bookmarks(\"" + bkName + "\").Select " + " \r\n"
+                + "End Function " + " \r\n";
             document.getElementById("PageOfficeCtrl1").RunMacro("myfunc", mac);
         }
     </script>
@@ -40,7 +40,7 @@
     <form id="form1">
         <div style="width:auto; height:700px;">
             <!--**************   PageOffice 客户端代码开始    ************************-->
-           @Html.Raw(ViewBag.POCtrl)
+            @Html.Raw(ViewBag.POCtrl)
             <!--**************   PageOffice 客户端代码结束    ************************-->
         </div>
     </form>

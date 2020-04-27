@@ -16,7 +16,8 @@ namespace NetCoreSamples5.Controllers.CommandCtrl
 
             pageofficeCtrl.CustomToolbar = false;
             pageofficeCtrl.OfficeToolbars = false;
-            pageofficeCtrl.AllowCopy = false;  // 禁止拷贝
+            // 禁止拷贝
+            pageofficeCtrl.AllowCopy = false;
 
             pageofficeCtrl.JsFunction_AfterDocumentOpened = "AfterDocumentOpened";
             //打开Word文档

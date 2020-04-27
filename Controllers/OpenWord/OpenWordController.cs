@@ -18,9 +18,9 @@ namespace NetCoreSamples5.Controllers.OpenWord
             //隐藏自定义工具栏
             pageofficeCtrl.CustomToolbar = false;
             //设置页面的显示标题
-            pageofficeCtrl.Caption="演示：最简单的以只读模式打开Word文档";
+            pageofficeCtrl.Caption = "演示：最简单的以只读模式打开Word文档";
 
-            
+
             //打开Word文档
             pageofficeCtrl.WebOpen("../OpenWord/doc/template.doc", PageOfficeNetCore.OpenModeType.docReadOnly, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");

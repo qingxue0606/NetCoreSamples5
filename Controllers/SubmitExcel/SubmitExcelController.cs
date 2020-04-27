@@ -43,12 +43,12 @@ namespace NetCoreSamples5.Controllers.SubmitExcel
         public async Task<ActionResult> SaveData()
         {
 
-            
+
             string content = "";
 
 
 
-            PageOfficeNetCore.ExcelReader.Workbook workBook = new PageOfficeNetCore.ExcelReader.Workbook(Request,Response);
+            PageOfficeNetCore.ExcelReader.Workbook workBook = new PageOfficeNetCore.ExcelReader.Workbook(Request, Response);
             await workBook.LoadAsync();
             PageOfficeNetCore.ExcelReader.Sheet sheet = workBook.OpenSheet("Sheet1");
             PageOfficeNetCore.ExcelReader.Table table = sheet.OpenTable("Info");

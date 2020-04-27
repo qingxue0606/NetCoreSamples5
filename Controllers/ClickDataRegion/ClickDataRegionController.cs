@@ -46,7 +46,6 @@ namespace NetCoreSamples5.Controllers.ClickDataRegion
         }
 
 
-
         public async Task<ActionResult> SaveDoc()
         {
             PageOfficeNetCore.FileSaver fs = new PageOfficeNetCore.FileSaver(Request, Response);

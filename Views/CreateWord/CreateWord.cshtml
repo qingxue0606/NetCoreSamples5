@@ -10,45 +10,45 @@
     <title></title>
     <link href="images/csstg.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
-		        function Save() {
-		            document.getElementById("PageOfficeCtrl1").WebSave();
-		            if(document.getElementById("PageOfficeCtrl1").CustomSaveResult=="ok"){
-			             alert('保存成功！');
-			               //返回列表页面
-			             if(window.external.CallParentFunc("freshIndex()")=='poerror:parentlost'){
-		                      alert('父页面关闭或跳转刷新了，导致父页面函数没有调用成功！');
-		                    }
-			             window.external.close();//关闭当前POBrower弹出的窗口
-		            }else{
-		            	alert('保存失败！');
-		            }
-		        }
+        function Save() {
+            document.getElementById("PageOfficeCtrl1").WebSave();
+            if (document.getElementById("PageOfficeCtrl1").CustomSaveResult == "ok") {
+                alert('保存成功！');
+                //返回列表页面
+                if (window.external.CallParentFunc("freshIndex()") == 'poerror:parentlost') {
+                    alert('父页面关闭或跳转刷新了，导致父页面函数没有调用成功！');
+                }
+                window.external.close();//关闭当前POBrower弹出的窗口
+            } else {
+                alert('保存失败！');
+            }
+        }
 
-		        function Cancel() {
-		             window.external.close();
-		        }
+        function Cancel() {
+            window.external.close();
+        }
 
-		        function getFocus() {
-		            var str = document.getElementById("FileSubject").value;
-		            if (str == "请输入文档主题") {
-		                document.getElementById("FileSubject").value = "";
-		            }
-		        }
-		        function lostFocus() {
-		            var str = document.getElementById("FileSubject").value;
-		            if (str.length <= 0) {
-		                document.getElementById("FileSubject").value = "请输入文档主题";
-		            }
-		        }
-				function BeforeDocumentSaved() {
-					var str = document.getElementById("FileSubject").value;
-					if (str.length <= 0) {
-						document.getElementById("PageOfficeCtrl1").Alert("请输入文档主题");
-						return false
-					}
-					else
-						return true;
-				}
+        function getFocus() {
+            var str = document.getElementById("FileSubject").value;
+            if (str == "请输入文档主题") {
+                document.getElementById("FileSubject").value = "";
+            }
+        }
+        function lostFocus() {
+            var str = document.getElementById("FileSubject").value;
+            if (str.length <= 0) {
+                document.getElementById("FileSubject").value = "请输入文档主题";
+            }
+        }
+        function BeforeDocumentSaved() {
+            var str = document.getElementById("FileSubject").value;
+            if (str.length <= 0) {
+                document.getElementById("PageOfficeCtrl1").Alert("请输入文档主题");
+                return false
+            }
+            else
+                return true;
+        }
     </script>
 </head>
 <body>

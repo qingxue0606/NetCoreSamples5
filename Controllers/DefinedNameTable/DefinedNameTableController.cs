@@ -21,7 +21,7 @@ namespace NetCoreSamples5.Controllers.DefinedNameTable
         {
             return View();
         }
- 
+
 
         public IActionResult ExcelFill()
         {
@@ -95,7 +95,7 @@ namespace NetCoreSamples5.Controllers.DefinedNameTable
             pageofficeCtrl.AddCustomToolButton("保存", "Save()", 1);
 
             //打开Word文档
-            pageofficeCtrl.WebOpen("../DefinedNameTable/doc/"+ tempFileName, PageOfficeNetCore.OpenModeType.xlsSubmitForm, "tom");
+            pageofficeCtrl.WebOpen("../DefinedNameTable/doc/" + tempFileName, PageOfficeNetCore.OpenModeType.xlsSubmitForm, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
 
             return View();
@@ -268,7 +268,7 @@ namespace NetCoreSamples5.Controllers.DefinedNameTable
             table.Close();
 
 
-            
+
             await Response.Body.WriteAsync(Encoding.GetEncoding("GB2312").GetBytes(content));
             doc.ShowPage(400, 300);
             doc.Close();

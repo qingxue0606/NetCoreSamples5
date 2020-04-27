@@ -89,7 +89,7 @@ namespace NetCoreSamples5.Controllers.SendParameters
 
             string content = "";
             content += "传递的参数为：<br />";
-            content += " userName:"+userName+"<br />";
+            content += " userName:" + userName + "<br />";
             content += " id:" + id + "<br />";
             content += " age:" + age + "<br />";
             content += " sex:" + sex + "<br />";

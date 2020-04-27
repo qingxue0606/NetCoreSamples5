@@ -49,7 +49,7 @@ namespace NetCoreSamples5.Controllers.ExcelCellClick
 
         public async Task<ActionResult> SaveData()
         {
-            PageOfficeNetCore.ExcelReader.Workbook doc = new PageOfficeNetCore.ExcelReader.Workbook(Request,Response);
+            PageOfficeNetCore.ExcelReader.Workbook doc = new PageOfficeNetCore.ExcelReader.Workbook(Request, Response);
             await doc.LoadAsync();
             PageOfficeNetCore.ExcelReader.Sheet sheet = doc.OpenSheet("Sheet1");
             PageOfficeNetCore.ExcelReader.Table table = sheet.OpenTable("B4:D8");
