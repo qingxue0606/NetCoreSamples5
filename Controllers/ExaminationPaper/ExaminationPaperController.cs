@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.Sqlite;
@@ -11,7 +12,20 @@ namespace NetCoreSamples5.Controllers.ExaminationPaper
 {
     public class ExaminationPaperController : Controller
     {
-        string connString = "Data Source=D:\\lic\\ExaminationPaper.db";
+
+        private string connString;
+
+        private readonly IWebHostEnvironment _webHostEnvironment;
+
+        public ExaminationPaperController(IWebHostEnvironment webHostEnvironment)
+        {
+            _webHostEnvironment = webHostEnvironment;
+            String dataPath = _webHostEnvironment.WebRootPath.Replace("/", "\\");
+            dataPath = dataPath.Substring(0, dataPath.Length - 7) + "appData\\" + "ExaminationPaper.db";
+            connString = "Data Source=" + dataPath;
+        }
+
+
         public IActionResult Index()
         {
             string sql = "Select * from stream";

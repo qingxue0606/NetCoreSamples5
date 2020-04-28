@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.Sqlite;
 
@@ -13,7 +14,20 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
 
     public class WordSalaryBillController : Controller
     {
-        string connString = "Data Source=D:\\lic\\WordSalaryBill.db";
+
+        private String connString;
+        private readonly IWebHostEnvironment _webHostEnvironment;
+
+        public WordSalaryBillController(IWebHostEnvironment webHostEnvironment)
+        {
+            _webHostEnvironment = webHostEnvironment;
+            String dataPath = _webHostEnvironment.WebRootPath.Replace("/", "\\");
+            dataPath = dataPath.Substring(0, dataPath.Length - 7) + "appData\\" + "WordSalaryBill.db";
+            connString = "Data Source=" + dataPath;
+
+        }
+
+
         public IActionResult Index()
         {
 

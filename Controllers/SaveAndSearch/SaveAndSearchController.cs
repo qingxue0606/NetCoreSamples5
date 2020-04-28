@@ -12,13 +12,16 @@ namespace NetCoreSamples5.Controllers.SaveAndSearch
 {
     public class SaveAndSearchController : Controller
     {
-        string connString = "Data Source=D:\\lic\\SaveAndSearch.db";
+        private string connString ;
 
         private readonly IWebHostEnvironment _webHostEnvironment;
 
         public SaveAndSearchController(IWebHostEnvironment webHostEnvironment)
         {
             _webHostEnvironment = webHostEnvironment;
+            String dataPath = _webHostEnvironment.WebRootPath.Replace("/", "\\");
+            dataPath = dataPath.Substring(0, dataPath.Length - 7) + "appData\\" + "SaveAndSearch.db";
+            connString = "Data Source=" + dataPath;
         }
         public IActionResult Index()
         {

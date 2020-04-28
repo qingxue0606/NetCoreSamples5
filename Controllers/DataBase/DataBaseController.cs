@@ -12,7 +12,19 @@ namespace NetCoreSamples5.Controllers.DataBase
 {
     public class DataBaseController : Controller
     {
-        string connString = "Data Source=D:\\lic\\DataBase.db";
+
+        private String connString ;
+        private readonly IWebHostEnvironment _webHostEnvironment;
+
+        public DataBaseController(IWebHostEnvironment webHostEnvironment)
+        {
+            _webHostEnvironment = webHostEnvironment;
+
+            String dataPath = _webHostEnvironment.WebRootPath.Replace("/","\\");
+            dataPath=dataPath.Substring(0, dataPath.Length - 7) + "appData\\" + "DataBase.db";
+            connString = "Data Source="+ dataPath ;
+
+        }
 
         public IActionResult Word()
         {
@@ -50,7 +62,7 @@ namespace NetCoreSamples5.Controllers.DataBase
                         Response.Headers.Add("Content-Disposition", "attachment; filename=down.doc");//其他文件格式换成相应类型的filename
                         Response.Headers.Add("Content-Length", num.ToString());
                         Response.Body.WriteAsync(b);
-                        Response.Clear();
+                        
                     }
                 }
 

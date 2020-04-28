@@ -11,14 +11,16 @@ namespace NetCoreSamples5.Controllers.CreateWord
 {
     public class CreateWordController : Controller
     {
+        private string connString;
         private readonly IWebHostEnvironment _webHostEnvironment;
 
         public CreateWordController(IWebHostEnvironment webHostEnvironment)
         {
             _webHostEnvironment = webHostEnvironment;
+            String dataPath = _webHostEnvironment.WebRootPath.Replace("/", "\\");
+            dataPath = dataPath.Substring(0, dataPath.Length - 7) + "appData\\" + "CreateWord.db";
+            connString = "Data Source=" + dataPath;
         }
-
-        string connString = "Data Source=D:\\lic\\CreateWord.db";
 
         public IActionResult Index()
         {
