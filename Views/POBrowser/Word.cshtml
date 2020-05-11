@@ -4,7 +4,6 @@
 }
 
 <!DOCTYPE html>
-
 <html>
 <head lang="en">
     <meta charset="UTF-8">
@@ -39,7 +38,6 @@
                 line-height: 30px;
                 border-bottom: 2px #C88 solid;
             }
-
                 #tab ul li {
                     background: #FFF;
                     cursor: pointer;
@@ -102,20 +100,23 @@
     </script>
 </head>
 <body>
-
     <script type="text/javascript">
         function SaveDocument() {
             document.getElementById("PageOfficeCtrl1").WebSave();
         }
+
         function PrintSet() {
             document.getElementById("PageOfficeCtrl1").ShowDialog(5);
         }
+
         function PrintFile() {
             document.getElementById("PageOfficeCtrl1").ShowDialog(4);
         }
+
         function Close() {
             window.external.close();
         }
+
         function IsFullScreen() {
             document.getElementById("PageOfficeCtrl1").FullScreen = !document.getElementById("PageOfficeCtrl1").FullScreen;
         }
@@ -129,12 +130,9 @@
 
                     return false;
                 }
-
             }
-
         }
     </script>
-
     <div style=" text-align:center; margin:10px; background-color:#D19275; color:White; padding:8px;"><h1>某某Web办公系统</h1></div>
     <!-- HTML页面布局 -->
     <div id="tab">
@@ -163,7 +161,6 @@
         <div id="AAPage" class="page hide">
             XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
         </div>
-
     </div>
 </body>
 </html>

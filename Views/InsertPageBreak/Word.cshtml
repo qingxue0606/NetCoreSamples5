@@ -4,18 +4,15 @@
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <title>在word文档中光标处插入分页符</title>
-
 </head>
 <body>
     <script type="text/javascript">
         function InsertPageBreak() {
             document.getElementById("PageOfficeCtrl1").RunMacro("AddPage", "sub AddPage() \r\n Application.Selection.InsertBreak(7) \r\n End Sub");
         }
-
     </script>
     <div style="font-size: 12px; line-height: 20px; border-bottom: dotted 1px #ccc; border-top: dotted 1px #ccc;
         padding: 5px;">

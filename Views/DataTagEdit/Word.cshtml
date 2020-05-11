@@ -4,13 +4,10 @@
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <title></title>
-
     <script type="text/javascript">
-
         //获取后台定义的Tag 字符串
         function getTagNames() {
             var tagNames = document.getElementById("PageOfficeCtrl1").DefineTagNames;
@@ -66,13 +63,12 @@
         function Save() {
             document.getElementById("PageOfficeCtrl1").WebSave();
         }
+
         function ShowDefineDataTags() {
             document.getElementById("PageOfficeCtrl1").ShowHtmlModelessDialog("DataTagDlg.htm", "parameter=xx", "left=300px;top=390px;width=430px;height=410px;frame:no;");
 
         }
-
     </script>
-
 </head>
 <body>
     <form action="">

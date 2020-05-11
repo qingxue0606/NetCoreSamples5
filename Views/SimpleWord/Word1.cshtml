@@ -4,7 +4,6 @@
 }
 
 <!DOCTYPE html>
-
 <html>
 <head lang="en">
     <meta charset="UTF-8">
@@ -19,17 +18,13 @@
         document.createElement("nav");
         document.createElement("menu");
     </script>
-
-
-</head>
-<body>
-
     <script type="text/javascript">
         function Save() {
             document.getElementById("PageOfficeCtrl1").WebSave();
         }
     </script>
-
+</head>
+<body>
     <header>
         <div class="w12 header">
             <a class="db logo fl"><img src="images/logo.jpg" width="327" height="94" alt="" /></a>
@@ -46,23 +41,12 @@
     <section class="main w12">
         <div class="title"><a class="title1 db fl">文档内容</a><a class="title2 db fl">其他信息</a></div>
         <div class="fr tit2"><span class="arr"></span></div>
-
         <div style=" width:auto; height:700px;">
             @Html.Raw(ViewBag.POCtrl)
         </div>
 
     </section>
     <br /><br />
-    <div style=" text-align:center; height:80px; border-top: solid 1px #666; line-height:70px;">Copyright &copy 2015 北京卓正志远软件有限公司</div>
-
-
-
-
-
-
-
-
-
-
+    <div style=" text-align:center; height:80px; border-top: solid 1px #666; line-height:70px;">Copyright &copy 2019 北京卓正志远软件有限公司</div>
 </body>
 </html>

@@ -4,11 +4,9 @@
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <title>在word当前光标处插入书签</title>
-
 </head>
 <body>
     <form id="form1">
@@ -66,6 +64,7 @@
                 + "End Function " + " \r\n";
             document.getElementById("PageOfficeCtrl1").RunMacro("myfunc", mac);
         }
+
         function delBookMark() {
             var mac = "Function myfunc()" + " \r\n"
                 + "If  Application.ActiveDocument.Bookmarks.Exists(\"" + bkName + "\") Then " + " \r\n"

@@ -19,9 +19,8 @@ namespace NetCoreSamples5.Controllers.DataBase
         public DataBaseController(IWebHostEnvironment webHostEnvironment)
         {
             _webHostEnvironment = webHostEnvironment;
-
-            String dataPath = _webHostEnvironment.WebRootPath.Replace("/","\\");
-            dataPath=dataPath.Substring(0, dataPath.Length - 7) + "appData\\" + "DataBase.db";
+            string rootPath = _webHostEnvironment.WebRootPath.Replace("/", "\\");
+            string dataPath = rootPath.Substring(0, rootPath.Length - 7) + "AppData\\" + "DataBase.db";
             connString = "Data Source="+ dataPath ;
 
         }

@@ -4,7 +4,6 @@
 }
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>最简单的打开保存Word文件</title>
@@ -15,14 +14,17 @@
             document.getElementById("PageOfficeCtrl1").WebSave();
 
         }
+
         function PrintFile() {
             document.getElementById("PageOfficeCtrl1").ShowDialog(4);
 
         }
+
         function IsFullScreen() {
             document.getElementById("PageOfficeCtrl1").FullScreen = !document.getElementById("PageOfficeCtrl1").FullScreen;
 
         }
+
         function CloseFile() {
             window.external.close();
 
@@ -31,6 +33,5 @@
     <div style="width:auto; height:670px;">
         @Html.Raw(ViewBag.POCtrl)
     </div>
-
 </body>
 </html>

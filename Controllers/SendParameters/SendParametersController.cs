@@ -80,9 +80,9 @@ namespace NetCoreSamples5.Controllers.SendParameters
             content += " userName:" + userName + "<br />";
             content += " id:" + id + "<br />";
             content += " age:" + age + "<br />";
-            content += " sex:" + sex + "<br />";
+            content += " sex:" + sex + "<br />";     
 
-            await Response.Body.WriteAsync(Encoding.GetEncoding("GB2312").GetBytes(content));
+            await Response.Body.WriteAsync(Encoding.GetEncoding("gbk").GetBytes(content));
             return View();
         }
     }

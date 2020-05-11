@@ -4,7 +4,6 @@
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <title>使用静态页面集成pageoffice</title>
@@ -13,13 +12,10 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <script type="text/javascript" src="/js/jquery.min.js"></script>
 </head>
-
 <body>
-
     <input type="button" value="打开文档" id="btn1" onclick="OpenDocument('Word?param1=123')" />
     <div style=" width:auto; height:700px;" id="divDocView">
     </div>
-
     <script type="text/javascript">
 
         function Save() {
@@ -38,7 +34,6 @@
                 $("#divDocView").html(data);
             });
         }
-
     </script>
 </body>
 </html>

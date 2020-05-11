@@ -4,12 +4,10 @@
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <title>动态生成工资条</title>
-
-    <!--PageOffice.js一定要引用-->
+    <!--pageoffice.js一定要引用-->
     <script type="text/javascript" src="~/PageOffice/pageoffice.js"></script>
     <script type="text/javascript">
         function getID() {
@@ -19,13 +17,11 @@
                     ids += i.toString() + ",";
                 }
             }
-
             if (ids == "")
                 alert("请先选择要生成工资条的记录");
             else
                 location.href = "javascript:POBrowser.openWindowModeless('Compose?ids=" + ids.substr(0, ids.length - 1) + " ', 'width=1200px;height=800px;');";
         }
-
     </script>
 </head>
 <body>

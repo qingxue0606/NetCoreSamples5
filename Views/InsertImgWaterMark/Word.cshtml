@@ -4,14 +4,11 @@
 }
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>用JS给文档插入图片水印</title>
 </head>
 <body>
-
-
     <script type="text/javascript">
         function AfterDocumentOpened() {
             /**
@@ -22,7 +19,6 @@
               */
             document.getElementById("PageOfficeCtrl1").SetWordWaterMarkImage("doc/logo.jpg", 20, false);
         }
-
     </script>
     <div style="width:auto; height:670px;">
         @Html.Raw(ViewBag.POCtrl)

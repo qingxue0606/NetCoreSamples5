@@ -9,8 +9,6 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>用js控制工具栏的显示和隐藏</title>
-
-
 </head>
 <body style="overflow:hidden">
     <script type="text/javascript">
@@ -40,7 +38,6 @@
             var bVisible = document.getElementById("PageOfficeCtrl1").OfficeToolbars;
             document.getElementById("PageOfficeCtrl1").OfficeToolbars = !bVisible;
         }
-
     </script>
     <form id="form1">
         <input id="Button1" type="button" value="隐藏/显示 标题栏" onclick="return Button1_onclick()" />
@@ -52,7 +49,5 @@
             @Html.Raw(ViewBag.POCtrl)
         </div>
     </form>
-
-
 </body>
 </html>

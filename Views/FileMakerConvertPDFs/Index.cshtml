@@ -4,7 +4,6 @@
 }
 
 <!DOCTYPE html>
-
 <html>
 <head id="Head1">
     <title></title>
@@ -60,6 +59,9 @@
             }
             //第一次自刷新
             document.getElementById("iframe1").src = "Convert?id=" + str[count];
+            //设置进度条
+            document.getElementById("ProgressBarSide").style.visibility = "visible";
+            document.getElementById("ProgressBar").style.width = count + 1 + "0%";
             strLength = str.length;
         }
 
@@ -67,18 +69,23 @@
             count = count + 1;
             if (count < strLength) {
                 document.getElementById("iframe1").src = "Convert?id=" + str[count];
+                //设置进度条
+                document.getElementById("ProgressBarSide").style.visibility = "visible";
+                document.getElementById("ProgressBar").style.width = count + 1 + "0%";
+                //document.body.insertBefore(document.getElementById("ProgressBarSide"), document.body.childNode[0];
             } else {
-                alert("转换完成！");
+                //隐藏进度条div
+                document.getElementById("ProgressBarSide").style.visibility = "hidden";
+                count = 0;
+                //重置进度条
+                document.getElementById("ProgressBar").style.width = "0%";
                 document.getElementById("aDiv").style.display = "";
+                //alert("转换完成！");
             }
         }
-
     </script>
-
 </head>
-
 <body>
-
     <div style="margin:100px" align="center">
         <form id="form1" method="post">
             <table id="table1" style="border-spacing:20px;border:1px;background-color: darkgray; width: 600px;" cellpadding="3" cellspacing="1">
@@ -117,11 +124,16 @@
             <input type="button" value="批量转换成PDF文档" onclick="getID()" />
         </form>
     </div>
-
+    <div id="ProgressBarSide" style="color: Silver; width:500px; visibility: hidden;
+        position: relative;  left: 40%; top:30%; margin-top: 22px">
+        <span style="color: gray; font-size: 12px; text-align: left;">正在转换请稍后...</span><br />
+        <div id="ProgressBar" style="background-color: Green; height: 16px; width: 0%; border-width: 1px;
+            border-style: Solid;">
+        </div>
+    </div>
     <div id="aDiv" style="display: none; color: Red; font-size: 15px;text-align:center;">
         <span>转换完成，可在下面的地址中查看扩展名为“.pdf”文件，具体的地址为:@Html.Raw(ViewBag.url)</span>
     </div>
-
     <div style="width: 1px; height: 1px; overflow: hidden;">
         <iframe id="iframe1" name="iframe1" src=""></iframe>
     </div>

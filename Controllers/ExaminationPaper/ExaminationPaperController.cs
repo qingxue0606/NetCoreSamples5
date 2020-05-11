@@ -20,8 +20,8 @@ namespace NetCoreSamples5.Controllers.ExaminationPaper
         public ExaminationPaperController(IWebHostEnvironment webHostEnvironment)
         {
             _webHostEnvironment = webHostEnvironment;
-            String dataPath = _webHostEnvironment.WebRootPath.Replace("/", "\\");
-            dataPath = dataPath.Substring(0, dataPath.Length - 7) + "appData\\" + "ExaminationPaper.db";
+            string rootPath= _webHostEnvironment.WebRootPath.Replace("/", "\\");
+            string dataPath = rootPath.Substring(0, rootPath.Length - 7) + "AppData\\" + "ExaminationPaper.db";
             connString = "Data Source=" + dataPath;
         }
 
@@ -82,7 +82,7 @@ namespace NetCoreSamples5.Controllers.ExaminationPaper
             string id = Request.Query["id"];
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "/PageOffice/POServer";
-
+            pageofficeCtrl.AddCustomToolButton("保存","Save",1);
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc?id=" + id;
             //打开Word文档
@@ -124,6 +124,7 @@ namespace NetCoreSamples5.Controllers.ExaminationPaper
             pageofficeCtrl.ServerPage = "/PageOffice/POServer";
             pageofficeCtrl.Caption = "生成试卷";
             pageofficeCtrl.JsFunction_AfterDocumentOpened = "Create";
+            pageofficeCtrl.CustomToolbar = false;
             //打开Word文档
             pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
@@ -157,6 +158,7 @@ namespace NetCoreSamples5.Controllers.ExaminationPaper
             }
             pageofficeCtrl.SetWriter(doc);
             pageofficeCtrl.Caption = "生成试卷";
+            pageofficeCtrl.CustomToolbar = false;
             //打开Word文档
             pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docReadOnly, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
@@ -183,7 +185,6 @@ namespace NetCoreSamples5.Controllers.ExaminationPaper
                         Response.Headers.Add("Content-Disposition", "attachment; filename=down.doc");//其他文件格式换成相应类型的filename
                         Response.Headers.Add("Content-Length", num.ToString());
                         Response.Body.WriteAsync(b);
-                        Response.Clear();
                     }
                 }
 

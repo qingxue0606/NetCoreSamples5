@@ -4,7 +4,6 @@
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
 </head>
@@ -13,6 +12,7 @@
         function Close() {
             window.external.close();
         }
+
         function increaseCount(value) {
             var sResult = window.external.CallParentFunc("updateCount(" + value + ");");
             if (sResult == 'poerror:parentlost') {
@@ -21,6 +21,7 @@
             }
             document.getElementById("PageOfficeCtrl1").Alert("现在父窗口Count的值为：" + sResult);
         }
+
         function increaseCountAndClose(value) {
             var sResult = window.external.CallParentFunc("updateCount(" + value + ");");
             if (sResult == 'poerror:parentlost') {
@@ -35,7 +36,6 @@
     <div style=" width:auto; height:700px;">
         @Html.Raw(ViewBag.POCtrl)
     </div>
-
 </body>
 </html>
 

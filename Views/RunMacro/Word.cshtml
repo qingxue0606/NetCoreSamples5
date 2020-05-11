@@ -4,21 +4,14 @@
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <title>执行宏命令</title>
-
-    <script language="javascript" type="text/javascript">
-        // <!CDATA[
-
+    <script type="text/javascript">
         function Button1_onclick() {
             document.getElementById("PageOfficeCtrl1").RunMacro("myfunc", document.getElementById("textarea1").value);
         }
-
-        // ]]>
     </script>
-
 </head>
 <body>
     <form id="form1">
@@ -29,10 +22,10 @@
                 <br />设置步骤如下：打开一个Word文档，点击“文件”→“选项”→“信任中心”→“信任中心设置”→“宏设置”→勾选上“信任对VBA工程对象模型的访问（V）”
             </span>
         </div>
-        <textarea id="textarea1" name="textarea1" style=" height:87px; width:486px;" rows="" cols="">
-    sub myfunc() 
-msgbox "123" 
-end sub
+        <textarea id="textarea1" name="textarea1" style=" height:87px; width:486px;">
+          sub myfunc() 
+             msgbox "123" 
+         end sub
     </textarea>
         <input id="Button1" type="button" value="执行宏myfunc" onclick="return Button1_onclick()" />
         <div style=" height:800px;">

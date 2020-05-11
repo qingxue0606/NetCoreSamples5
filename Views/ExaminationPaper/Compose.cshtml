@@ -4,7 +4,6 @@
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <title>在Word文档中动态生成 试卷</title>
@@ -14,10 +13,8 @@
     <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
     <meta http-equiv="description" content="This is my page">
 </head>
-<script type="text/javascript">
-         @Html.Raw(ViewBag.operateStr)
-</script>
 <body>
+    @Html.Raw(ViewBag.operateStr)
     <div style="width: auto; height: 700px;">
         @Html.Raw(ViewBag.POCtrl)
     </div>

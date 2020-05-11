@@ -19,8 +19,8 @@ namespace NetCoreSamples5.Controllers.SaveAndSearch
         public SaveAndSearchController(IWebHostEnvironment webHostEnvironment)
         {
             _webHostEnvironment = webHostEnvironment;
-            String dataPath = _webHostEnvironment.WebRootPath.Replace("/", "\\");
-            dataPath = dataPath.Substring(0, dataPath.Length - 7) + "appData\\" + "SaveAndSearch.db";
+            string rootPath = _webHostEnvironment.WebRootPath.Replace("/", "\\");
+            string dataPath = rootPath.Substring(0, rootPath.Length - 7) + "AppData\\" + "SaveAndSearch.db";
             connString = "Data Source=" + dataPath;
         }
         public IActionResult Index()

@@ -17,8 +17,8 @@ namespace NetCoreSamples5.Controllers.CreateWord
         public CreateWordController(IWebHostEnvironment webHostEnvironment)
         {
             _webHostEnvironment = webHostEnvironment;
-            String dataPath = _webHostEnvironment.WebRootPath.Replace("/", "\\");
-            dataPath = dataPath.Substring(0, dataPath.Length - 7) + "appData\\" + "CreateWord.db";
+            string rootPath = _webHostEnvironment.WebRootPath.Replace("/", "\\");
+            string dataPath = rootPath.Substring(0, rootPath.Length - 7) + "AppData\\" + "CreateWord.db";
             connString = "Data Source=" + dataPath;
         }
 
@@ -95,7 +95,7 @@ namespace NetCoreSamples5.Controllers.CreateWord
         public IActionResult Word()
         {
 
-            string fileName = Request.Query["fileName"];
+            string fileName = Request.Query["filename"];
             string subject = Request.Query["subject"];
 
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
@@ -107,13 +107,13 @@ namespace NetCoreSamples5.Controllers.CreateWord
             pageofficeCtrl.SaveFilePage = "SaveDoc";
             //打开Word文档
             pageofficeCtrl.WebOpen("doc/" + fileName, PageOfficeNetCore.OpenModeType.docNormalEdit, "tom");
+            ViewBag.subject = subject;
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
             return View();
         }
 
         public IActionResult CreateWord()
         {
-
             string fileName = Request.Query["fileName"];
             string subject = Request.Query["subject"];
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
@@ -128,6 +128,16 @@ namespace NetCoreSamples5.Controllers.CreateWord
             pageofficeCtrl.WebCreateNew("张佚名", PageOfficeNetCore.DocumentVersion.Word2003);
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
             return View();
+        }
+
+        public async Task<ActionResult> SaveDoc()
+        {
+            PageOfficeNetCore.FileSaver fs = new PageOfficeNetCore.FileSaver(Request, Response);
+            await fs.LoadAsync();
+            string webRootPath = _webHostEnvironment.WebRootPath;
+            fs.SaveToFile(webRootPath + "/CreateWord/doc/" + fs.FileName);
+            fs.Close();
+            return Content("OK");
         }
     }
 }

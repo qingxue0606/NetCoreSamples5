@@ -21,8 +21,8 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
         public WordSalaryBillController(IWebHostEnvironment webHostEnvironment)
         {
             _webHostEnvironment = webHostEnvironment;
-            String dataPath = _webHostEnvironment.WebRootPath.Replace("/", "\\");
-            dataPath = dataPath.Substring(0, dataPath.Length - 7) + "appData\\" + "WordSalaryBill.db";
+            string rootPath = _webHostEnvironment.WebRootPath.Replace("/", "\\");
+            string dataPath = rootPath.Substring(0, rootPath.Length - 7) + "AppData\\" + "WordSalaryBill.db";
             connString = "Data Source=" + dataPath;
 
         }
@@ -198,7 +198,7 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
             {
                 err = "<script>alert('未获得该员工的工资信息！');location.href='index'</script>";
             }
-
+            pageofficeCtrl.CustomToolbar = false;
             pageofficeCtrl.WebOpen("doc/template.doc", PageOfficeNetCore.OpenModeType.docReadOnly, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
             ViewBag.err = err;
@@ -282,7 +282,7 @@ namespace NetCoreSamples5.Controllers.WordSalaryBill
             pageofficeCtrl.SetWriter(doc);
 
             pageofficeCtrl.Caption = "生成工资条";
-
+            pageofficeCtrl.CustomToolbar = false;
             pageofficeCtrl.WebOpen("doc/test.doc", PageOfficeNetCore.OpenModeType.docAdmin, "tom");
             ViewBag.POCtrl = pageofficeCtrl.GetHtmlCode("PageOfficeCtrl1");
             return View();

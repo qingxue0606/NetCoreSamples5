@@ -8,16 +8,17 @@
 <head id="Head1">
     <title></title>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <!--PageOffice.js一定要引用-->
+    <!--pageoffice.js一定要引用-->
     <script type="text/javascript" src="~/PageOffice/pageoffice.js"></script>
     <script type="text/javascript">
-
         function onColor(td) {
             td.style.backgroundColor = '#D7FFEE';
         }
+
         function offColor(td) {
             td.style.backgroundColor = '';
         }
+
         function getFocus() {
             var str = document.getElementById("Input_KeyWord").value;
             if (str == "请输入关键字") {
@@ -31,9 +32,11 @@
                 document.getElementById("Input_KeyWord").value = "请输入关键字";
             }
         }
+
         function copyKeyToInput(key) {
             document.getElementById("Input_KeyWord").value = key;
         }
+
         function mySubmit() {
             document.getElementById("Input_KeyWord").value = encodeURI(document
                 .getElementById("Input_KeyWord").value);
@@ -41,9 +44,7 @@
 
         }
     </script>
-
 </head>
-
 <body>
     <!--header-->
     <div class="zz-headBox br-5 clearfix" align="center">
@@ -117,10 +118,7 @@
                     </tr>
                 </thead>
                 <tbody>
-
                     @Html.Raw(ViewBag.strHtml)
-
-
                 </tbody>
             </table>
         </div>
@@ -128,7 +126,7 @@
     <!--content end-->
     <!--footer-->
     <div class="login-footer clearfix">
-        Copyright &copy 2013 北京卓正志远软件有限公司
+        Copyright &copy 2019 北京卓正志远软件有限公司
     </div>
     <!--footer end-->
 </body>

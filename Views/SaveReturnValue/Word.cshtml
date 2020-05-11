@@ -4,7 +4,6 @@
 }
 
 <!DOCTYPE html>
-
 <html>
 <head lang="en">
     <meta charset="UTF-8">
@@ -15,16 +14,14 @@
             //document.getElementById("PageOfficeCtrl1").CustomSaveResult获取的是保存页面的返回值
             document.getElementById("PageOfficeCtrl1").Alert("保存成功，返回值为：" + document.getElementById("PageOfficeCtrl1").CustomSaveResult);
         }
+
         function Close() {
             window.external.close();
         }
 
     </script>
-
-
 </head>
 <body style="overflow:hidden">
-
     <form id="form1">
         <div style=" font-size:small; color:Red;">
             <label>键代码：点右键，选择“查看源文件”，看js函数“Save()</label>
@@ -36,7 +33,5 @@
             @Html.Raw(ViewBag.POCtrl)
         </div>
     </form>
-
-
 </body>
 </html>
