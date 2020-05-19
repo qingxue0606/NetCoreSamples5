@@ -17,19 +17,19 @@
 
 <body>
     <script type="text/javascript">
-				function Save() {
-					document.getElementById("PageOfficeCtrl1").WebSave();
-				}
+        function Save() {
+            document.getElementById("PageOfficeCtrl1").WebSave();
+        }
 
-				function InsertHandSign() {
-					try {
-						document.getElementById("PageOfficeCtrl1").ZoomSeal.AddHandSign("李志");
-					} catch(e) {}
-				}
+        function InsertHandSign() {
+            try {
+                document.getElementById("PageOfficeCtrl1").ZoomSeal.AddHandSign("李志");
+            } catch (e) { }
+        }
 
-				function ChangePsw() {
-					document.getElementById("PageOfficeCtrl1").ZoomSeal.ShowSettingsBox();
-				}
+        function ChangePsw() {
+            document.getElementById("PageOfficeCtrl1").ZoomSeal.ShowSettingsBox();
+        }
     </script>
     <div style="width: auto; height: 700px;">
         @Html.Raw(ViewBag.POCtrl)

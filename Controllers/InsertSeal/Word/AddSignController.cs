@@ -23,13 +23,11 @@ namespace NetCoreSamples5.Controllers.InsertSeal.Word
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "/PageOffice/POServer";
-
             //添加自定义按钮
             pageofficeCtrl.AddCustomToolButton("保存", "Save", 1);
             pageofficeCtrl.AddCustomToolButton("签字", "InsertHandSign()", 3);
             pageofficeCtrl.AddCustomToolButton("验证印章", "VerifySeal()", 5);
             pageofficeCtrl.AddCustomToolButton("修改密码", "ChangePsw()", 0);
-
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc1";
             //打开Word文档
@@ -79,11 +77,9 @@ namespace NetCoreSamples5.Controllers.InsertSeal.Word
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "/PageOffice/POServer";
-
             //添加自定义按钮
             pageofficeCtrl.AddCustomToolButton("保存", "Save", 1);
             pageofficeCtrl.AddCustomToolButton("签字", "InsertHandSign()", 3);
-
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc3";
             //打开Word文档
@@ -107,11 +103,9 @@ namespace NetCoreSamples5.Controllers.InsertSeal.Word
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "/PageOffice/POServer";
-
             //添加自定义按钮
             pageofficeCtrl.AddCustomToolButton("保存", "Save", 1);
             pageofficeCtrl.AddCustomToolButton("签字", "InsertHandSign()", 3);
-
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc4";
             //打开Word文档
@@ -134,11 +128,9 @@ namespace NetCoreSamples5.Controllers.InsertSeal.Word
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "/PageOffice/POServer";
-
             //添加自定义按钮
             pageofficeCtrl.AddCustomToolButton("保存", "Save", 1);
             pageofficeCtrl.AddCustomToolButton("签字", "InsertHandSign()", 3);
-
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc5";
             //打开Word文档

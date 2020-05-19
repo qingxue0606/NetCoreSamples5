@@ -10,7 +10,6 @@ namespace NetCoreSamples5.Controllers.InsertSeal.Word
     [Route("InsertSeal/Word/{controller}/{action}")]
     public class AddSealController : Controller
     {
-
         private readonly IWebHostEnvironment _webHostEnvironment;
 
         public AddSealController(IWebHostEnvironment webHostEnvironment)
@@ -21,14 +20,12 @@ namespace NetCoreSamples5.Controllers.InsertSeal.Word
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "/PageOffice/POServer";
-
             //添加自定义按钮
             pageofficeCtrl.AddCustomToolButton("保存", "Save", 1);
             pageofficeCtrl.AddCustomToolButton("加盖印章", "InsertSeal()", 2);
             pageofficeCtrl.AddCustomToolButton("删除印章", "DeleteSeal()", 21);
             pageofficeCtrl.AddCustomToolButton("验证印章", "VerifySeal()", 5);
             pageofficeCtrl.AddCustomToolButton("修改密码", "ChangePsw()", 0);
-
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc1";
             //打开Word文档
@@ -53,11 +50,9 @@ namespace NetCoreSamples5.Controllers.InsertSeal.Word
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "/PageOffice/POServer";
-
             //添加自定义按钮
             pageofficeCtrl.AddCustomToolButton("保存", "Save", 1);
             pageofficeCtrl.AddCustomToolButton("加盖印章", "InsertSeal()", 2);
-
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc2";
             //打开Word文档
@@ -82,11 +77,9 @@ namespace NetCoreSamples5.Controllers.InsertSeal.Word
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "/PageOffice/POServer";
-
             //添加自定义按钮
             pageofficeCtrl.AddCustomToolButton("保存", "Save", 1);
             pageofficeCtrl.AddCustomToolButton("加盖印章", "InsertSeal()", 2);
-
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc3";
             //打开Word文档
@@ -110,11 +103,9 @@ namespace NetCoreSamples5.Controllers.InsertSeal.Word
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "/PageOffice/POServer";
-
             //添加自定义按钮
             pageofficeCtrl.AddCustomToolButton("保存", "Save", 1);
             pageofficeCtrl.AddCustomToolButton("添加印章位置", "InsertSealPos()", 2);
-
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc4";
             //打开Word文档
@@ -139,11 +130,9 @@ namespace NetCoreSamples5.Controllers.InsertSeal.Word
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "/PageOffice/POServer";
-
             //添加自定义按钮
             pageofficeCtrl.AddCustomToolButton("保存", "Save", 1);
             pageofficeCtrl.AddCustomToolButton("盖章到印章位置", "AddSealByPos()", 2);
-
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc5";
             //打开Word文档
@@ -167,11 +156,9 @@ namespace NetCoreSamples5.Controllers.InsertSeal.Word
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "/PageOffice/POServer";
-
             //添加自定义按钮
             pageofficeCtrl.AddCustomToolButton("保存", "Save", 1);
             pageofficeCtrl.AddCustomToolButton("盖章到印章位置", "AddSealByPos()", 2);
-
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc6";
             //打开Word文档
@@ -196,11 +183,9 @@ namespace NetCoreSamples5.Controllers.InsertSeal.Word
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "/PageOffice/POServer";
-
             //添加自定义按钮
             pageofficeCtrl.AddCustomToolButton("保存", "Save", 1);
             pageofficeCtrl.AddCustomToolButton("盖章到印章位置", "AddSealByPos()", 2);
-
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc7";
             //打开Word文档
@@ -223,13 +208,11 @@ namespace NetCoreSamples5.Controllers.InsertSeal.Word
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "/PageOffice/POServer";
-
             //添加自定义按钮
             pageofficeCtrl.AddCustomToolButton("保存", "Save", 1);
             pageofficeCtrl.AddCustomToolButton("加盖印章", "InsertSeal()", 2);
             pageofficeCtrl.AddCustomToolButton("验证印章", "VerifySeal()", 5);
             pageofficeCtrl.AddCustomToolButton("修改密码", "ChangePsw()", 0);
-
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc8";
             //打开Word文档
@@ -254,13 +237,11 @@ namespace NetCoreSamples5.Controllers.InsertSeal.Word
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "/PageOffice/POServer";
-
             //添加自定义按钮
             pageofficeCtrl.AddCustomToolButton("保存", "Save", 1);
             pageofficeCtrl.AddCustomToolButton("加盖印章", "InsertSeal()", 2);
             pageofficeCtrl.AddCustomToolButton("删除指定印章", "DeleteSeal()", 21);
             pageofficeCtrl.AddCustomToolButton("清除所有印章", "DeleteAllSeal()", 21);
-
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc9";
             //打开Word文档

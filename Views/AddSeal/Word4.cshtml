@@ -2,7 +2,6 @@
 @{
     Layout = null;
 }
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -15,16 +14,15 @@
 </head>
 <body>
     <script type="text/javascript">
-				function Save() {
-					document.getElementById("PageOfficeCtrl1").WebSave();
+        function Save() {
+            document.getElementById("PageOfficeCtrl1").WebSave();
+        }
 
-				}
-
-				function InsertSealPos() {
-					try {
-						document.getElementById("PageOfficeCtrl1").ZoomSeal.AddSealPosition();
-					} catch(e) {};
-				}
+        function InsertSealPos() {
+            try {
+                document.getElementById("PageOfficeCtrl1").ZoomSeal.AddSealPosition();
+            } catch (e) { };
+        }
     </script>
     <div style="width: auto; height: 700px;">
         @Html.Raw(ViewBag.POCtrl)

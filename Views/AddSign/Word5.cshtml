@@ -18,19 +18,18 @@
         <span style="color: red;">操作说明：</span>点“签字”按钮即可，插入签字时的用户名为：李志，密码默认为：111111。
         <br /> 关键代码：点右键，选择“查看源文件”，看js函数
         <span style="background-color: Yellow;">InsertHandSign()</span>
-
     </div>
     <br />
     <script type="text/javascript">
-			function Save() {
-				document.getElementById("PageOfficeCtrl1").WebSave();
-			}
+        function Save() {
+            document.getElementById("PageOfficeCtrl1").WebSave();
+        }
 
-			function InsertHandSign() {
-				try {
-						document.getElementById("PageOfficeCtrl1").ZoomSeal.AddHandSign("","");
-					} catch(e) {};
-			}
+        function InsertHandSign() {
+            try {
+                document.getElementById("PageOfficeCtrl1").ZoomSeal.AddHandSign("", "");
+            } catch (e) { };
+        }
     </script>
     <div style="width: auto; height: 700px;">
         @Html.Raw(ViewBag.POCtrl)

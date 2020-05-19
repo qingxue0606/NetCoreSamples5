@@ -27,7 +27,6 @@ namespace NetCoreSamples5.Controllers.InsertSeal.Excel
             pageofficeCtrl.AddCustomToolButton("删除签字", "DeleteHandSign()", 21);
             pageofficeCtrl.AddCustomToolButton("验证印章", "VerifySeal()", 5);
             pageofficeCtrl.AddCustomToolButton("修改密码", "ChangePsw()", 0);
-
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc1";
             //打开Word文档
@@ -57,7 +56,6 @@ namespace NetCoreSamples5.Controllers.InsertSeal.Excel
             pageofficeCtrl.AddCustomToolButton("保存", "Save", 1);
             pageofficeCtrl.AddCustomToolButton("签字", "AddHandSign()", 3);
             pageofficeCtrl.AddCustomToolButton("修改密码", "ChangePsw()", 0);
-
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc2";
             //打开Word文档
@@ -80,12 +78,10 @@ namespace NetCoreSamples5.Controllers.InsertSeal.Excel
         {
             PageOfficeNetCore.PageOfficeCtrl pageofficeCtrl = new PageOfficeNetCore.PageOfficeCtrl(Request);
             pageofficeCtrl.ServerPage = "/PageOffice/POServer";
-
             //添加自定义按钮
             pageofficeCtrl.AddCustomToolButton("保存", "Save", 1);
             pageofficeCtrl.AddCustomToolButton("签字", "AddHandSign()", 3);
             pageofficeCtrl.AddCustomToolButton("验证印章", "VerifySeal()", 5);
-
             //设置保存页面
             pageofficeCtrl.SaveFilePage = "SaveDoc3";
             //打开Word文档

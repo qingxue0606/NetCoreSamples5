@@ -2,9 +2,6 @@
 @{
     Layout = null;
 }
-
-
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 
@@ -26,19 +23,19 @@
     </div>
     <br />
     <script type="text/javascript">
-			function Save() {
-				document.getElementById("PageOfficeCtrl1").WebSave();
-			}
+        function Save() {
+            document.getElementById("PageOfficeCtrl1").WebSave();
+        }
 
-			function InsertSeal() {
-				try {
-					document.getElementById("PageOfficeCtrl1").ZoomSeal.AddSeal("", "");//第二个参数为空字符串时，盖完章的文档是不受保护的，即盖完章后还可以进行编辑等操作；第二个参数为null时，盖完章的文档是受保护的，即盖完章后不能再进行编辑等操作。
-				} catch(e) {}
-			}
+        function InsertSeal() {
+            try {
+                document.getElementById("PageOfficeCtrl1").ZoomSeal.AddSeal("", "");//第二个参数为空字符串时，盖完章的文档是不受保护的，即盖完章后还可以进行编辑等操作；第二个参数为null时，盖完章的文档是受保护的，即盖完章后不能再进行编辑等操作。
+            } catch (e) { }
+        }
 
-			function VerifySeal(){
-				document.getElementById("PageOfficeCtrl1").ZoomSeal.VerifySeal();
-			}
+        function VerifySeal() {
+            document.getElementById("PageOfficeCtrl1").ZoomSeal.VerifySeal();
+        }
     </script>
     <div style="width: auto; height: 700px;">
         @Html.Raw(ViewBag.POCtrl)

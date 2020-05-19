@@ -4,9 +4,7 @@
 }
 
 <!DOCTYPE html>
-
 <html>
-
 <head>
     <title>1.常规盖章</title>
     <meta http-equiv="pragma" content="no-cache">
@@ -23,41 +21,41 @@
     </div>
     <br />
     <script type="text/javascript">
-			    //保存
-				function Save() {
-					document.getElementById("PageOfficeCtrl1").WebSave();
-					document.getElementById("PageOfficeCtrl1").Alert("文件保存成功。");
-				}
+        //保存
+        function Save() {
+            document.getElementById("PageOfficeCtrl1").WebSave();
+            document.getElementById("PageOfficeCtrl1").Alert("文件保存成功。");
+        }
 
-                //加盖印章
-				function InsertSeal() {
-					try {
-						document.getElementById("PageOfficeCtrl1").ZoomSeal.AddSeal();
-					} catch(e) {}
-				}
+        //加盖印章
+        function InsertSeal() {
+            try {
+                document.getElementById("PageOfficeCtrl1").ZoomSeal.AddSeal();
+            } catch (e) { }
+        }
 
-				//删除印章
-                function DeleteSeal(){
-					var iCount = document.getElementById("PageOfficeCtrl1").ZoomSeal.Count;//获取当前文档中加盖的印章数量
-					if(iCount > 0){
-						document.getElementById("PageOfficeCtrl1").ZoomSeal.Item(iCount-1).DeleteSeal();//删除最后一个印章，Item 参数下标从 0 开始
-						alert("成功删除了最新加盖的印章。");
-					}else{
-						alert("请先在文档中加盖印章后，再执行删除操作。");
-					}
-				}
-				//验证印章
-				function VerifySeal() {
-					document.getElementById("PageOfficeCtrl1").ZoomSeal.VerifySeal();
-				}
+        //删除印章
+        function DeleteSeal() {
+            var iCount = document.getElementById("PageOfficeCtrl1").ZoomSeal.Count;//获取当前文档中加盖的印章数量
+            if (iCount > 0) {
+                document.getElementById("PageOfficeCtrl1").ZoomSeal.Item(iCount - 1).DeleteSeal();//删除最后一个印章，Item 参数下标从 0 开始
+                alert("成功删除了最新加盖的印章。");
+            } else {
+                alert("请先在文档中加盖印章后，再执行删除操作。");
+            }
+        }
+        //验证印章
+        function VerifySeal() {
+            document.getElementById("PageOfficeCtrl1").ZoomSeal.VerifySeal();
+        }
 
-                //修改密码
-				function ChangePsw() {
-					document.getElementById("PageOfficeCtrl1").ZoomSeal.ShowSettingsBox();
-				}
+        //修改密码
+        function ChangePsw() {
+            document.getElementById("PageOfficeCtrl1").ZoomSeal.ShowSettingsBox();
+        }
     </script>
     <div style="width: auto; height: 700px;">
-       @Html.Raw(ViewBag.POCtrl)
+        @Html.Raw(ViewBag.POCtrl)
     </div>
 </body>
 
